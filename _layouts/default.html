@@ -6,6 +6,12 @@
 
 {% include head.html %}
 
+{% if page.style %}
+  <style type="text/css">
+    {{ page.style }}
+  </style>
+{% endif %}
+
 <body>
 
    {% include header.html %}
