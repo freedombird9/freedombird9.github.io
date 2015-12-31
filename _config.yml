@@ -34,3 +34,13 @@ social:
    email: yf.zhangfree@gmail.com
 
 google_analytics: ""
+
+# -----------------
+
+# Multiple languages
+languages:          ['en', 'cn']
+
+# If not config, the first of languages will be the default
+language_default:   "en"
+
+# -----------------
