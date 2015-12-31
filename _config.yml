@@ -7,17 +7,25 @@ paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
 markdown: redcarpet
-highlighter: pygments
-gems: [jekyll-paginate]
+highlighter: true
+gems: ['jekyll-paginate', 'jekyll-multiple-languages']
 paginate: 5
 
 navigation:
- - title: Home
-   url: /index.html
- - title: About
-   url: /about
- - title: Contact
-   url: /contact
+   en:
+     - title: Home
+       url: /index.html
+     - title: About
+       url: /about
+     - title: Contact
+       url: /contact
+   cn:
+     - title: 主页
+       url: /cn/
+     - title: 关于
+       url: /cn/about
+     - title: 联系我
+       url: /cn/contact
 
 social:
    github: freedombird9
