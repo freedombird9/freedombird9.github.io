@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>http:///404/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///articles/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///feed.xml</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///cn/about/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///cn/contact/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///cn/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///about/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///contact/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///sitemap.xml</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    
+    <url>
+        <loc>http:///cn/blog/ifttt-intro/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http:///blog/ifttt-development/</loc>
+        <lastmod>2016-01-01</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+</urlset>
