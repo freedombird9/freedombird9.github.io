@@ -1,37 +1,317 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
-      {% unless post.link %}
+    <title>枫声 Yongfeng&#39;s Blog</title>
+    <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 01 Jan 2016 16:53:13 -0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2016 16:53:13 -0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        {% if post.excerpt %}
-          <description>{{ post.excerpt | xml_escape }}</description>
-        {% else %}
-          <description>{{ post.content | xml_escape }}</description>
-        {% endif %}
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>IFTTT：沟通应用的桥梁</title>
+        <description>&lt;h3&gt;序言&lt;/h3&gt;
+
+&lt;p&gt;在2015年的尾牙，琳琅满目的社交平台已经成为了我们生活中不可或缺的一部分。可以说，我们的生活状态有相当一部分都是通过各种互联网平台表现与传播的。它们同时也反映了我的自我认知和外在形象。盛世之下，各种相关应用已是呈井喷之态。&lt;/p&gt;
+
+&lt;p&gt;其中，有偏向于搭建公共、开放平台的Twitter和微博，有基于熟人小圈子互动的微信和Snapchat，也有介于两者之间的Instagram和Facebook。其中Facebook又更偏重于朋友间的常规联络和分享，以及适量的在公共主页和热点事件上的互动。相比之下，Instagram则是一个全面封闭的侧重于营销和做个人品牌推广（branding）的平台（特别是对于摄影师，设计师，模特等而言）。在这些巨人之下，还有着千千万万的“小”公司占据着各种细分市场，比如陌陌，抱抱，17……&lt;/p&gt;
+
+&lt;p&gt;如此之多的应用共同编织出了我们丰富的线上、线下生活，服务了我们的方方面面。那么，有没有什么办法能够将它们连接起来，让我们的生活更智能呢？&lt;/p&gt;
+
+&lt;h3&gt;IFTTT是什么？&lt;/h3&gt;
+
+&lt;p&gt;今天的主角终于出场了。IFTTT，一家总部位于旧金山的新创公司，致力于让人们发挥创造力，去控制自己喜欢的产品和应用。让我们想象一下，假如我们在更新微博状态的时候，想同时将这条状态分享到Facebook上（自动翻墙了？），假如我们想在朋友生日的时候自动通过Facebook或者微博进行问候，假如我们想让我们的Facebook和Twitter里面的个人信息保持同步，等等。我们应该怎么做呢？IFTTT为我们提供了一个完全自动化的解决方案。其实，IFTTT的名字来源于其功能：&lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt;。对于之前的情景，我们发现全部都可以套进这句话当中：if有新的微博状态发布，then将其分享到Facebook。if年／月／日，then发送Facebook或微博消息。if Facebook用户信息变动，then在Twitter账户中进行相同的设置。只要我们想要连接的应用在IFTTT的平台上推出了自己的服务，那么我们就可以根据它们提供的服务种类，向搭乐高积木一样构建出既有创意，又方便实用的功能。&lt;/p&gt;
+
+&lt;h3&gt;生态系统及功能详述&lt;/h3&gt;
+
+&lt;p&gt;从成立到现在短短几年，IFTTT平台上已经有了上百个频道。在其术语当中，频道（Channel）即对应一个应用，或是说产品。比如微博是一个频道，Facebook是另外一个频道。
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-intro/channels.png&quot; alt=&quot;IFTTT上的应用&quot;/&gt;
+    &lt;figcaption&gt;IFTTT上的应用&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;国外大多数比较流行的应用都已经在上面有了自己的频道，并且支持相当多的功能。但不得不说，国内的公司在其平台上的存在感还很低，目前我只看到了微博，并且仅提供简单的功能接口，比如监测到新发微博，发送微博等。&lt;/p&gt;
+
+&lt;p&gt;我们已经说到，IFTTT这个平台，由上百个频道组成。而根据其对平台功能的抽象（&lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt;模型），一个频道又由&lt;strong&gt;Triggers&lt;/strong&gt;和&lt;strong&gt;Actions&lt;/strong&gt;组成。其中，Trigger是一个频道可以为其他频道提供的信息。
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-dev/triggers.png&quot; alt=&quot;Facebook Triggers&quot;/&gt;
+    &lt;figcaption&gt;Facebook Triggers&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;上图是Facebook可以提供的部分Trigger，即是 &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt; 这个模型中的&lt;strong&gt;this&lt;/strong&gt;部分。&lt;/p&gt;
+
+&lt;p&gt;Action则是一个频道接到其控制频道（提供Trigger）的信息之后，可以采取的操作。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-dev/actions.png&quot; alt=&quot;Twitter Actions&quot;/&gt;
+    &lt;figcaption&gt;Twitter Actions&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上图是Twitter支持的部分Action。所以，当我们把这两个频道连接在一起的时候，我们先在Facebook上选择一个Trigger，比如“New status message by you”，然后再在Twitter上选择一个Action，比如“Post a tweet”。这样，每当我们在Facebook上更新一条状体，这条状态就会自动被发布到我们的Twitter上面。最终组装完成的模型就是”if New status mssage by you, then Post a tweet”。简单易用。&lt;/p&gt;
+
+&lt;p&gt;需要说明的是，一个频道可以既有Trigger，又有Action。在上面的例子中，我们完全可以将Twitter和Facebook调换位置，让我们在Twitter上的行为去驱动Facebook。提供什么样的Trigger和Action给用户，取决于频道的开发团队。&lt;/p&gt;
+
+&lt;h3&gt;更多的创意&lt;/h3&gt;
+
+&lt;p&gt;虽然我在序言和后面的说明中都是以社交类App作为例子，但是IFTTT并不局限于此。任何一个产品都可以在其平台中搭建自己的频道，包括智能硬件（须有服务器端）。在IFTTT里，两个应用组成的连接，被称为一个Recipe。在它们的网站中，已经有了成千上万的Recipe。这其中大部分都来自用户。当用户自己搭建了一个Recipe之后，如果他觉得很酷，就可以将其发布出去，供他人使用。这种基于UG(User-generated Content)的方式，对于保持平台的活力也非常有帮助。下面简单给大家截取一些Recipe。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-intro/recipes1.png&quot; alt=&quot;Smart Home Recipes&quot;/&gt;
+    &lt;figcaption&gt;智能家居的Recipes&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-intro/recipes2.png&quot; alt=&quot;Android Recipes&quot;/&gt;
+    &lt;figcaption&gt;安卓手机的Recipes&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;工作原理&lt;/h3&gt;
+
+&lt;p&gt;在这样一个架构当中，IFTTT充当着一个中间人的角色。当一个频道上线之后，IFTTT的服务器会每隔15分钟去访问一个Trigger的节点，如果得到新数据，则自动向这个Trigger所连接的Action节点发送一条指令，以驱动一个操作。当然实际情况要稍微复杂一点，比如用户可以向Trigger提供输入、另一类只有Action的Recipe（称为“Do Recipe”）和更加实时的解决方案等等。具体的原理和开发指南可以参见我的另一篇文章：&lt;a href=&quot;/blog/ifttt-development/&quot;&gt;Channel Development on IFTTT&lt;/a&gt;。在了解了上述原理之后，想必大家已经发现，只要IFTTT不被墙，那么我们还可以将它作为桥梁去控制墙外的应用。赶快&lt;a href=&quot;https://ifttt.com/recipes&quot;&gt;体验&lt;/a&gt;一下吧。&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;序言&lt;/h3&gt;
+
+&lt;p&gt;在2015年的尾牙，琳琅满目的社交平台已经成为了我们生活中不可或缺的一部分。可以说，我们的生活状态有相当一部分都是通过各种互联网平台表现与传播的。它们同时也反映了我的自我认知和外在形象。盛世之下，各种相关应用已是呈井喷之态。&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 31 Dec 2015 13:31:20 -0800</pubDate>
+        <link>http://localhost:4000//cn/blog/ifttt-intro/</link>
+        <guid isPermaLink="true">http://localhost:4000//cn/blog/ifttt-intro/</guid>
+        
+        
+        <category>technology</category>
+        
       </item>
-      {% endunless %}
-    {% endfor %}
+      
+    
+      
+      <item>
+        <title>Channel Development on IFTTT</title>
+        <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
+
+&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
+  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
+  How would you do it automatically? Here is when IFTTT comes in. It is short for
+  &quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&quot;.
+  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
+  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;
+
+
+&lt;h4&gt; Channels, Triggers and Actions &lt;/h4&gt;
+&lt;p&gt; Channels are Twitter, Facebook, email, Google Drive etc. Triggers are what can be used to prompt an action,
+  such as &quot;New status message&quot;, &quot;New photo post&quot;, and &quot;You are tagged in a photo&quot; from Facebook. Action is the
+  work that IFTTT undertakes as a result of a Trigger. Examples are &quot;Send me an email&quot; from the email channel,
+  &quot;Create a status message&quot; from Facebook, and even &quot;Update device wallpaper&quot; from the Android device channel. &lt;/p&gt;
+
+&lt;p&gt; Now, to get our first job done, we only need &quot;if &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message&lt;/strong&gt;,
+  then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;Post a tweet&lt;/strong&gt;.&quot; The former is a &lt;strong&gt;Trigger&lt;/strong&gt; provided by
+  Facebook, while the latter is an &lt;strong&gt;Action&lt;/strong&gt; from Twitter. We only need to connect to these two
+  channels with &lt;em&gt;OAuth&lt;/em&gt; and select the appropriate Trigger and Action from them respectively. &lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-dev/triggers.png&quot; alt=&quot;Facebook Triggers&quot;/&gt;
+      &lt;figcaption&gt;Figure 1. Facebook Triggers&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;http://localhost:4000//assets/img/post-ifttt-dev/actions.png&quot; alt=&quot;Twitter Actions&quot;/&gt;
+      &lt;figcaption&gt;Figure 2. Twitter Actions&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3&gt; How does it work under the hood? &lt;/h3&gt;
+
+&lt;p&gt;Finally, we get to our topic: Development on IFTTT. The way it works is mainly the concern of
+channel developers. Their documentation is pretty good, but there are still confusions and undocumented stuff.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;#39;ve been developing a channel on it for months, and had a lot of email exchanges with their support team regarding
+my own confusions and undocumented mechanisms, I think I can help others get a better understanding of how it works.&lt;/p&gt;
+
+&lt;p&gt;As we already know, Triggers and Actions are the fundamental building blocks of IFTTT.
+We will see how they work in a short while.&lt;/p&gt;
+
+&lt;h4&gt; How Trigger works &lt;/h4&gt;
+
+&lt;p&gt;So how does IFTTT know that there is a change in your Trigger and that change should fire an Action?
+It polls the server of the channel which provided the Trigger every 15 minutes. As a channel developer, we should
+return an array of items. Each item should have an unique ID and a timestamp. The IDs are used to prevent Actions from
+firing more than once on the same item. So IFTTT keeps a record of all the items it gets, and triggers the Action once there
+is a new item (identified by the ID field) coming in.&lt;/p&gt;
+
+&lt;p&gt;The items should also contain any data that might be used by the Action. In our Facebook -&amp;gt; Twitter example above, the
+Facebook &lt;strong&gt;New status message&lt;/strong&gt; Trigger should provide at least the content of the message as a string in addition to
+timestamp and ID. The content of the message is called the &lt;strong&gt;Ingredient&lt;/strong&gt; which can be used by the Action. In this case,
+the Twitter Action &lt;strong&gt;Post a tweet&lt;/strong&gt; can use that Ingredient to tweet. A typical data stream you should return looks like
+below:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;It&amp;#39;s so great to be home again!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, brooklyn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-12-09T09:23:00-07:00&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;14b9-1fd2-acaa-5df5&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383597267&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;School is ending, I&amp;#39;m heading back home soon!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, nyc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-11-29T03:23:00-07:00&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ffb27-a63e-18e0-18ad&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383596355&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;IFTTT has a great test framework that every channel needs to pass before it can be published. One requirements of the
+test is that at least 3 items should be returned each poll unless limited by IFTTT itself through a request parameter.
+It seems weird at first. You may wonder what if a user hasn&amp;#39;t updated his/her Facebook for a long time? What should
+we return if we are working for Facebook when IFTTT polls our server? We can return nothing, i.e, an empty list with
+&amp;#39;data&amp;#39; as its key. It certainly won&amp;#39;t fire any Action, but it&amp;#39;s not recommended. We cannot pass the test if we just
+return empty data. The recommended way is to return the user&amp;#39;s old posts. How many? More than 2
+and less than 50, according to the documentation. This policy, according to IFTTT, is to make sure our API behaves
+like a timeline of events, not a state engine. Since IFTTT only polls our API every 15 minutes, we need to make sure
+that they don&amp;#39;t miss anything by returning a list of events.&lt;/p&gt;
+
+&lt;h4&gt; Trigger Fields&lt;/h4&gt;
+
+&lt;p&gt;There is another term called &lt;strong&gt;Trigger Fields&lt;/strong&gt;. It is the user inputs when he/she creates a Trigger. For example,
+there&amp;#39;s a Facebook Trigger called &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message by you with hashtag&lt;/strong&gt;.
+The user needs to specify the name of the hashtag. Only when there is the specified hashtag in the user&amp;#39;s status,
+will the Trigger fire. When IFTTT polls our API, the Trigger Fields will be passed to us in the POST body, and
+we should use it in our server logic to decide what to return.&lt;/p&gt;
+
+&lt;p&gt;Trigger Fields can be either static or dynamic. Static ones don&amp;#39;t need IFTTT to query our server. In the above example,
+the user can just type in a hashtag value himself. For drop down menu, we can provide a list of options in advance
+stored in our IFTTT development console. Dynamic ones, on the other hand, require IFTTT to poll our server to get
+the values for the user to choose. There is also a protocol specifies how IFTTT polls our server and
+how we should respond in their documentation.&lt;/p&gt;
+
+&lt;h4&gt;The Real-time API&lt;/h4&gt;
+
+&lt;p&gt;When we think about how it works, intuitively we think of posting data to IFTTT&amp;#39;s endpoints when a Trigger should fire,
+rather than waiting for them to poll our API. Here is when the real-time API comes in. It provides faster response to
+user events.&lt;/p&gt;
+
+&lt;p&gt;At the time I wrote this post, the real-time API is still very simple and primitive. We only need to return
+a list of user IDs whose Triggers have changed.&lt;/p&gt;
+
+&lt;p&gt;The user ID comes from the user information endpoint that we provide to IFTTT.
+IFTTT polls this endpoint after it acquires the access token through the &lt;em&gt;OAuth2.0&lt;/em&gt; process to make sure that
+the user&amp;#39;s access token is valid. We retrieve the corresponding user with the passed-in access token and return a
+user ID and username.&lt;/p&gt;
+
+&lt;p&gt;For the real-time API, we just return the same user ID that we return in the user information endpoint. The response
+should look like:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;23489759&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;77956024&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Once IFTTT gets our post, it will poll our Trigger API immediately. At the time of writing, we cannot specify
+which Trigger to poll. IFTTT will just poll all the Triggers the user has. So the current real-time API behaves more
+like a button that we click to force IFTTT to do a Trigger check. It is still our normal Trigger API that does the
+actual work. Notice that if IFTTT detects that we are using the real-time API, it will still poll our API regularly
+but at a longer period of time.&lt;/p&gt;
+
+&lt;h4&gt; How Action works&lt;/h4&gt;
+
+&lt;p&gt;Now it should be much easier for us to understand Actions. For each new trigger item, IFTTT will push data to our Action
+endpoint with ifttt_source, user and actionFields. We can retrieve the data passed in by Trigger in actionFields. A
+sample post looks like:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;err&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;/ifttt/v&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/actions/new_status_update&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;HTTP/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.1&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Host:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;api.example-channel.com&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Authorization:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;Bearer&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;58&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;af&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;116578&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;be&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6402&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Accept:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;application/json&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Accept-Charset:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;utf&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-8&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Accept-Encoding:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;gzip,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deflate&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;Content-Type:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;application/json&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;X-Request-ID:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ed&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8441&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ea&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;269&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;dd&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;554&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;8e54&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;actionFields&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;New Banksy photo!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Check out a new Bansky photo: http://example.com/images/125&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;ifttt_source&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://ifttt.com/myrecipes/personal/2&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;timezone&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pacific Time (US &amp;amp; Canada)&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Note that there are also static fields and dynamic options for Actions. For example, if we have an Action
+&amp;#39;&lt;strong&gt;Post to channel&lt;/strong&gt;&amp;#39; from &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, the Slack needs to provide us with the channels we currently have in our
+chat room.&lt;/p&gt;
+
+&lt;h3&gt; Summary &lt;/h3&gt;
+
+&lt;p&gt;Now the way IFTTT works should be pretty simple: It polls our API regularly, if there is new item returned,
+it fires an Action. Detailed information can be found in their &lt;a href=&quot;https://developers.ifttt.com/docs/api_reference&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
+
+&lt;p&gt;&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
+  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
+  How would you do it automatically? Here is when IFTTT comes in. It is short for
+  &amp;quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&amp;quot;.
+  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
+  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 25 Dec 2015 08:31:20 -0800</pubDate>
+        <link>http://localhost:4000//blog/ifttt-development/</link>
+        <guid isPermaLink="true">http://localhost:4000//blog/ifttt-development/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
   </channel>
 </rss>
