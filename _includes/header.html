@@ -4,10 +4,21 @@
          <nav class="nav-collapse">
              <ul class="noList">
                  {% for link in site.navigation[page.language] %}{% assign current = nil %}{% if page.url contains link.url %}{% assign current = 'current' %}{% endif %}
-                 <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                 <li class="element {% if forloop.first %}first{% endif %} {{ current }}">
                      <a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a>
                  </li>
                  {% endfor %}
+                 {% if page.language == 'en' %}
+                  <li class="element last" >
+                    <a href="/cn/">中文</a>
+                  </li>
+                 {% endif %}
+
+                 {% if page.language == 'cn' %}
+                  <li class="element last" >
+                    <a href="/">English</a>
+                  </li>
+                 {% endif %}
                  <!-- <li> <a href="https://github.com/freedombird9" target="_blank">GitHub</a></li> -->
                  <!-- <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li> -->
              </ul>

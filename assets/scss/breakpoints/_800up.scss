@@ -9,7 +9,7 @@ GLOBAL STYLES
 
 	&:after {
 		z-index: -1;
-		//background: white;
+		background: white;
 		content: "";
 		display: block;
 		width: 100%;
@@ -176,7 +176,7 @@ POST STYLING
 	/***************
 	POST div block styles
 	***************/
-	
+
 	.md-10-suffix-1 {
 		@include span(10 of 12 last);
 		margin-right: span(1 of 12);

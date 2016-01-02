@@ -1,13 +1,14 @@
 ---
 layout: post
 title:  "Channel Development on IFTTT"
+description: Share my experience of developing on IFTTT since the past half year.
 date:   2015-12-25 16:31:20
 categories: technology
 ---
 
 <h3> What is IFTTT? </h3>
-<p> Suppose everytime you update your status on Facebook, you also want to post exactly the same content to your Twitter
-  account. And everytime you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
+<p> Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
+  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
   How would you do it automatically? Here is when IFTTT comes in. It is short for
   "if<strong style="color:#3BB9FF;"> this</strong>, then <strong style="color:#3BB9FF;">that</strong>".
   Fairly intuitive. You can put whatever you want in <strong style="color:#3BB9FF;"> this</strong> and
@@ -29,7 +30,7 @@ categories: technology
   <div class='md-10-suffix-1'>
     <figure>
       <img src="{{site.url}}/assets/img/post-ifttt-dev/triggers.png" alt="Facebook Triggers"/>
-      <figcaption>Figure 1. Facebook triggers</figcaption>
+      <figcaption>Figure 1. Facebook Triggers</figcaption>
     </figure>
   </div>
 
@@ -38,7 +39,7 @@ categories: technology
   <div class='md-10-suffix-1'>
     <figure>
       <img src="{{site.url}}/assets/img/post-ifttt-dev/actions.png" alt="Twitter Actions"/>
-      <figcaption>Figure 1. Twitter actions</figcaption>
+      <figcaption>Figure 2. Twitter Actions</figcaption>
     </figure>
   </div>
 
@@ -59,7 +60,7 @@ So how does IFTTT know that there is a change in your Trigger and that change sh
 It polls the server of the channel which provided the Trigger every 15 minutes. As a channel developer, we should
 return an array of items. Each item should have an unique ID and a timestamp. The IDs are used to prevent Actions from
 firing more than once on the same item. So IFTTT keeps a record of all the items it gets, and triggers the Action once there
-is a new item (identified by the ID field) comming in.
+is a new item (identified by the ID field) coming in.
 
 The items should also contain any data that might be used by the Action. In our Facebook -> Twitter example above, the
 Facebook **New status message** Trigger should provide at least the content of the message as a string in addition to
@@ -99,7 +100,7 @@ below:
 
 
 
-IFTTT has a great test framework that every channel neeeds to pass before it can be published. One requirements of the
+IFTTT has a great test framework that every channel needs to pass before it can be published. One requirements of the
 test is that at least 3 items should be returned each poll unless limited by IFTTT itself through a request parameter.
 It seems weird at first. You may wonder what if a user hasn't updated his/her Facebook for a long time? What should
 we return if we are working for Facebook when IFTTT polls our server? We can return nothing, i.e, an empty list with
@@ -110,14 +111,14 @@ like a timeline of events, not a state engine. Since IFTTT only polls our API ev
 that they don't miss anything by returning a list of events.
 
 <h4> Trigger Fields</h4>
-There is another term called **Trigger Fields**. It is the user inputs when he/she creates a Trigger. For examle,
+There is another term called **Trigger Fields**. It is the user inputs when he/she creates a Trigger. For example,
 there's a Facebook Trigger called <strong style="color:#3BB9FF;">New status message by you with hashtag</strong>.
 The user needs to specify the name of the hashtag. Only when there is the specified hashtag in the user's status,
 will the Trigger fire. When IFTTT polls our API, the Trigger Fields will be passed to us in the POST body, and
 we should use it in our server logic to decide what to return.
 
 Trigger Fields can be either static or dynamic. Static ones don't need IFTTT to query our server. In the above example,
-the user can just type in a hashtag value himself. For drop down menue, we can provide a list of options in advance
+the user can just type in a hashtag value himself. For drop down menu, we can provide a list of options in advance
 stored in our IFTTT development console. Dynamic ones, on the other hand, require IFTTT to poll our server to get
 the values for the user to choose. There is also a protocol specifies how IFTTT polls our server and
 how we should respond in their documentation.
@@ -155,7 +156,7 @@ should look like:
 {% endhighlight %}
 </div>
 
-Once IFTTT gets our post, it will poll our Trigger API immediately. At the time of writting, we cannot specify
+Once IFTTT gets our post, it will poll our Trigger API immediately. At the time of writing, we cannot specify
 which Trigger to poll. IFTTT will just poll all the Triggers the user has. So the current real-time API behaves more
 like a button that we click to force IFTTT to do a Trigger check. It is still our normal Trigger API that does the
 actual work. Notice that if IFTTT detects that we are using the real-time API, it will still poll our API regularly
