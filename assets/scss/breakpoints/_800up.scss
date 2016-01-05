@@ -173,15 +173,6 @@ POST STYLING
 			transform-origin: bottom left;
 		}
 	}
-	/***************
-	POST div block styles
-	***************/
-
-	.md-10-suffix-1 {
-		@include span(10 of 12 last);
-		margin-right: span(1 of 12);
-	}
-
 }
 
 

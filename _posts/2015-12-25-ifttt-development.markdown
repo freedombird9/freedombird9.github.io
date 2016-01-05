@@ -29,7 +29,7 @@ categories: technology
 
   <div class='md-10-suffix-1'>
     <figure>
-      <img src="{{site.url}}/assets/img/post-ifttt-dev/triggers.png" alt="Facebook Triggers"/>
+      <img src="/assets/img/post-ifttt-dev/triggers.png" alt="Facebook Triggers"/>
       <figcaption>Figure 1. Facebook Triggers</figcaption>
     </figure>
   </div>
@@ -38,7 +38,7 @@ categories: technology
 
   <div class='md-10-suffix-1'>
     <figure>
-      <img src="{{site.url}}/assets/img/post-ifttt-dev/actions.png" alt="Twitter Actions"/>
+      <img src="/assets/img/post-ifttt-dev/actions.png" alt="Twitter Actions"/>
       <figcaption>Figure 2. Twitter Actions</figcaption>
     </figure>
   </div>

@@ -6,6 +6,7 @@ baseurl: ""
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
+host_name:      'blog.yongfengzhang.com'
 markdown: redcarpet
 highlighter: pygments
 gems: ['jekyll-paginate', 'jekyll-multiple-languages']
@@ -33,7 +34,7 @@ social:
    facebook: yongfeng.zhangfree
    email: yf.zhangfree@gmail.com
 
-google_analytics: ""
+google_analytics: "UA-72004776-1"
 
 # -----------------
 

@@ -20,7 +20,7 @@ categories: technology
 从成立到现在短短几年，IFTTT平台上已经有了上百个频道。在其术语当中，频道（Channel）即对应一个应用，或是说产品。比如微博是一个频道，Facebook是另外一个频道。
 <div class='md-10-suffix-1'>
   <figure>
-    <img src="{{site.url}}/assets/img/post-ifttt-intro/channels.png" alt="IFTTT上的应用"/>
+    <img src="/assets/img/post-ifttt-intro/channels.png" alt="IFTTT上的应用"/>
     <figcaption>IFTTT上的应用</figcaption>
   </figure>
 </div>
@@ -30,7 +30,7 @@ categories: technology
 我们已经说到，IFTTT这个平台，由上百个频道组成。而根据其对平台功能的抽象（<strong style="color:#3BB9FF;">if this, then that</strong>模型），一个频道又由**Triggers**和**Actions**组成。其中，Trigger是一个频道可以为其他频道提供的信息。
 <div class='md-10-suffix-1'>
   <figure>
-    <img src="{{site.url}}/assets/img/post-ifttt-dev/triggers.png" alt="Facebook Triggers"/>
+    <img src="/assets/img/post-ifttt-dev/triggers.png" alt="Facebook Triggers"/>
     <figcaption>Facebook Triggers</figcaption>
   </figure>
 </div>
@@ -41,7 +41,7 @@ Action则是一个频道接到其控制频道（提供Trigger）的信息之后�
 
 <div class='md-10-suffix-1'>
   <figure>
-    <img src="{{site.url}}/assets/img/post-ifttt-dev/actions.png" alt="Twitter Actions"/>
+    <img src="/assets/img/post-ifttt-dev/actions.png" alt="Twitter Actions"/>
     <figcaption>Twitter Actions</figcaption>
   </figure>
 </div>
@@ -55,14 +55,14 @@ Action则是一个频道接到其控制频道（提供Trigger）的信息之后�
 
 <div class='md-10-suffix-1'>
   <figure>
-    <img src="{{site.url}}/assets/img/post-ifttt-intro/recipes1.png" alt="Smart Home Recipes"/>
+    <img src="/assets/img/post-ifttt-intro/recipes1.png" alt="Smart Home Recipes"/>
     <figcaption>智能家居的Recipes</figcaption>
   </figure>
 </div>
 
 <div class='md-10-suffix-1'>
   <figure>
-    <img src="{{site.url}}/assets/img/post-ifttt-intro/recipes2.png" alt="Android Recipes"/>
+    <img src="/assets/img/post-ifttt-intro/recipes2.png" alt="Android Recipes"/>
     <figcaption>安卓手机的Recipes</figcaption>
   </figure>
 </div>
