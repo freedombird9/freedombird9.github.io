@@ -5,9 +5,56 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://localhost:4000//</link>
     <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jan 2016 20:26:40 -0800</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 20:26:40 -0800</lastBuildDate>
+    <pubDate>Sat, 16 Jan 2016 15:10:19 -0800</pubDate>
+    <lastBuildDate>Sat, 16 Jan 2016 15:10:19 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>微信联系人检测工具开发手记</title>
+        <description>&lt;h3&gt;开发记录&lt;/h3&gt;
+
+&lt;p&gt;某天早晨，一来到公司廖大师就把我拉到他的电脑前，给我看了一个Git上的开源项目：&lt;a href=&quot;https://github.com/0x5e/wechat-deleted-friends&quot;&gt;wechat-deleted-friends&lt;/a&gt;。是用Python写的，调用了微信网页版的接口。真的是天才，一个非常棒的想法。短短一天，在github上就已经接近两千个星了。&lt;/p&gt;
+
+&lt;p&gt;廖大师已经开始在他的Mac上着手写chrome的插件版，旁边还放了一台PC，正紧锣密鼓的在装VS，一脸坏笑。我之前虽然没有接触过C#，但是知道跟Java很像，上手不会太慢。并且这么好的项目，当然要拿来试一试。&lt;/p&gt;
+
+&lt;p&gt;开始看源代码。非常简单清晰，几个微信网页接口的调用而已。快速上手C#，拿过廖大师的PC，几个晚上之后搞出了原型，并且在原版的基础上，还增加了检测拉黑的功能（接口信息从廖大师处获取）。&lt;/p&gt;
+
+&lt;p&gt;然后就是测试了。我们自己的微信号的接口由于调用太频繁已经被封，不过没有关系，淘宝上几毛钱一个的微信号让我们的开发得以持续。最后终于做出了产品。&lt;/p&gt;
+
+&lt;h3&gt;原理&lt;/h3&gt;
+
+&lt;p&gt;原理非常简单，源代码大概也就五六百行。主要就是调用网页版的建群、加人，和删除这几个API。把你删除或者屏蔽掉的好友仍然会在联系人列表中，但是无法将他们加入到群聊中来。发送加群请求之后，服务器会返回一个状态参数，0代表成功，4代表被邀请的人已经将发送请求者删除，3则是屏蔽。&lt;/p&gt;
+
+&lt;h3&gt;挑战&lt;/h3&gt;
+
+&lt;p&gt;测试到后期的时候，微信对网页版接口的调用频率限制已经明显加强了，通常一遍联系人列表都跑不完就会被封。后面我们即使将接口调用的时间间隔设置到了一分钟，但是仍然没有用。廖大师用了一个本地缓存，来记忆每次被封的时候所查询到的位置，这样下次解封之后再查询之时，就不用从头再来。但是如果调用太频繁，一个号通常一整天都没办法再使用网页版接口了，这个办法并不能解决根本问题。开发做到这里已经面临了瓶颈。&lt;/p&gt;
+
+&lt;h3&gt;可能的解决办法&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用其它接口。我们通过测试发现，只有网页版接口会被封，PC、MAC和手机端的客户端都没有限制。在PC端尝试抓包，分析微信的通信协议。大部分请求走TCP 8080端口。具体协议细节非常复杂，应该有微信自己定义的协议，wireshark不能正确解析。这条路难度很大，太hack了，如果破解的话微信也就不再安全了&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反编译WindowsPhone版微信，分析出API。如果是C#的话，反编译是很有可能的，这样就能获取其移动端的接口信息了。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;做一个安卓机器人。思路来源于安卓上的微信自动抢红包软件。模拟人工的操作，去建群和加人。逻辑应该会比较复杂，但时间足够的话是可行的。缺点是只能用于安卓。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以上即是我们能想到的避开网页接口的办法，欢迎大家一起探讨，集思广路。最后，Windows版本下载地址：&lt;/p&gt;
+
+&lt;p&gt;https://github.com/freedombird9/wechat-deletion-check/releases&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;开发记录&lt;/h3&gt;
+</description>
+        
+        <pubDate>Wed, 13 Jan 2016 12:05:45 -0800</pubDate>
+        <link>http://localhost:4000//cn/blog/wechathelper/</link>
+        <guid isPermaLink="true">http://localhost:4000//cn/blog/wechathelper/</guid>
+        
+        
+        <category>lifestyle</category>
+        
+      </item>
+      
     
       
       <item>
@@ -45,11 +92,15 @@
 
 &lt;p&gt;还有一个关键点是油门回多少的问题。这个跟车子和档位都相关，需要自己不断去试，去感觉。但是一般来说回油幅度不会很大，且以我自己的经验，档位越高，回的幅度就越小，且越容易操作。就我的CBR来说，需要回油的幅度是很小的，往往只需要往收油的方向快速的抖动一下油门就足够了。如果回油太多，动力损失过大，等换档结束再加油的时候很容易造成车子的震动。&lt;/p&gt;
 
+&lt;p&gt;最后，一档升二档的时候可能不那么好掌握。一是因为一、二档之间有一个空档，速度慢的时候是很容易挂入空档的。二是因为在一档的时候，一般转速会很大，需要收油较多，换档之后车子很容易震动。&lt;/p&gt;
+
 &lt;h3&gt;总结&lt;/h3&gt;
 
 &lt;p&gt;上述不使用离合直接换档的方法大家都应该尽可能掌握，因为摩托车除了进1档起步之外，在其它档位是完全没有必要使用离合器的。我在不少论坛上都请教过一些老手，结论是只要操作正确，这种换档方式完全不会对车子造成任何损坏。相反，它还能减少离合器片的磨损。现在有些厂商已经开始提供原厂quick shifter选配了，比如宝马S1000RR。&lt;/p&gt;
 
 &lt;p&gt;大家可能已经注意到，上文只提到了升档，那么减档呢？减档的操作跟升档正好相反，在换档的瞬间需要稍微加油。但是只有配备了slippery clutch的摩托车才能实现无离合减档，平时使用最多的还是升档。&lt;/p&gt;
+
+&lt;p&gt;其实不光是摩托，手动档的汽车也可以这样操作，只是因为汽车并不是序列变速器，操作难度会大很多，时机也不好掌握，需要对一部车非常熟悉才可能做到。&lt;/p&gt;
 </description>
         
           <description>&lt;h3&gt;快排(Quick shifter)&lt;/h3&gt;

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Your New Jekyll Site</title>
+    <title>微信联系人检测工具开发手记</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -20,7 +20,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://localhost:4000//articles/">
+    <link rel="canonical" href="http://localhost:4000//cn/blog/wechathelper/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -50,24 +50,24 @@ ga('send', 'pageview');
          <nav class="nav-collapse">
              <ul class="noList">
                  
-                 <li class="element first ">
-                     <a href="/index.html">Home</a>
+                 <li class="element first current">
+                     <a href="/cn/">主页</a>
                  </li>
                  
                  <li class="element  ">
-                     <a href="/about">About</a>
+                     <a href="/cn/about">关于</a>
                  </li>
                  
                  <li class="element  ">
-                     <a href="/contact">Contact</a>
+                     <a href="/cn/contact">联系我</a>
                  </li>
                  
-                 
-                  <li class="element last" >
-                    <a href="/cn/">中文</a>
-                  </li>
                  
 
+                 
+                  <li class="element last" >
+                    <a href="/">English</a>
+                  </li>
                  
                  <!-- <li> <a href="https://github.com/freedombird9" target="_blank">GitHub</a></li> -->
                  <!-- <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li> -->
@@ -79,47 +79,69 @@ ga('send', 'pageview');
 
    <div class="content">
       <div class="container">
-         <div id="articles">
-  <h1>Articles</h1>
-  <ul class="posts noList">
+         <div class="post">
+  
+  <h1 class="postTitle">微信联系人检测工具开发手记</h1>
+  <p class="meta">January 13, 2016</p>
+
+
+  <h3>开发记录</h3>
+
+<p>某天早晨，一来到公司廖大师就把我拉到他的电脑前，给我看了一个Git上的开源项目：<a href="https://github.com/0x5e/wechat-deleted-friends">wechat-deleted-friends</a>。是用Python写的，调用了微信网页版的接口。真的是天才，一个非常棒的想法。短短一天，在github上就已经接近两千个星了。</p>
+
+<p>廖大师已经开始在他的Mac上着手写chrome的插件版，旁边还放了一台PC，正紧锣密鼓的在装VS，一脸坏笑。我之前虽然没有接触过C#，但是知道跟Java很像，上手不会太慢。并且这么好的项目，当然要拿来试一试。</p>
+
+<p>开始看源代码。非常简单清晰，几个微信网页接口的调用而已。快速上手C#，拿过廖大师的PC，几个晚上之后搞出了原型，并且在原版的基础上，还增加了检测拉黑的功能（接口信息从廖大师处获取）。</p>
+
+<p>然后就是测试了。我们自己的微信号的接口由于调用太频繁已经被封，不过没有关系，淘宝上几毛钱一个的微信号让我们的开发得以持续。最后终于做出了产品。</p>
+
+<h3>原理</h3>
+
+<p>原理非常简单，源代码大概也就五六百行。主要就是调用网页版的建群、加人，和删除这几个API。把你删除或者屏蔽掉的好友仍然会在联系人列表中，但是无法将他们加入到群聊中来。发送加群请求之后，服务器会返回一个状态参数，0代表成功，4代表被邀请的人已经将发送请求者删除，3则是屏蔽。</p>
+
+<h3>挑战</h3>
+
+<p>测试到后期的时候，微信对网页版接口的调用频率限制已经明显加强了，通常一遍联系人列表都跑不完就会被封。后面我们即使将接口调用的时间间隔设置到了一分钟，但是仍然没有用。廖大师用了一个本地缓存，来记忆每次被封的时候所查询到的位置，这样下次解封之后再查询之时，就不用从头再来。但是如果调用太频繁，一个号通常一整天都没办法再使用网页版接口了，这个办法并不能解决根本问题。开发做到这里已经面临了瓶颈。</p>
+
+<h3>可能的解决办法</h3>
+
+<ol>
+<li><p>使用其它接口。我们通过测试发现，只有网页版接口会被封，PC、MAC和手机端的客户端都没有限制。在PC端尝试抓包，分析微信的通信协议。大部分请求走TCP 8080端口。具体协议细节非常复杂，应该有微信自己定义的协议，wireshark不能正确解析。这条路难度很大，太hack了，如果破解的话微信也就不再安全了</p></li>
+<li><p>反编译WindowsPhone版微信，分析出API。如果是C#的话，反编译是很有可能的，这样就能获取其移动端的接口信息了。</p></li>
+<li><p>做一个安卓机器人。思路来源于安卓上的微信自动抢红包软件。模拟人工的操作，去建群和加人。逻辑应该会比较复杂，但时间足够的话是可行的。缺点是只能用于安卓。</p></li>
+</ol>
+
+<p>以上即是我们能想到的避开网页接口的办法，欢迎大家一起探讨，集思广路。最后，Windows版本下载地址：</p>
+
+<p>https://github.com/freedombird9/wechat-deletion-check/releases</p>
+
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
     
-      <li>
-        <span class="date">13 Jan 2016</span>
-        <h3><a href="/cn/blog/wechathelper/">微信联系人检测工具开发手记</a></h3>
-        <p class="description">抽空写了一个Windows程序，可以测出谁在微信里把你删除或者拉黑了，对方不会知道。</p>
-      </li>
+      <a class="prev" href="/cn/blog/motor-qs/"><span>&laquo;&nbsp;摩托车无离合换挡</span>
+      
+    </a>
     
-      <li>
-        <span class="date">10 Jan 2016</span>
-        <h3><a href="/cn/blog/motor-qs/">摩托车无离合换挡</a></h3>
-        <p class="description">跟大家分享摩托车无离合换挡的原理与技巧。</p>
-      </li>
     
-      <li>
-        <span class="date">02 Jan 2016</span>
-        <h3><a href="/cn/blog/motor-intro/">加州摩托车驾照取得流程及驾校课程总结</a></h3>
-        <p class="description">向大家介绍一下如何在美国加州考取摩托车驾照，以及我在上驾校过程中总结的一些安全要点和操作技巧。</p>
-      </li>
-    
-      <li>
-        <span class="date">31 Dec 2015</span>
-        <h3><a href="/cn/blog/ifttt-intro/">IFTTT：沟通应用的桥梁</a></h3>
-        <p class="description">向在国内的朋友介绍一个好玩的东西：IFTTT</p>
-      </li>
-    
-      <li>
-        <span class="date">25 Dec 2015</span>
-        <h3><a href="/blog/ifttt-development/">Channel Development on IFTTT</a></h3>
-        <p class="description">Share my experience of developing on IFTTT since the past half year.</p>
-      </li>
-    
-      <li>
-        <span class="date">24 Oct 2011</span>
-        <h3><a href="/cn/blog/toJobs/">至乔布斯</a></h3>
-        <p class="description">写在乔布斯离世后不久。</p>
-      </li>
-    
-  </ul>
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'yongfeng'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
 </div>
 
       </div>
