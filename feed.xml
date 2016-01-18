@@ -3,10 +3,10 @@
   <channel>
     <title>枫声 Yongfeng&#39;s Blog</title>
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
-    <link>http://localhost:4000//</link>
-    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Jan 2016 15:10:19 -0800</pubDate>
-    <lastBuildDate>Sat, 16 Jan 2016 15:10:19 -0800</lastBuildDate>
+    <link>http://blog.yongfengzhang.com/</link>
+    <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 17 Jan 2016 21:10:08 -0800</pubDate>
+    <lastBuildDate>Sun, 17 Jan 2016 21:10:08 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -47,8 +47,8 @@
 </description>
         
         <pubDate>Wed, 13 Jan 2016 12:05:45 -0800</pubDate>
-        <link>http://localhost:4000//cn/blog/wechathelper/</link>
-        <guid isPermaLink="true">http://localhost:4000//cn/blog/wechathelper/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/wechathelper/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/wechathelper/</guid>
         
         
         <category>lifestyle</category>
@@ -109,8 +109,8 @@
 </description>
         
         <pubDate>Sun, 10 Jan 2016 14:47:55 -0800</pubDate>
-        <link>http://localhost:4000//cn/blog/motor-qs/</link>
-        <guid isPermaLink="true">http://localhost:4000//cn/blog/motor-qs/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/motor-qs/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/motor-qs/</guid>
         
         
         <category>lifestyle</category>
@@ -205,8 +205,8 @@
 </description>
         
         <pubDate>Sat, 02 Jan 2016 11:31:20 -0800</pubDate>
-        <link>http://localhost:4000//cn/blog/motor-intro/</link>
-        <guid isPermaLink="true">http://localhost:4000//cn/blog/motor-intro/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/motor-intro/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/motor-intro/</guid>
         
         
         <category>lifestyle</category>
@@ -293,8 +293,8 @@
 </description>
         
         <pubDate>Thu, 31 Dec 2015 13:31:20 -0800</pubDate>
-        <link>http://localhost:4000//cn/blog/ifttt-intro/</link>
-        <guid isPermaLink="true">http://localhost:4000//cn/blog/ifttt-intro/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</guid>
         
         
         <category>technology</category>
@@ -509,8 +509,8 @@ it fires an Action. Detailed information can be found in their &lt;a href=&quot;
 </description>
         
         <pubDate>Fri, 25 Dec 2015 08:31:20 -0800</pubDate>
-        <link>http://localhost:4000//blog/ifttt-development/</link>
-        <guid isPermaLink="true">http://localhost:4000//blog/ifttt-development/</guid>
+        <link>http://blog.yongfengzhang.com/blog/ifttt-development/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/ifttt-development/</guid>
         
         
         <category>technology</category>
@@ -560,8 +560,8 @@ People do not want tablets, they want iPads. People do not want smart phones, th
 </description>
         
         <pubDate>Mon, 24 Oct 2011 15:35:45 -0700</pubDate>
-        <link>http://localhost:4000//cn/blog/toJobs/</link>
-        <guid isPermaLink="true">http://localhost:4000//cn/blog/toJobs/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/toJobs/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/toJobs/</guid>
         
         
         <category>lifestyle</category>
