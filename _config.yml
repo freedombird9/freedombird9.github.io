@@ -20,6 +20,8 @@ navigation:
        url: /about
      - title: Contact
        url: /contact
+     - title: Feed
+       url: /feed
    cn:
      - title: 主页
        url: /cn/
@@ -27,6 +29,8 @@ navigation:
        url: /cn/about
      - title: 联系我
        url: /cn/contact
+     - title: 订阅
+       url: /cn/feed
 
 social:
    github: freedombird9
