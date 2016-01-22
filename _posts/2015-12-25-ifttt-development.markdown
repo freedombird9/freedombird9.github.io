@@ -171,15 +171,6 @@ sample post looks like:
 <div class='md-10-suffix-1'>
 {% highlight json %}
 
-POST /ifttt/v1/actions/new_status_update HTTP/1.1
-Host: api.example-channel.com
-Authorization: Bearer b29a71b4c58c22af116578a6be6402d2
-Accept: application/json
-Accept-Charset: utf-8
-Accept-Encoding: gzip, deflate
-Content-Type: application/json
-X-Request-ID: 1d21c3cd2ed8441ea269dd554d2c8e54
-
 {
   "actionFields": {
     "title": "New Banksy photo!",

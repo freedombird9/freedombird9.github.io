@@ -256,7 +256,6 @@ POST STYLING
 	}
 
 	figure {
-		margin: 3rem 0;
 
 		figcaption {
 			text-align: center;
@@ -277,7 +276,7 @@ POST STYLING
 
 	.highlight {
 		clear: both;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	.dropcap {
@@ -299,7 +298,8 @@ POST STYLING
 
   .md-10-suffix-1 {
     @include span(10 of 12 last);
-    margin-right: span(1 of 12);
+    margin-left: span(1 of 12);
+    float: none;
   }
 }
 
