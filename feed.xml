@@ -5,9 +5,102 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Jan 2016 15:35:01 -0800</pubDate>
-    <lastBuildDate>Mon, 18 Jan 2016 15:35:01 -0800</lastBuildDate>
+    <pubDate>Thu, 21 Jan 2016 22:44:14 -0800</pubDate>
+    <lastBuildDate>Thu, 21 Jan 2016 22:44:14 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Command Line YAML Parer &amp; Auto-exporter</title>
+        <description>&lt;p&gt;Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&amp;#39;s config file. I&amp;#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.&lt;/p&gt;
+
+&lt;p&gt;A typical YAML config file for App engine is like the following:
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;project-id&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;runtime&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;python27&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;api_version&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# other config settings&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;env_variables&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;base.settings&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GAE_SQL_HOST&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;/cloudsql/:dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GAE_SQL_DBNAME&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;LOCAL_SQL_HOST&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;host_ip_address&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;LOCAL_SQL_DBNAME&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;TEMPLATE_DEBUG&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GCM_PUSH_API_KEY&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;App engine will use the variables under &lt;code&gt;env_variables&lt;/code&gt; as its environment variables. We need to parse this file and export them locally one by one.&lt;/p&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;Get the source code &lt;a href=&quot;https://github.com/freedombird9/work-happy-anywhere&quot;&gt;here&lt;/a&gt; first. To use it, you need to have bash 4 and Python YAML module.&lt;/p&gt;
+
+&lt;h4&gt;Install bash 4 on OS X&lt;/h4&gt;
+
+&lt;p&gt;You can see your bash version by running &lt;code&gt;bash --version&lt;/code&gt;. If it&amp;#39;s not version 4, you need to install one.
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Homebrew installs the new bash under /usr/local/bin/bash&lt;/span&gt;
+brew update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; brew install bash
+sudo bash -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;echo /usr/local/bin/bash &amp;gt;&amp;gt; /etc/shells&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Change to the new shell&lt;/span&gt;
+chsh -s /usr/local/bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Now close your current terminal and start a new one. Run &lt;code&gt;bash --version&lt;/code&gt;, you should see version 4.X.X&lt;/p&gt;
+
+&lt;p&gt;Install PyYAML:&lt;/p&gt;
+
+&lt;p&gt;The shell script relies on a python program to parse the yaml file. You need this module to run the python parser (&lt;code&gt;read_yaml.py&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install pyyaml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Then you&amp;#39;re ready to go. Remember to execute it with &lt;code&gt;. set_envs.sh /path/to/yamlfile&lt;/code&gt; or &lt;code&gt;source set_envs.sh /path/to/yamlfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you run it directly, the environment variables won&amp;#39;t be exported to your current working shell, rather, they&amp;#39;ll be exported to a sub-shell and be gone.&lt;/p&gt;
+
+&lt;h3&gt;How?&lt;/h3&gt;
+
+&lt;p&gt;Fairly simple. Consume the Python-parsed YAML in the bash, store the key-value pairs in an associative array. Iterate through it and export. Note that associative arrays are only available in bash 4, and that&amp;#39;s why we need to upgrade our bash.&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;declare&lt;/span&gt; -A &lt;span class=&quot;nv&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;IFS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -r -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; key &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;IFS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -r -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    items&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt; &amp;lt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;python &lt;span class=&quot;nv&quot;&gt;$my_dir&lt;/span&gt;/read_yaml.py &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;s2&quot;&gt;&amp;quot;${!items[@]}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$i: ${items[$i]}&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+</description>
+        
+          <description>&lt;p&gt;Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&amp;#39;s config file. I&amp;#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 21 Jan 2016 09:34:44 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/blog/yaml-parser/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/yaml-parser/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
     
       
       <item>
@@ -463,16 +556,7 @@ sample post looks like:&lt;/p&gt;
 
 &lt;div class=&#39;md-10-suffix-1&#39;&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;err&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;/ifttt/v&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/actions/new_status_update&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;HTTP/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.1&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Host:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;api.example-channel.com&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Authorization:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;Bearer&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;58&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;af&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;116578&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;be&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6402&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Accept:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;application/json&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Accept-Charset:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;utf&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-8&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Accept-Encoding:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;gzip,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;deflate&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;Content-Type:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;application/json&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;X-Request-ID:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ed&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8441&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ea&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;269&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;dd&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;554&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;8e54&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;quot;actionFields&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;New Banksy photo!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Check out a new Bansky photo: http://example.com/images/125&amp;quot;&lt;/span&gt;
