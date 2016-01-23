@@ -5,9 +5,93 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 Jan 2016 22:44:14 -0800</pubDate>
-    <lastBuildDate>Thu, 21 Jan 2016 22:44:14 -0800</lastBuildDate>
+    <pubDate>Fri, 22 Jan 2016 17:37:07 -0800</pubDate>
+    <lastBuildDate>Fri, 22 Jan 2016 17:37:07 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>A Simple Launch-and-Go-Away Multiprocessing Architecture</title>
+        <description>&lt;p&gt;In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even &lt;em&gt;forever&lt;/em&gt;. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&amp;#39;t want to run them in your main process, you want to isolate them as much as you can.&lt;/p&gt;
+
+&lt;p&gt;Here I&amp;#39;m only addressing this kind of situation: you launch the task, set a timeout for it, and you are good to go. You don&amp;#39;t care if it will succeed or not and you don&amp;#39;t retry it on failure. It should be killed automatically if it runs out of time (Why? Because otherwise it will become a zombie and stick there forever and never release any resource).&lt;/p&gt;
+
+&lt;p&gt;This design is very useful in situations where you don&amp;#39;t care about occasional data loss.&lt;/p&gt;
+
+&lt;h3&gt;Thread or Process?&lt;/h3&gt;
+
+&lt;p&gt;I would use multiprocessing. Not only because a thread can neither be killed, nor can it terminate itself in Python, but also because of the extra overhead on multicore systems, which is very common nowadays, introduced by the infamous GIL.&lt;/p&gt;
+
+&lt;p&gt;Regarding the GIL issue, here is a perfect insight: &lt;a href=&quot;http://www.dabeaz.com/python/GIL.pdf&quot;&gt;Inside the Python GIL&lt;/a&gt;. It illustrates the gigantic overheads using threads. Here is the picture that visualizes this problem very well.
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-simple-multiprocessing/gil_battle.png&quot; alt=&quot;GIL Battle&quot;/&gt;
+    &lt;figcaption&gt;GIL Battle&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Put it simply, on a multicore system, a thread will be scheduled to run immediately (on another core) once the OS is signaled that a previously running thread has released its GIL. But when it can start to run, the GIL is already gone. It&amp;#39;s because with multiple cores, threads in ready state get scheduled to run on different cores at the same time so they compete for the GIL.&lt;/p&gt;
+
+&lt;p&gt;In the above figure, Thread 2 on CPU 2 gets signaled every time Thread 1 releases GIL, but it cannot start to run before Thread 1 acquires the GIL again due to the signal passing and scheduling overheads.&lt;/p&gt;
+
+&lt;p&gt;Be very careful with Python multithreading, especially in multicore systems.&lt;/p&gt;
+
+&lt;h3&gt;Architecture&lt;/h3&gt;
+
+&lt;p&gt;Remember we just want to launch a separate process to run, we don&amp;#39;t want our main process to wait for it to finish or to continuously monitor its state. Once the process is forked, our main program shouldn&amp;#39;t care about it anymore otherwise it will be slowed down.&lt;/p&gt;
+
+&lt;p&gt;How to achieve this? It turns out we can just wrap the worker process in another process which should be responsible for the worker&amp;#39;s lifecycle. We call it the manager process here. The design looks like this:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Read from the queue&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;       process the work here&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39;lifecycle manager of the worker process&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TIMEOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_alive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;worker process timed out, killing ...&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;terminate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;manager_p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;manager_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The main program can focus on fetching data from database and dispatch it to workers. We can do all the ugly and dangerous stuff in the worker processes without worrying the main process getting contaminated. The lifecycle manager takes care of all the cleaning-ups.&lt;/p&gt;
+
+&lt;h3&gt;An optional third-party module&lt;/h3&gt;
+
+&lt;p&gt;There&amp;#39;s a neat Python module called &lt;a href=&quot;https://github.com/noxdafox/pebble&quot;&gt;Pebble&lt;/a&gt; that can do the same thing for you. The design is similar, it also uses a lifecycle manager to manage the actual worker process. The difference is that the manager is implemented as a daemon thread instead of a process.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even &lt;em&gt;forever&lt;/em&gt;. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&amp;#39;t want to run them in your main process, you want to isolate them as much as you can.&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 22 Jan 2016 03:03:44 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/blog/simple-multiprocessing/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/simple-multiprocessing/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
     
       
       <item>
