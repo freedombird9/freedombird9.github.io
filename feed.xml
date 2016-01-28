@@ -5,8 +5,8 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Jan 2016 23:54:25 -0800</pubDate>
-    <lastBuildDate>Wed, 27 Jan 2016 23:54:25 -0800</lastBuildDate>
+    <pubDate>Thu, 28 Jan 2016 13:05:52 -0800</pubDate>
+    <lastBuildDate>Thu, 28 Jan 2016 13:05:52 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -516,6 +516,9 @@
 &lt;p&gt;&lt;code&gt;map&lt;/code&gt;, &lt;code&gt;reduce&lt;/code&gt;, cross-join。&lt;/p&gt;
 
 &lt;p&gt;是时候开始读源代码了，Enjoy！&lt;/p&gt;
+
+&lt;p&gt;Github:
+&lt;p&gt; &lt;a href=&quot;https://github.com/freedombird9/how-to-read-source-code&quot;&gt;https://github.com/freedombird9/how-to-read-source-code&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
 </description>
         
           <description>&lt;p&gt;原题目：&lt;a href=&quot;https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md&quot;&gt;How To Read Source Code&lt;/a&gt;，原作者：Aria Stewart&lt;/p&gt;
