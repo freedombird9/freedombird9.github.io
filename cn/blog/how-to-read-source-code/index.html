@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- for bing webmaster verification -->
+    <meta name="msvalidate.01" content="7FCEB974CBC1050129BFC81315DD28FB" />
+
+    <meta name="author" content="yf.zhangfree@gmail.com 张咏枫" />
+    <meta name="description" content="Yongfeng's blog / 张咏枫的博客">
+    <meta name="keywords" content="张咏枫,博客,Yongfeng Zhang,blog" />
+
+    <title>怎样阅读源代码</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="枫声 Yongfeng's Blog" href="http://blog.yongfengzhang.com/feed.xml" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="http://blog.yongfengzhang.com/cn/blog/how-to-read-source-code/">
+
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
+
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72004776-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+ 
+</head>
+
+
+
+
+<body>
+
+    <div class="header">
+     <div class="container">
+         <h1 class="logo"><a href="/">枫声 Yongfeng's Blog</a></h1>
+         <nav class="nav-collapse">
+             <ul class="noList">
+                 
+                 <li class="element first current">
+                     <a href="/cn/">主页</a>
+                 </li>
+                 
+                 <li class="element  ">
+                     <a href="/cn/about">关于</a>
+                 </li>
+                 
+                 <li class="element  ">
+                     <a href="/cn/contact">联系我</a>
+                 </li>
+                 
+                 <li class="element  ">
+                     <a href="/cn/feed">订阅</a>
+                 </li>
+                 
+                 
+
+                 
+                  <li class="element last" >
+                    <a href="/">English</a>
+                  </li>
+                 
+                 <!-- <li> <a href="https://github.com/freedombird9" target="_blank">GitHub</a></li> -->
+                 <!-- <li><a href="https://github.com/brianmaierjr/long-haul/archive/master.zip">Download Theme</a></li> -->
+             </ul>
+         </nav>
+     </div>
+ </div><!-- end .header -->
+
+
+   <div class="content">
+      <div class="container">
+         <div class="post">
+  
+  <h1 class="postTitle">怎样阅读源代码</h1>
+  <p class="meta">January 25, 2016</p>
+
+
+  <p>原题目：<a href="https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md">How To Read Source Code</a>，原作者：Aria Stewart</p>
+
+<p>中文翻译：</p>
+
+<p>这篇文章基于我在Oneshot Nodeconf Christchurch的一个演讲。</p>
+
+<p>我本来没有想要写这篇文章。程序员不读源代码听起来似乎是很荒谬的。然后我真遇到了一群不读源代码的程序员。接着我又跟更多的人进行了交谈，发现他们除了读代码示例或测试脚本之外什么也不看。最重要的是，我遇到过很多新手程序员，对他们来说，找到从哪个地方开始阅读是非常困难的。</p>
+
+<h4>当我们说读源代码的时候，我们要表达什么意思？</h4>
+
+<p>我们是为了什么去读源代码？为了理解它。为了找bug，为了知道这些代码和系统中的其他软件是怎样交互的。我们还会为了回顾、品评而去读。为了找出其中的接口信息，为了理解和找到不同模块之间的界线，为了学习，我们都会去读源代码。</p>
+
+<h4>读代码不是一个线性过程</h4>
+
+<p>读代码的过程不是线性的。人们往往认为读源代码就像读一本书一样：先搞定简介或者README，然后从第一章开始一章一章的读，直到结束。其实并不是这样的。我们甚至都不能确定一个程序有没有结束，很多程序是不会终止的。我们应该在章节、模块之间跳转，反复阅读。我们也可以选择通读单个模块，但是这样我们就无法理解这个模块所引用的其他模块的代码。我们也可以根据程序的执行顺序去阅读，但是我们最后并不会清楚程序会向哪里执行。</p>
+
+<h4>读的顺序</h4>
+
+<p>要从一个库的入口开始读吗？对于Node库来说，即从<code>index.js</code>或者主脚本开始？</p>
+
+<p>在浏览器中的情况呢？即使是找到程序入口，弄清楚载入了哪些文件，是怎样载入的都是一个很关键的事情。去研究文件之间是怎样关联起来的是一个很好的着手点。</p>
+
+<p>除此之外，还可以从最大的一个源文件开始读。或者尝试在debugger中设置一个“浅”断点，通过函数调用去追溯源代码。亦或在某些复杂晦涩的地方设置一个深断点，然后去读函数调用栈里面的每一个函数。</p>
+
+<h4>代码的分类</h4>
+
+<p>我通常习惯于以语言去区分源代码，如Javascript, C++, ES6, Befunge, Forth或者LISP。熟悉的语言读起来相对更容易，对于不太熟悉的语言，我们往往就不会去看了。</p>
+
+<p>这里还有另外一种看待源代码的方法，就是基于每一的模块的功能去分类：</p>
+
+<ul>
+<li>连接类代码（Glue）</li>
+<li>接口定义类代码</li>
+<li>实现类</li>
+<li>算法类</li>
+<li>配置类</li>
+<li>任务类</li>
+</ul>
+
+<p>关于算法类的代码已经有很多研究了，因为学术界就是干这个的。算法就是用数学模型去处理一件事情的方法。其他种类的代码就要模糊很多了，但是我认为它们更加有趣。它们才是绝大多数人在编程的时候写的代码。</p>
+
+<p>当然，很多时候一个模块可以同时做以上的很多事情。而读代码首先要做的事情之一恰恰就是弄清楚每一个部分是在做什么。</p>
+
+<h4>什么是连接类代码</h4>
+
+<p>并不是所有的接口都能很好的工作在一起。连接类代码是将各模块连在一起的管道。中间件、Promise和绑定回调函数的代码、将参数导入object中或者解析object的代码，这些都属于连接类代码。</p>
+
+<h4>怎样阅读连接类代码</h4>
+
+<p>关键要弄清楚两个接口是怎样以不同方式构建起来的，以及它们共通的地方。</p>
+
+<p>下面的例子来自于Ben Drucker的<code>stream-to-promise</code></p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">internals</span><span class="p">.</span><span class="nx">writable</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;finish&#39;</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">);</span>
+    <span class="nx">stream</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span></code></pre></figure>
+
+</div>
+
+<p>可以看到，上面两个接口分别是Node的stream和Promise接口。</p>
+
+<p>它们的共同点在于两者完成的时候都会执行一个操作，在Node中通过事件（event）来实现，而在Promise中通过调用resolve函数实现。</p>
+
+<p>可以看到，Promise只能执行一次，但是stream可以发出同样的事件很多次。</p>
+
+<p>更多连接类代码的例子：
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">record</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">trim</span><span class="p">(),</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="nb">isNaN</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">age</span><span class="p">))</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">age</span><span class="p">),</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="nx">validateEmail</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">email</span><span class="p">.</span><span class="nx">trim</span><span class="p">())</span>
+<span class="p">}</span></code></pre></figure>
+
+<p></div></p>
+
+<p>在读连接类代码的时候，还可以思考的是报错情况下的处理。</p>
+
+<p>一段程序会抛出错误吗？能删除坏值吗？或者可以将其强制转换成可以接受的值？对于它们执行的环境来说，这些是正确的选择吗？类型转换是否是有损的？这些问题都是很值得思考的。</p>
+
+<h4>什么是接口定义类代码</h4>
+
+<p>可能你写过一些只在一两个地方用得到的模块，它们基本是在内部使用的，你不希望有人费很大劲去读这些模块。</p>
+
+<p>而接口定义类代码却恰恰和上述情况相反。它们是模块之间泾渭分明的边界线。</p>
+
+<p>下面的例子来自于Node的<code>events.js</code>：
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">exports</span><span class="p">.</span><span class="nx">usingDomains</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">EventEmitter</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">EventEmitter</span> <span class="o">=</span> <span class="nx">EventEmitter</span><span class="p">;</span>
+
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setMaxListeners</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">setMaxListeners</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">emit</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">emit</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">addListener</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">addListener</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">listener</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">on</span> <span class="o">=</span> <span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">addListener</span><span class="p">;</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">once</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">once</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">listener</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeListener</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">removeListener</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">listener</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeAllListeners</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">removeAllListeners</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">listeners</span><span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
+<span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">listenerCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">emitter</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span></code></pre></figure>
+
+<p></div></p>
+
+<p>上面的代码在定义<code>EventEmitter</code>的接口。</p>
+
+<p>关于这类代码可以思考的问题包括：它们是否完全？能提供哪些保证？内部的细节信息会暴露给用户吗？</p>
+
+<p>在一个有严格接口定义的架构中，上面就是这类代码应该出现的地方。</p>
+
+<p>就像连接类代码一样，我们可以思考它是怎样处理错误和报错的。处理方法前后一致吗？能区分出因为内部不一致而出现的错误和因为用户使用不当而出现的错误吗？</p>
+
+<h4>实现类代码</h4>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">startRouting</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">router</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">constructor</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">K</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;location&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">container</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">initialURL</span> <span class="o">=</span> <span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;initialURL&#39;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">initialTransition</span><span class="p">;</span>
+
+  <span class="c1">// Allow the Location class to cancel the router setup while it refreshes</span>
+  <span class="c1">// the page</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">get</span><span class="p">(</span><span class="nx">location</span><span class="p">,</span> <span class="s1">&#39;cancelRouterSetup&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">_setupRouter</span><span class="p">(</span><span class="nx">router</span><span class="p">,</span> <span class="nx">location</span><span class="p">);</span>
+
+  <span class="nx">container</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;view:default&#39;</span><span class="p">,</span> <span class="nx">_MetamorphView</span><span class="p">);</span>
+  <span class="nx">container</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;view:toplevel&#39;</span><span class="p">,</span> <span class="nx">EmberView</span><span class="p">.</span><span class="nx">extend</span><span class="p">());</span>
+
+  <span class="nx">location</span><span class="p">.</span><span class="nx">onUpdateURL</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">self</span><span class="p">.</span><span class="nx">handleURL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">initialURL</span> <span class="o">===</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">initialURL</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">getURL</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="nx">initialTransition</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleURL</span><span class="p">(</span><span class="nx">initialURL</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">initialTransition</span> <span class="o">&amp;&amp;</span> <span class="nx">initialTransition</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="nx">initialTransition</span><span class="p">.</span><span class="nx">error</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span></code></pre></figure>
+
+</div>
+
+<p>上面的示例取自<code>Ember.Router</code>。</p>
+
+<p>这里往往是需要在“为什么”上作更多说明的地方。</p>
+
+<p>读这类代码的时候应着重思考它是怎样跟更大的整体相融合的。</p>
+
+<p>从公共接口中传入的值是怎样的？哪些需要验证(validation)？包含我们认为该有的值吗？会影响到其他哪些部分？当需要改写以加入新功能的时候会有哪些潜在危险？可能会导致程序崩溃的地方有哪些？有测试代码来对其进行测试吗？变量的生命周期是什么？</p>
+
+<h4>算法</h4>
+
+<p>算法类代码是实现类代码的一种，通常是封装起来不对外暴露的。它可以说是程序的血肉。也是一款软件的业务逻辑和主进程所在。</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Grammar</span><span class="p">(</span><span class="nx">rules</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Processing The Grammar</span>
+  <span class="c1">//</span>
+  <span class="c1">// Here we begin defining a grammar given the raw rules, terminal</span>
+  <span class="c1">// symbols, and symbolic references to rules</span>
+  <span class="c1">//</span>
+  <span class="c1">// The input is a list of rules.</span>
+  <span class="c1">//</span>
+  <span class="c1">// The input grammar is amended with a final rule, the &#39;accept&#39; rule,</span>
+  <span class="c1">// which if it spans the parse chart, means the entire grammar was</span>
+  <span class="c1">// accepted. This is needed in the case of a nulling start symbol.</span>
+  <span class="nx">rules</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Rule</span><span class="p">(</span><span class="s1">&#39;_accept&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Ref</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)]));</span>
+  <span class="nx">rules</span><span class="p">.</span><span class="nx">acceptRule</span> <span class="o">=</span> <span class="nx">rules</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span></code></pre></figure>
+
+</div>
+
+<p>上面的代码出自一个叫做<code>lotsawa</code>的解析引擎。</p>
+
+<p>人们常说好的注释应该告诉读者为什么这件事情要这样来做，而不是一段代码在做什么。算法类代码通常需要更多的解释，因为如果是一个很简单的算法的话，那通常它就已经被吸纳进标准库中了。</p>
+
+<p>下面这段代码是计算机系学生喜欢的（或者有糟糕记忆的）：</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Build a list of all the symbols used in the grammar so they can be numbered instead of referred to</span>
+<span class="c1">// by name, and therefore their presence can be represented by a single bit in a set.</span>
+  <span class="kd">function</span> <span class="nx">censusSymbols</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">out</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">rules</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!~</span><span class="nx">out</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span> <span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+
+      <span class="nx">r</span><span class="p">.</span><span class="nx">symbols</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">symNo</span> <span class="o">=</span> <span class="nx">out</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!~</span><span class="nx">out</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">symNo</span> <span class="o">=</span> <span class="nx">out</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+          <span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nx">r</span><span class="p">.</span><span class="nx">symbols</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">symNo</span><span class="p">;</span>
+      <span class="p">});</span>
+
+      <span class="nx">r</span><span class="p">.</span><span class="nx">sym</span> <span class="o">=</span> <span class="nx">out</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">out</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">rules</span><span class="p">.</span><span class="nx">symbols</span> <span class="o">=</span> <span class="nx">censusSymbols</span><span class="p">();</span></code></pre></figure>
+
+</div>
+
+<p>读起来像是数学论文，对吗？</p>
+
+<p>在读算法类代码的时候需要关注的事情之一就是其运用的数据结构。上面的程序建了一个符号列表，并确保其中没有重复元素。</p>
+
+<p>读的时候同时也要注意有关程序时间复杂度的线索。上面的代码中，有两个循环。用大O来记的话，时间复杂度就是O(n * m)。但已经有人注意到，循环之中还有<code>indexOf</code>的调用。这在Javascript中也是循环操作。因此这又在时间复杂度上加了一个因子。还好这段代码并不是该算法的主要部分。</p>
+
+<h4>配置</h4>
+
+<p>源代码和配置文件之间的界线非常的窄。对配置文件来说，表达力强、可读性强和直接之间永远是冲突的。</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">&#39;production&#39;</span><span class="p">,</span> <span class="s1">&#39;staging&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">enable</span><span class="p">(</span><span class="s1">&#39;emails&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">disable</span><span class="p">(</span><span class="s1">&#39;emails&#39;</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+</div>
+
+<p>上面是一个用Javascript进行配置的例子。</p>
+
+<p>在这里可能会遇到的问题是不同选项的组合爆炸性增长。应该配置多少个环境？在每一个环境实例中又配置哪些东西？我们很容易就会过度配置，去考虑所有的情况，但是bug可能只出现于其中一种情况中。时刻注意配置文件给我们多少自由度是非常有用的。</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s2">&quot;express&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;env&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="c1">// NOTE: `env` is managed by the framework. This value will be overwritten.</span>
+    <span class="s2">&quot;x-powered-by&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;views&quot;</span><span class="o">:</span> <span class="s2">&quot;path:./views&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mountpath&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span>
+<span class="p">},</span>
+
+<span class="s2">&quot;middleware&quot;</span><span class="o">:</span> <span class="p">{</span>
+
+    <span class="s2">&quot;compress&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;enabled&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">&quot;priority&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;module&quot;</span><span class="o">:</span> <span class="s2">&quot;compression&quot;</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;favicon&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;enabled&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">&quot;priority&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="s2">&quot;module&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;serve-favicon&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;arguments&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&quot;resolve:kraken-js/public/favicon.ico&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span></code></pre></figure>
+
+</div>
+
+<p>上面是一小段<code>kraken</code>的配置文件。</p>
+
+<p>Kraken采取了“低功耗(low power)语言”的路，其配置文件采用JSON。更多一点“配置”，而相对少一点“源代码”。其目的之一就是让可选择项的数目可控。很多工具都采用简单的key-value对或者ini类的文件来做配置是有道理的，即使这样会使配置文件的表达力受限。</p>
+
+<p>配置类的代码有如下一些值得思考的有趣而独特的限制：</p>
+
+<ul>
+<li>生命周期</li>
+<li>机器可写性</li>
+<li>对一段代码负有责任的人会多很多</li>
+<li>怎样适用在一些奇怪的地方，比如环境变量</li>
+<li>往往有涉及安全的敏感信息</li>
+</ul>
+
+<h4>任务类</h4>
+
+<p>对50张信用卡计费，用编译器和其他构建工具开发一个复杂的软件，发出100封电子邮件。这些事情有什么共同点？</p>
+
+<p>事务性。通常一个系统的某一部分只需严格执行一次，而遇到错误的话则完全不执行。编译器遗留下的错误构建文件是bug的一大来源。对客户重复收费是很糟糕的。因为重试而向用户邮箱滥发邮件也很可怕。</p>
+
+<p>重启性。能根据系统状态，在之前退出的地方继续运行。</p>
+
+<p>序列性。对于不是严格线性的程序，通常都有一个方向明晰的执行流程。循环是其中一大块。</p>
+
+<h4>阅读杂乱代码</h4>
+
+<p>一般人会怎样入手下面的一段代码：
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">      <span class="nx">DuplexCombination</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">on</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="s1">&#39;data&#39;</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s1">&#39;end&#39;</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s1">&#39;readable&#39;</span><span class="o">:</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">reader</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
+<span class="k">return</span> <span class="k">this</span>
+  <span class="k">case</span> <span class="s1">&#39;drain&#39;</span><span class="o">:</span>
+  <span class="k">case</span> <span class="s1">&#39;finish&#39;</span><span class="o">:</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
+<span class="k">return</span> <span class="k">this</span>
+  <span class="k">default</span><span class="o">:</span>
+<span class="k">return</span> <span class="nx">Duplex</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">on</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">};</span></code></pre></figure>
+
+<p></div></p>
+
+<p>对，这就是反向缩进，要怪就怪Issac吧。</p>
+
+<h4>美化一下！</h4>
+
+<p><code>standard -F dc.js</code>
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">DuplexCombination</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">on</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;data&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">&#39;end&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">&#39;readable&#39;</span><span class="o">:</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">reader</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span>
+    <span class="k">case</span> <span class="s1">&#39;drain&#39;</span><span class="o">:</span>
+    <span class="k">case</span> <span class="s1">&#39;finish&#39;</span><span class="o">:</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">writer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">Duplex</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">on</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">ev</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p></div></p>
+
+<p>读代码的时候使用工具是很好的。</p>
+
+<p>又比如下面这段代码：</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">define</span><span class="o">===</span><span class="s2">&quot;function&quot;</span><span class="o">&amp;&amp;</span><span class="nx">define</span><span class="p">.</span><span class="nx">amd</span><span class="p">){</span><span class="nx">define</span><span class="p">([</span><span class="s2">&quot;underscore&quot;</span><span class="p">,</span><span class="s2">&quot;</span>
+<span class="s2">jquery&quot;</span><span class="p">,</span><span class="s2">&quot;exports&quot;</span><span class="p">],</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span><span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span><span class="o">=</span><span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">r</span><span class="p">)})}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="kr">export</span>
+<span class="nx">s</span><span class="o">!==</span><span class="s2">&quot;undefined&quot;</span><span class="p">){</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;underscore&quot;</span><span class="p">);</span><span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">exports</span><span class="p">,</span><span class="nx">i</span><span class="p">)}</span><span class="k">else</span><span class="p">{</span><span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span><span class="o">=</span><span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span>
+<span class="p">{},</span><span class="nx">t</span><span class="p">.</span><span class="nx">_</span><span class="p">,</span><span class="nx">t</span><span class="p">.</span><span class="nx">jQuery</span><span class="o">||</span><span class="nx">t</span><span class="p">.</span><span class="nx">Zepto</span><span class="o">||</span><span class="nx">t</span><span class="p">.</span><span class="nx">ender</span><span class="o">||</span><span class="nx">t</span><span class="p">.</span><span class="nx">$</span><span class="p">)}})(</span><span class="k">this</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">i</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="nx">t</span><span class="p">.</span><span class="nx">Backbo</span>
+<span class="nx">ne</span><span class="p">;</span><span class="kd">var</span> <span class="nx">n</span><span class="o">=</span><span class="p">[];</span><span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="nx">n</span><span class="p">.</span><span class="nx">push</span><span class="p">;</span><span class="kd">var</span> <span class="nx">o</span><span class="o">=</span><span class="nx">n</span><span class="p">.</span><span class="nx">slice</span><span class="p">;</span><span class="kd">var</span> <span class="nx">h</span><span class="o">=</span><span class="nx">n</span><span class="p">.</span><span class="nx">splice</span><span class="p">;</span><span class="nx">e</span><span class="p">.</span><span class="nx">VERSION</span><span class="o">=</span><span class="s2">&quot;1.1.2&quot;</span><span class="p">;</span><span class="nx">e</span><span class="p">.</span><span class="nx">$</span><span class="o">=</span><span class="nx">r</span><span class="p">;</span><span class="nx">e</span><span class="p">.</span>
+<span class="nx">noConflict</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span><span class="o">=</span><span class="nx">s</span><span class="p">;</span><span class="k">return</span> <span class="k">this</span><span class="p">};</span><span class="nx">e</span><span class="p">.</span><span class="nx">emulateHTTP</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span><span class="nx">e</span><span class="p">.</span><span class="nx">emulateJSO</span>
+<span class="nx">N</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span><span class="kd">var</span> <span class="nx">u</span><span class="o">=</span><span class="nx">e</span><span class="p">.</span><span class="nx">Events</span><span class="o">=</span><span class="p">{</span><span class="nx">on</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">c</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="nx">t</span><span class="p">,[</span><span class="nx">e</span><span class="p">,</span><span class="nx">i</span><span class="p">])</span><span class="o">||!</span><span class="nx">e</span><span class="p">)</span><span class="k">return</span> <span class="nx">t</span>
+<span class="nx">his</span><span class="p">;</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="o">||</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="o">=</span><span class="p">{});</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">||</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="p">[]);</span>
+<span class="nx">r</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">callback</span><span class="o">:</span><span class="nx">e</span><span class="p">,</span><span class="nx">context</span><span class="o">:</span><span class="nx">i</span><span class="p">,</span><span class="nx">ctx</span><span class="o">:</span><span class="nx">i</span><span class="o">||</span><span class="k">this</span><span class="p">});</span><span class="k">return</span> <span class="k">this</span><span class="p">},</span><span class="nx">once</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="k">if</span><span class="p">(</span>
+<span class="o">!</span><span class="nx">c</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="s2">&quot;once&quot;</span><span class="p">,</span><span class="nx">t</span><span class="p">,[</span><span class="nx">e</span><span class="p">,</span><span class="nx">r</span><span class="p">])</span><span class="o">||!</span><span class="nx">e</span><span class="p">)</span><span class="k">return</span> <span class="k">this</span><span class="p">;</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="k">this</span><span class="p">;</span><span class="kd">var</span> <span class="nx">n</span><span class="o">=</span><span class="nx">i</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">s</span><span class="p">.</span><span class="nx">off</span>
+<span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">n</span><span class="p">);</span><span class="nx">e</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">arguments</span><span class="p">)});</span><span class="nx">n</span><span class="p">.</span><span class="nx">_callback</span><span class="o">=</span><span class="nx">e</span><span class="p">;</span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">)},</span><span class="nx">off</span><span class="o">:</span><span class="nx">functio</span>
+<span class="nx">n</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">s</span><span class="p">,</span><span class="nx">n</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">u</span><span class="p">,</span><span class="nx">l</span><span class="p">,</span><span class="nx">f</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="o">||!</span><span class="nx">c</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="nx">t</span><span class="p">,[</span><span class="nx">e</span><span class="p">,</span><span class="nx">r</span><span class="p">]))</span><span class="k">return</span> <span class="nx">thi</span>
+<span class="nx">s</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">t</span><span class="o">&amp;&amp;!</span><span class="nx">e</span><span class="o">&amp;&amp;!</span><span class="nx">r</span><span class="p">){</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="o">=</span><span class="k">void</span> <span class="mi">0</span><span class="p">;</span><span class="k">return</span> <span class="k">this</span><span class="p">}</span><span class="nx">o</span><span class="o">=</span><span class="nx">t</span><span class="o">?</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">:</span><span class="nx">i</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">);</span><span class="nx">fo</span>
+<span class="nx">r</span><span class="p">(</span><span class="nx">h</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nx">u</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">h</span><span class="o">&lt;</span><span class="nx">u</span><span class="p">;</span><span class="nx">h</span><span class="o">++</span><span class="p">){</span><span class="nx">t</span><span class="o">=</span><span class="nx">o</span><span class="p">[</span><span class="nx">h</span><span class="p">];</span><span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">]){</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="nx">s</span><span class="o">=</span><span class="p">[];</span><span class="k">if</span><span class="p">(</span><span class="nx">e</span>
+<span class="o">||</span><span class="nx">r</span><span class="p">){</span><span class="k">for</span><span class="p">(</span><span class="nx">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nx">f</span><span class="o">=</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">l</span><span class="o">&lt;</span><span class="nx">f</span><span class="p">;</span><span class="nx">l</span><span class="o">++</span><span class="p">){</span><span class="nx">n</span><span class="o">=</span><span class="nx">a</span><span class="p">[</span><span class="nx">l</span><span class="p">];</span><span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="o">&amp;&amp;</span><span class="nx">e</span><span class="o">!==</span><span class="nx">n</span><span class="p">.</span><span class="nx">callback</span><span class="o">&amp;&amp;</span><span class="nx">e</span><span class="o">!==</span><span class="nx">n</span><span class="p">.</span><span class="nx">callback</span><span class="p">.</span><span class="nx">_ca</span>
+<span class="nx">llback</span><span class="o">||</span><span class="nx">r</span><span class="o">&amp;&amp;</span><span class="nx">r</span><span class="o">!==</span><span class="nx">n</span><span class="p">.</span><span class="nx">context</span><span class="p">){</span><span class="nx">s</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">n</span><span class="p">)}}}</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">]}}</span><span class="nx">retur</span>
+<span class="nx">n</span> <span class="k">this</span><span class="p">},</span><span class="nx">trigger</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">)</span><span class="k">return</span> <span class="k">this</span><span class="p">;</span><span class="kd">var</span> <span class="nx">e</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span>
+<span class="mi">1</span><span class="p">);</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">c</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="s2">&quot;trigger&quot;</span><span class="p">,</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">))</span><span class="k">return</span> <span class="k">this</span><span class="p">;</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_events</span><span class="p">[</span><span class="nx">t</span><span class="p">];</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_event</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span><span class="nx">f</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">e</span><span class="p">);</span><span class="k">if</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="nx">f</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">arguments</span><span class="p">);</span><span class="k">return</span> <span class="k">this</span><span class="p">},</span><span class="nx">stopListening</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">r</span><span class="p">)</span>
+<span class="p">{</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">_listeningTo</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">s</span><span class="p">)</span><span class="k">return</span> <span class="k">this</span><span class="p">;</span><span class="kd">var</span> <span class="nx">n</span><span class="o">=!</span><span class="nx">e</span><span class="o">&amp;&amp;!</span><span class="nx">r</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">r</span><span class="o">&amp;&amp;</span><span class="k">typeof</span> <span class="nx">e</span><span class="o">===</span><span class="s2">&quot;objec&quot;</span></code></pre></figure>
+
+</div>
+
+<p><code>uglifyjs -b &lt; backbone-min.js</code>
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">define</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">define</span><span class="p">.</span><span class="nx">amd</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">define</span><span class="p">([</span> <span class="s2">&quot;underscore&quot;</span><span class="p">,</span> <span class="s2">&quot;jquery&quot;</span><span class="p">,</span> <span class="s2">&quot;exports&quot;</span> <span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span> <span class="o">=</span> <span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">r</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">!==</span> <span class="s2">&quot;undefined&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;underscore&quot;</span><span class="p">);</span>
+        <span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span> <span class="o">=</span> <span class="nx">e</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="p">{},</span> <span class="nx">t</span><span class="p">.</span><span class="nx">_</span><span class="p">,</span> <span class="nx">t</span><span class="p">.</span><span class="nx">jQuery</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">Zepto</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">ender</span> <span class="o">||</span> <span class="nx">t</span><span class="p">.</span><span class="nx">$</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">})(</span><span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">Backbone</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">push</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">slice</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">splice</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">VERSION</span> <span class="o">=</span> <span class="s2">&quot;1.1.2&quot;</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">noConflict</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span></code></pre></figure>
+
+<p></div></p>
+
+<h4>人的部分</h4>
+
+<p>猜测代码作者的意图有很多的方法。</p>
+
+<h4>找guards和coercions</h4>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">arg</span> <span class="o">!=</span> <span class="s1">&#39;number&#39;</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="s2">&quot;arg must be a number&quot;</span><span class="p">);</span></code></pre></figure>
+
+</div>
+
+<p>看上去函数的定义域是数值型。</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">arg</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p>强制转换为数值类型。和前面的一样，只是不再抛出错误。可能会有<code>NaN</code>出现。</p>
+
+<h4>找默认值</h4>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">arg</span> <span class="o">=</span> <span class="nx">arg</span> <span class="o">||</span> <span class="p">{}</span></code></pre></figure>
+
+</div>
+
+<p>默认为空。</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">arg</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="nx">arg</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p>如果没有相关参数传进来的话，则默认为true。</p>
+
+<h4>找层（layers）</h4>
+
+<p>Express中的<code>req</code>和<code>res</code>是跟web相连的。它们会作用到哪一层呢？能够找到接口的边界吗？</p>
+
+<h4>找轨迹（tracing）</h4>
+
+<p>有检查点吗？有debug日志吗？它们是一个完整的功能，还是之前的bug残留下来的呢？</p>
+
+<h4>找自反性（reflexivity）</h4>
+
+<p>识别符是动态生成的吗？有<code>eval</code>、元编程和新函数定义吗？<code>func.toString()</code>是一个很好的切入点。</p>
+
+<h4>找生命周期</h4>
+
+<ul>
+<li>被谁初始化的</li>
+<li>什么时候会改变</li>
+<li>被谁改变</li>
+<li>上述信息会在其他地方出现吗</li>
+<li>会出现不一致性吗</li>
+</ul>
+
+<p>某个时间，某个人输入了一个值。在另外的某个地方，某个时候这个值会对其他人产生影响，他们是谁？是什么或者谁来决定的？这个值会改变吗？由谁来改变？</p>
+
+<h4>找隐藏状态机（hidden state machines）</h4>
+
+<p>有时候布尔变量会被当作解构了的状态机使用。</p>
+
+<p>例如，变量<code>isReadied</code>和<code>isFinished</code>可能隐含如下状态：
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">isReadied</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">isFinished</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span></code></pre></figure>
+
+<p></div></p>
+
+<p>或：
+<code>START -&gt; READY -&gt; FINISHED</code></p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">isReadied</span> <span class="o">|</span> <span class="nx">isFinished</span> <span class="o">|</span> <span class="nx">state</span>
+<span class="o">----------|------------|------------</span>
+<span class="kc">false</span>     <span class="o">|</span> <span class="kc">false</span>      <span class="o">|</span> <span class="nx">START</span>
+<span class="kc">false</span>     <span class="o">|</span> <span class="kc">true</span>       <span class="o">|</span> <span class="nx">invalid</span>
+<span class="kc">true</span>      <span class="o">|</span> <span class="kc">false</span>      <span class="o">|</span> <span class="nx">READY</span>
+<span class="kc">true</span>      <span class="o">|</span> <span class="kc">true</span>       <span class="o">|</span> <span class="nx">FINISHED</span></code></pre></figure>
+
+</div>
+
+<h4>找构造（composition)和继承</h4>
+
+<p>这段代码有我认识的部分吗？它们有名字吗？</p>
+
+<h4>找相同的操作</h4>
+
+<p><code>map</code>, <code>reduce</code>, cross-join。</p>
+
+<p>是时候开始读源代码了，Enjoy！</p>
+
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+    
+      <a class="prev" href="/cn/blog/wechathelper/"><span>&laquo;&nbsp;微信联系人检测工具开发手记</span>
+      
+    </a>
+    
+    
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'yongfeng'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</div>
+
+      </div>
+   </div><!-- end .content -->
+
+   <div class="footer">
+   <div class="container">
+      <p class="copy">&copy; 2016 <a href="http://brianmaierjr.com">Yongfeng Zhang</a></p>
+
+      <div class="footer-links">
+         <ul class="noList">
+            
+            <li><a href="https://www.facebook.com/yongfeng.zhangfree">
+                  <svg id="facebook-square" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M82.667,1H17.335C8.351,1,1,8.351,1,17.336v65.329c0,8.99,7.351,16.335,16.334,16.335h65.332 C91.652,99.001,99,91.655,99,82.665V17.337C99,8.353,91.652,1.001,82.667,1L82.667,1z M84.318,50H68.375v42.875H50V50h-8.855V35.973 H50v-9.11c0-12.378,5.339-19.739,19.894-19.739h16.772V22.3H72.967c-4.066-0.007-4.57,2.12-4.57,6.078l-0.023,7.594H86.75 l-2.431,14.027V50z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://twitter.com/freedombird9">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="https://github.com/freedombird9">
+                  <svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="mailto:yf.zhangfree@gmail.com">
+                  <svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M25.5,25.5h49 c0.874,0,1.723,0.188,2.502,0.542L50,57.544L22.998,26.041C23.777,25.687,24.626,25.499,25.5,25.5L25.5,25.5z M19.375,68.375v-36.75 c0-0.128,0.005-0.256,0.014-0.383l17.96,20.953L19.587,69.958C19.448,69.447,19.376,68.916,19.375,68.375L19.375,68.375z M74.5,74.5 h-49c-0.541,0-1.072-0.073-1.583-0.212l17.429-17.429L50,66.956l8.653-10.096l17.429,17.429C75.572,74.427,75.041,74.5,74.5,74.5 L74.5,74.5z M80.625,68.375c0,0.541-0.073,1.072-0.211,1.583L62.652,52.195l17.96-20.953c0.008,0.127,0.014,0.255,0.014,0.383 L80.625,68.375L80.625,68.375z"></path>
+                  </svg>
+            </a></li>
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer -->
+
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src=""><\/script>')</script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+
+
+</body>
+
+</html>
