@@ -496,4 +496,7 @@ true      | true       | FINISHED
 
 是时候开始读源代码了，Enjoy！
 
+Github:
+<p> <a href="https://github.com/freedombird9/how-to-read-source-code">https://github.com/freedombird9/how-to-read-source-code</a></p>
+
 [How To Read Source Code]: https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md
