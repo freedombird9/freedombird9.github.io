@@ -5,6 +5,7 @@ description: 翻译自：Write code that is easy to delete, not easy to extend
 date:   2016-02-15 16:49:40
 categories: technology
 ---
+### 译者序
 
 好的文章总是见解独到，功底深厚而逻辑清晰。这是一篇关于如何设计、架构代码的文章。文章的观点新颖而有力。作者的观点是，我们所做的一切 —— 重构、模块化、分层，等等，都是为了让我们的代码易于被删改，都是为了让遗留代码不成为我们的负担，而不是为了代码复用。
 
@@ -22,7 +23,7 @@ categories: technology
 
 原题目：[Write code that is easy to delete, not easy to extend]
 
-中文翻译：
+### 中文翻译
 
 编程是一件很糟很的事 —— *在荒废了自己的一生之后所学到的东西*
 
