@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "至乔布斯"
+title: "致乔布斯"
 description: 写在乔布斯离世后不久。
 date: 2011-10-24 22:35:45
 categories: lifestyle
