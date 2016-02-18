@@ -5,14 +5,16 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Feb 2016 00:33:37 -0800</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 00:33:37 -0800</lastBuildDate>
+    <pubDate>Thu, 18 Feb 2016 15:16:33 -0800</pubDate>
+    <lastBuildDate>Thu, 18 Feb 2016 15:16:33 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
       <item>
         <title>要写易删除，而不易延展的代码</title>
-        <description>&lt;p&gt;好的文章总是见解独到，功底深厚而逻辑清晰。这是一篇关于如何设计、架构代码的文章。文章的观点新颖而有力。作者的观点是，我们所做的一切 —— 重构、模块化、分层，等等，都是为了让我们的代码易于被删改，都是为了让遗留代码不成为我们的负担，而不是为了代码复用。&lt;/p&gt;
+        <description>&lt;h3&gt;译者序&lt;/h3&gt;
+
+&lt;p&gt;好的文章总是见解独到，功底深厚而逻辑清晰。这是一篇关于如何设计、架构代码的文章。文章的观点新颖而有力。作者的观点是，我们所做的一切 —— 重构、模块化、分层，等等，都是为了让我们的代码易于被删改，都是为了让遗留代码不成为我们的负担，而不是为了代码复用。&lt;/p&gt;
 
 &lt;p&gt;作者认为，经过七个不同的开发阶段，最终便可以提炼出这样的代码。每个阶段都有详细的介绍和例子。&lt;/p&gt;
 
@@ -28,7 +30,7 @@
 
 &lt;p&gt;原题目：&lt;a href=&quot;http://programmingisterrible.com/&quot;&gt;Write code that is easy to delete, not easy to extend&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;中文翻译：&lt;/p&gt;
+&lt;h3&gt;中文翻译&lt;/h3&gt;
 
 &lt;p&gt;编程是一件很糟很的事 —— &lt;em&gt;在荒废了自己的一生之后所学到的东西&lt;/em&gt;&lt;/p&gt;
 
@@ -267,7 +269,7 @@
 &lt;p&gt;好的代码总是易于删除的代码。&lt;/p&gt;
 </description>
         
-          <description>&lt;p&gt;好的文章总是见解独到，功底深厚而逻辑清晰。这是一篇关于如何设计、架构代码的文章。文章的观点新颖而有力。作者的观点是，我们所做的一切 —— 重构、模块化、分层，等等，都是为了让我们的代码易于被删改，都是为了让遗留代码不成为我们的负担，而不是为了代码复用。&lt;/p&gt;
+          <description>&lt;h3&gt;译者序&lt;/h3&gt;
 </description>
         
         <pubDate>Mon, 15 Feb 2016 08:49:40 -0800</pubDate>
