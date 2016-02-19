@@ -257,7 +257,5 @@ Feature flag 并不是命令行开关，它是一种分离功能发布与合并�
 
 好的代码总是易于删除的代码。
 
-[Write code that is easy to delete, not easy to extend]: http://programmingisterrible.com/
-
+[Write code that is easy to delete, not easy to extend]: http://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to
 [秋兄]: https://github.com/liaohuqiu
-[编辑纠错]: https://github.com/freedombird9/freedombird9.github.io/blob/docs/_posts/2016-02-15-programming-is-terrible.cn.markdown
