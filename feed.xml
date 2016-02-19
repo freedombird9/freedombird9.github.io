@@ -5,8 +5,8 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Feb 2016 16:41:22 -0800</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 16:41:22 -0800</lastBuildDate>
+    <pubDate>Thu, 18 Feb 2016 16:53:42 -0800</pubDate>
+    <lastBuildDate>Thu, 18 Feb 2016 16:53:42 -0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -34,7 +34,7 @@
 
 &lt;p&gt;谢谢&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;秋兄&lt;/a&gt;将这篇文章分享给我。&lt;/p&gt;
 
-&lt;p&gt;原题目：&lt;a href=&quot;http://programmingisterrible.com/&quot;&gt;Write code that is easy to delete, not easy to extend&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原题目：&lt;a href=&quot;http://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to&quot;&gt;Write code that is easy to delete, not easy to extend&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;中文翻译&lt;/h3&gt;
 
@@ -279,8 +279,8 @@
 </description>
         
         <pubDate>Mon, 15 Feb 2016 08:49:40 -0800</pubDate>
-        <link>http://blog.yongfengzhang.com/cn/blog/programming-is-terrible/</link>
-        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/programming-is-terrible/</guid>
+        <link>http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</guid>
         
         
         <category>technology</category>
