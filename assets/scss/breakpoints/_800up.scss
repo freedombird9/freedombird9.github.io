@@ -189,6 +189,15 @@ POST STYLING
 	  margin-left: span(2 of 12);
 		float: none;
 	}
+
+	.header-link {
+		float: right;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+	}
 }
 
 
