@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "要写易删除，而不易扩展的代码"
+title:  "要写易删除，而不是易扩展的代码"
 description: 翻译自：Write code that is easy to delete, not easy to extend
 date:   2016-02-15 16:49:40
 categories: technology
