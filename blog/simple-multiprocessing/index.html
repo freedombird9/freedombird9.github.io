@@ -15,7 +15,7 @@
     <meta name="description" content="Yongfeng's blog / 张咏枫的博客">
     <meta name="keywords" content="张咏枫,博客,Yongfeng Zhang,blog" />
 
-    <title>About Yongfeng Zhang</title>
+    <title>A Simple Launch-and-Go-Away Multiprocessing Architecture</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -26,7 +26,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://blog.yongfengzhang.com/about/">
+    <link rel="canonical" href="http://blog.yongfengzhang.com/blog/simple-multiprocessing/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -60,7 +60,7 @@ ga('send', 'pageview');
                      <a href="/index.html">Home</a>
                  </li>
                  
-                 <li class="element  current">
+                 <li class="element  ">
                      <a href="/about">About</a>
                  </li>
                  
@@ -90,22 +90,107 @@ ga('send', 'pageview');
    <div class="content">
       <div class="container">
          <div class="post">
-	<h1 class="pageTitle">About Yongfeng Zhang</h1>
-	<!-- <img src="/assets/img/motor3.jpg" alt=""> -->
-	<p class="intro">I'm currently a software developer at
-  <a href="https://wwww.bloomsky.com">BloomSky Inc.</a> Particularly, I'm experienced at Python and Javascript.
-	I routinely use Django, Celery, React.js, Node.js and Nginx. I'm also a rider!
-  </p>
+  
+  <h1 class="postTitle">A Simple Launch-and-Go-Away Multiprocessing Architecture</h1>
+  <p class="meta">January 22, 2016 | <span class="time">3</span> Minute Read </p>
 
-	<p>I'm on: </p>
-	<ul>
-		<li><a href="https://github.com/freedombird9"> github </a></li>
-		<li><a href="https://www.linkedin.com/in/yongfeng-jack-zhang-29b5a036"> LinkedIn </a></li>
-		<li><a href="https://www.facebook.com/yongfeng.zhangfree"> Facebook </a></li>
-		<li><a href="mailto:yf.zhangfree@gmail.com"> email </a></li>
-		<li><a href="http://weibo.com/u/2325903452"> 微博 </a></li>
-	</ul>
 
+  <p>In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even <em>forever</em>. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&#39;t want to run them in your main process, you want to isolate them as much as you can.</p>
+
+<p>Here I&#39;m only addressing this kind of situation: you launch the task, set a timeout for it, and you are good to go. You don&#39;t care if it will succeed or not and you don&#39;t retry it on failure. It should be killed automatically if it runs out of time (Why? Because otherwise it will become a zombie and stick there forever and never release any resource).</p>
+
+<p>This design is very useful in situations where you don&#39;t care about occasional data loss.</p>
+
+<h3>Thread or Process?</h3>
+
+<p>I would use multiprocessing. Not only because a thread can neither be killed, nor can it terminate itself in Python, but also because of the extra overhead on multicore systems, which is very common nowadays, introduced by the infamous GIL.</p>
+
+<p>Regarding the GIL issue, here is a perfect insight: <a href="http://www.dabeaz.com/python/GIL.pdf">Inside the Python GIL</a>. It illustrates the gigantic overheads using threads. Here is the picture that visualizes this problem very well.
+<div class='md-10-suffix-1'>
+  <figure>
+    <img src="/assets/img/post-simple-multiprocessing/gil_battle.png" alt="GIL Battle"/>
+    <figcaption>GIL Battle</figcaption>
+  </figure>
+</div></p>
+
+<p>Put it simply, on a multicore system, a thread will be scheduled to run immediately (on another core) once the OS is signaled that a previously running thread has released its GIL. But when it can start to run, the GIL is already gone. It&#39;s because with multiple cores, threads in ready state get scheduled to run on different cores at the same time so they compete for the GIL.</p>
+
+<p>In the above figure, Thread 2 on CPU 2 gets signaled every time Thread 1 releases GIL, but it cannot start to run before Thread 1 acquires the GIL again due to the signal passing and scheduling overheads.</p>
+
+<p>Be very careful with Python multithreading, especially in multicore systems.</p>
+
+<h3>Architecture</h3>
+
+<p>Remember we just want to launch a separate process to run, we don&#39;t want our main process to wait for it to finish or to continuously monitor its state. Once the process is forked, our main program shouldn&#39;t care about it anymore otherwise it will be slowed down.</p>
+
+<p>How to achieve this? It turns out we can just wrap the worker process in another process which should be responsible for the worker&#39;s lifecycle. We call it the manager process here. The design looks like this:</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">worker</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+    <span class="c"># Read from the queue</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       process the work here</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">manager</span><span class="p">(</span><span class="n">task_queue</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;lifecycle manager of the worker process&#39;&#39;&#39;</span>
+    <span class="n">worker_p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">task_queue</span><span class="p">,</span> <span class="p">))</span>
+    <span class="n">worker_p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">worker_p</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TIMEOUT</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">worker_p</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;worker process timed out, killing ...&#39;</span><span class="p">)</span>
+        <span class="n">worker_p</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">task_queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">database</span><span class="o">.</span><span class="n">feed</span><span class="p">():</span>
+        <span class="n">manager_p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">manager</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">task_queue</span><span class="p">,))</span>
+        <span class="n">manager_p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="n">task_queue</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></code></pre></figure>
+
+</div>
+
+<p>The main program can focus on fetching data from database and dispatch it to workers. We can do all the ugly and dangerous stuff in the worker processes without worrying the main process getting contaminated. The lifecycle manager takes care of all the cleaning-ups.</p>
+
+<h3>An optional third-party module</h3>
+
+<p>There&#39;s a neat Python module called <a href="https://github.com/noxdafox/pebble">Pebble</a> that can do the same thing for you. The design is similar, it also uses a lifecycle manager to manage the actual worker process. The difference is that the manager is implemented as a daemon thread instead of a process.</p>
+
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+    
+      <a class="prev" href="/blog/yaml-parser/"><span>&laquo;&nbsp;Command Line YAML Parer & Auto-exporter</span>
+      
+    </a>
+    
+    
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'yongfeng'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+  <script>var sharebutton_is_horizontal = false; document.write('<script src="//cdn.script.to/share2.js"></scr' + 'ipt>'); document.write("<div style='display: none'>");</script><a href="http://sharebutton.org/">social sharing buttons</a><script>document.write("</div>");</script>
+  
 </div>
 
       </div>

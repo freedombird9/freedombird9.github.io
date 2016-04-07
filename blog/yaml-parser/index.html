@@ -15,7 +15,7 @@
     <meta name="description" content="Yongfeng's blog / 张咏枫的博客">
     <meta name="keywords" content="张咏枫,博客,Yongfeng Zhang,blog" />
 
-    <title>About Yongfeng Zhang</title>
+    <title>Command Line YAML Parer & Auto-exporter</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
@@ -26,7 +26,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
-    <link rel="canonical" href="http://blog.yongfengzhang.com/about/">
+    <link rel="canonical" href="http://blog.yongfengzhang.com/blog/yaml-parser/">
 
     <!-- Modernizr -->
     <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
@@ -60,7 +60,7 @@ ga('send', 'pageview');
                      <a href="/index.html">Home</a>
                  </li>
                  
-                 <li class="element  current">
+                 <li class="element  ">
                      <a href="/about">About</a>
                  </li>
                  
@@ -90,22 +90,120 @@ ga('send', 'pageview');
    <div class="content">
       <div class="container">
          <div class="post">
-	<h1 class="pageTitle">About Yongfeng Zhang</h1>
-	<!-- <img src="/assets/img/motor3.jpg" alt=""> -->
-	<p class="intro">I'm currently a software developer at
-  <a href="https://wwww.bloomsky.com">BloomSky Inc.</a> Particularly, I'm experienced at Python and Javascript.
-	I routinely use Django, Celery, React.js, Node.js and Nginx. I'm also a rider!
-  </p>
+  
+  <h1 class="postTitle">Command Line YAML Parer & Auto-exporter</h1>
+  <p class="meta">January 21, 2016 | <span class="time">2</span> Minute Read </p>
 
-	<p>I'm on: </p>
-	<ul>
-		<li><a href="https://github.com/freedombird9"> github </a></li>
-		<li><a href="https://www.linkedin.com/in/yongfeng-jack-zhang-29b5a036"> LinkedIn </a></li>
-		<li><a href="https://www.facebook.com/yongfeng.zhangfree"> Facebook </a></li>
-		<li><a href="mailto:yf.zhangfree@gmail.com"> email </a></li>
-		<li><a href="http://weibo.com/u/2325903452"> 微博 </a></li>
-	</ul>
 
+  <p>Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&#39;s config file. I&#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.</p>
+
+<p>A typical YAML config file for App engine is like the following:
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">application</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">project-id</span>
+<span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+<span class="l-Scalar-Plain">runtime</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python27</span>
+<span class="l-Scalar-Plain">api_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+<span class="c1"># other config settings</span>
+<span class="l-Scalar-Plain">env_variables</span><span class="p-Indicator">:</span>
+ <span class="l-Scalar-Plain">DJANGO_SETTINGS_MODULE</span><span class="p-Indicator">:</span> <span class="s">&#39;base.settings&#39;</span>
+ <span class="l-Scalar-Plain">GAE_SQL_HOST</span><span class="p-Indicator">:</span> <span class="s">&#39;/cloudsql/:dbname&#39;</span>
+ <span class="l-Scalar-Plain">GAE_SQL_DBNAME</span><span class="p-Indicator">:</span> <span class="s">&#39;dbname&#39;</span>
+ <span class="l-Scalar-Plain">LOCAL_SQL_HOST</span><span class="p-Indicator">:</span> <span class="s">&#39;host_ip_address&#39;</span>
+ <span class="l-Scalar-Plain">LOCAL_SQL_DBNAME</span><span class="p-Indicator">:</span> <span class="s">&#39;dbname&#39;</span>
+ <span class="l-Scalar-Plain">DEBUG</span><span class="p-Indicator">:</span> <span class="s">&#39;off&#39;</span>
+ <span class="l-Scalar-Plain">TEMPLATE_DEBUG</span><span class="p-Indicator">:</span> <span class="s">&#39;off&#39;</span>
+ <span class="l-Scalar-Plain">GCM_PUSH_API_KEY</span><span class="p-Indicator">:</span> <span class="s">&#39;key&#39;</span></code></pre></figure>
+
+<p></div></p>
+
+<p>App engine will use the variables under <code>env_variables</code> as its environment variables. We need to parse this file and export them locally one by one.</p>
+
+<h3>Usage</h3>
+
+<p>Get the source code <a href="https://github.com/freedombird9/work-happy-anywhere">here</a> first. To use it, you need to have bash 4 and Python YAML module.</p>
+
+<h4>Install bash 4 on OS X</h4>
+
+<p>You can see your bash version by running <code>bash --version</code>. If it&#39;s not version 4, you need to install one.
+<div class='md-10-suffix-1'></p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Homebrew installs the new bash under /usr/local/bin/bash</span>
+brew update <span class="o">&amp;&amp;</span> brew install bash
+sudo bash -c <span class="s1">&#39;echo /usr/local/bin/bash &gt;&gt; /etc/shells&#39;</span>
+<span class="c"># Change to the new shell</span>
+chsh -s /usr/local/bin/bash</code></pre></figure>
+
+<p></div></p>
+
+<p>Now close your current terminal and start a new one. Run <code>bash --version</code>, you should see version 4.X.X</p>
+
+<p>Install PyYAML:</p>
+
+<p>The shell script relies on a python program to parse the yaml file. You need this module to run the python parser (<code>read_yaml.py</code>).</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install pyyaml</code></pre></figure>
+
+</div>
+
+<p>Then you&#39;re ready to go. Remember to execute it with <code>. set_envs.sh /path/to/yamlfile</code> or <code>source set_envs.sh /path/to/yamlfile</code></p>
+
+<p>If you run it directly, the environment variables won&#39;t be exported to your current working shell, rather, they&#39;ll be exported to a sub-shell and be gone.</p>
+
+<h3>How?</h3>
+
+<p>Fairly simple. Consume the Python-parsed YAML in the bash, store the key-value pairs in an associative array. Iterate through it and export. Note that associative arrays are only available in bash 4, and that&#39;s why we need to upgrade our bash.</p>
+
+<div class='md-10-suffix-1'>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">declare</span> -A <span class="nv">items</span><span class="o">=()</span>
+<span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> -r -d <span class="s1">&#39;&#39;</span> key <span class="o">&amp;&amp;</span> <span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> -r -d <span class="s1">&#39;&#39;</span> value<span class="p">;</span> <span class="k">do</span>
+    items<span class="o">[</span><span class="nv">$key</span><span class="o">]=</span><span class="nv">$value</span>
+<span class="k">done</span> &lt; &lt;<span class="o">(</span>python <span class="nv">$my_dir</span>/read_yaml.py <span class="nv">$1</span><span class="o">)</span>
+
+<span class="k">for</span> i in <span class="s2">&quot;${!items[@]}&quot;</span>
+<span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;$i: ${items[$i]}&quot;</span>
+  <span class="nb">export</span> <span class="nv">$i</span><span class="o">=</span><span class="k">${</span><span class="nv">items</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="k">}</span>
+<span class="k">done</span></code></pre></figure>
+
+</div>
+
+
+
+  <!-- POST NAVIGATION -->
+  <div class="postNav clearfix">
+    
+      <a class="prev" href="/blog/ifttt-development/"><span>&laquo;&nbsp;Channel Development on IFTTT</span>
+      
+    </a>
+    
+    
+      <a class="next" href="/blog/simple-multiprocessing/"><span>A Simple Launch-and-Go-Away Multiprocessing Architecture&nbsp;&raquo;</span>
+      
+      </a>
+    
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'yongfeng'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+  <script>var sharebutton_is_horizontal = false; document.write('<script src="//cdn.script.to/share2.js"></scr' + 'ipt>'); document.write("<div style='display: none'>");</script><a href="http://sharebutton.org/">social sharing buttons</a><script>document.write("</div>");</script>
+  
 </div>
 
       </div>

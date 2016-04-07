@@ -1,37 +1,1649 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
-      {% unless post.link %}
+    <title>枫声 Yongfeng&#39;s Blog</title>
+    <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
+    <link>http://blog.yongfengzhang.com/</link>
+    <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 06 Apr 2016 23:46:54 -0700</pubDate>
+    <lastBuildDate>Wed, 06 Apr 2016 23:46:54 -0700</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        {% if post.excerpt %}
-          <description>{{ post.excerpt | xml_escape }}</description>
-        {% else %}
-          <description>{{ post.content | xml_escape }}</description>
-        {% endif %}
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>坂上之云 —— 剧情简介及影评</title>
+        <description>&lt;h3&gt;剧情梗概&lt;/h3&gt;
+
+&lt;h4&gt;序&lt;/h4&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/title.png&quot; alt=&quot;坂上之云&quot;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一介小国即将迎来其开化之期。明治初期的日本，产业方面，只有农业，人才方面，只有近 300 年来身为读书阶层的旧士族。通过明治维新，日本人首次拥有了近代化的民族国家，所有人都成为了「国民」。带着新奇与不安，他们将成为这个昂扬的时代最初的体验者。不管是哪个阶层、何种出身的人，都能通过自己的努力成为博士、官吏、军人或是教师。这个时代的光明正是源于这种乐天主义。&lt;/p&gt;
+
+&lt;p&gt;现在看来确实有点滑稽，这个只有米和布的国家，却和欧洲的先进国家一样拥有了自己的海军、陆军。&lt;/p&gt;
+
+&lt;p&gt;这是一个关于如此的小国，是如何通过国民的不懈努力，最终屹立于世界的故事。故事的主人公，是四国的三名男子。&lt;/p&gt;
+
+&lt;p&gt;秋山真之，为海军部制定作战计划，在对马海战中彻底击溃了被称为不可战胜的波罗的海舰队，其塑像现在还立于佐世保的海军兵学校中。&lt;/p&gt;
+
+&lt;p&gt;他的哥哥秋山好古，创立了日本的骑兵部队，打败了有着史上最强骑兵之称的哥萨克军团。&lt;/p&gt;
+
+&lt;p&gt;还有一个青年，他是变革了俳句、短歌等日本旧有的短诗型，成为了诗歌中兴鼻祖的正冈子规。&lt;/p&gt;
+
+&lt;p&gt;他们以明治时代的人所独有的劲头，大步向前。他们和这个国家的命运，都如同迎着山坡升起的云朵一样蒸蒸日上。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/main_cast.png&quot; alt=&quot;秋山好古、秋山真之、正冈子规&quot;/&gt;
+    &lt;figcaption&gt;秋山好古、秋山真之、正冈子规&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;少年的国&lt;/h4&gt;
+
+&lt;p&gt;庆应四年，好古十岁那年的春天，一件颠覆了村子的大事发生了：明治维新。武士的社会和经济地位一落千丈。作为武士阶层的秋山家，为了真之的出生而愁苦不已。好古为了分担家里的负担，一边忍受着羞辱在澡堂打工，一边自己读书学习。恰逢改革之机，哥哥好古在恳求父亲之后，终于如愿去了大阪免费的师范学校，并最终进入了陆军学校。&lt;/p&gt;
+
+&lt;p&gt;在开化之初，日本人被戏称为猴子，除了外貌之外，还有「猴子学人一般模仿欧洲先进文明」的意思。尽管在矇昧的亚洲遭受白眼，在先进的欧洲受到嘲笑，但是日本国民对于改革图强确是毅然决然的。日本已经把国家的存亡全盘的赌在了西化上。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/japanese.png&quot; alt=&quot;讽刺日本人的漫画&quot;/&gt;
+    &lt;figcaption&gt;讽刺日本人的漫画&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;由松山中学毕业后，子规和真之都跟随当时的潮流，去了东京学习。在明治维新的初期，人权、自由与民主的观念已经在青年学生当中流行，他们也像其他学生一样走上了街头，与传统的守旧势力展开了对抗。&lt;/p&gt;
+
+&lt;p&gt;虽然此时，旧有阶级之间的隔阂仍然显而易见，欧美列强仍然享有治外法权。然而从英国购买的新型巡洋舰已经入役，政府也行将立宪法、开国会，向世界展示这个国家的文明。一介小国即将迎来其开化之期。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/new_cruiser.png&quot; alt=&quot;「筑紫」号巡洋舰入役&quot;/&gt;
+    &lt;figcaption&gt;「筑紫」号巡洋舰入役&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;青云&lt;/h4&gt;
+
+&lt;p&gt;真之和子规进入东京大学预备班学习，能就读于那里的学生都是当时一等一的人才，以后都成为了博士或者大臣。他们的同学当中有后来的流行作家山田美妙、大文豪夏目漱石。&lt;/p&gt;
+
+&lt;p&gt;在陆军学校的秋山好古则加入了德意志师学习陆军战法，时任陆军大佐儿玉源太郎也在列。德国教官高度专业化的训练为日后日本陆军取得日俄战争的胜利打下了坚实的基础。&lt;/p&gt;
+
+&lt;p&gt;棒球传入了日本，子规很快成为了狂热的爱好者与推广者，他创造了其对应的汉字词「野球」。在其后的文章中，他对棒球中的术语也逐一进行了翻译：打者（batter）、走者（runner）、飞球（fly）。&lt;/p&gt;
+
+&lt;p&gt;对海洋向往已久的真之从东大预备班退学，在明治 19 年进入了筑地的海军兵学校。那里的一切都是全新的，西式制服、咖喱午餐，与日本当时的习俗差异巨大。海军学校的英国教官以英国皇家海军为典范，编制、训练日本海军。&lt;/p&gt;
+
+&lt;p&gt;此时在法国学习骑兵技术的好古也被委以重任，日本陆军将关于搜集骑兵建设信息的一切重任都交给了这个只有 30 岁的年轻大尉。在其他领域也是如此，从明治初期到中期，国力有限的日本重用了大量的年轻人才，国家焕发着蓬勃的生机。&lt;/p&gt;
+
+&lt;h4&gt;国家鸣动 &amp;amp; 甲午战争&lt;/h4&gt;
+
+&lt;p&gt;十九世纪是整个人类都在大步向前、欣欣向荣的时代。英国开启了工业革命，俄国进行了农奴制改革，德意志完成了统一，美国在内战之后迅速崛起，日本开始维新，中国则发起了洋务运动。科学技术日新月异，在短短一百年内，人类踏入了蒸汽时代，紧接着又马不停蹄的迎来了电气化。这是一个振奋的时代。这也是一个动荡的时代。列强都仅在各自利益的驱使下行动，世界进入了帝国主义时代。这是一个属于外交官和军人的舞台。&lt;/p&gt;
+
+&lt;p&gt;清帝国也终于在近代化的浪潮中觉醒，以雄厚的财力购买最先进的武器。属国朝鲜爆发「东学党事件」，无力维稳的朝鲜政府请求清朝出兵。&lt;/p&gt;
+
+&lt;p&gt;强大的北洋舰队到以友好交流的名义对日本各港口进行访问，舰队官兵在长崎登录后被日方邀请上岸购物。一些水兵违反军纪，到妓院寻乐并且酗酒斗殴。这些零星的冲突在两天后演变为了一场械斗，造成双方多人死伤。清廷对此采取了非常强硬的态度，时任北洋水师总督甚至提出了对日断交、炮轰长崎等主张。最后事件以日本对清赔款而收尾。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/battleship_visit.png&quot; alt=&quot;北洋水师访日&quot;/&gt;
+    &lt;figcaption&gt;北洋水师在日本港口开炮&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此次访问震惊了日本朝野，可以说是中国版的「黑船事件」。在此之后，伊藤博文内阁公布了大规模的造舰计划，天皇也从内帑拨款支持。两年之后，清朝的海军优势几乎已经被穷追不舍的日本给拉平了。&lt;/p&gt;
+
+&lt;p&gt;明治 27 年春，朝鲜爆发大规模农民叛乱，朝鲜政府已经无法凭借自己的力量平息，于是请求清朝出兵。此时作为一个半岛国家的朝鲜，还是清朝的属国，但同时日本和俄国又声称对其拥有保护权。朝鲜自古就作为日本与大陆国家之间的屏障，如果朝鲜被其他大国所彻底控制，那么日本与帝国主义势力之间就仅隔一条对马海峡了。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ban-shang-yun/korea_japan.png&quot; alt=&quot;甲午战争前的东亚&quot;/&gt;
+    &lt;figcaption&gt;甲午战争前的东亚&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;主和的首相伊藤博文与主战的陆军参谋和外交大臣（陆奥宗光）就关于是否向朝鲜出兵的问题进行了激烈的辩论。最终伊藤博文同意仅以最低限度的兵力去保护侨民，但陆军本部却在私下进行了大规模调遣，一周之后在仁川登陆了。&lt;/p&gt;
+
+&lt;p&gt;联合舰队也从佐世保起航。在朝鲜半岛西岸的丰岛，日、清两国舰队遭遇，甲午战争打响了。&lt;/p&gt;
+
+&lt;p&gt;军队在前线获胜的消息不断传回日本国内，民间一片振奋，正冈子规和其所在的日本报社的许多记者都申请了从军采访。在前线，子规看到了自己著名汉学家祖父所描述中的梦幻国度已变得满目疮痍、民不聊生。日本陆军还通过威胁、恐吓等手段，强迫从军记者将日军描述成受到当地民众欢迎的胜利之师，在国内对战争进行美化和宣扬。&lt;/p&gt;
+
+&lt;p&gt;清国在仅采取了非常有限的抵抗之后就投降了，用秋山真之的话说，就是「对手好像在故意让着我们一样」。这一仗打断了中国的脊梁，让清朝在半岛事务中完全失去了发言权。&lt;/p&gt;
+
+&lt;h4&gt;日俄战争&lt;/h4&gt;
+
+&lt;p&gt;俄、德、法害怕日本在东北的势力做大，以「友善劝告」为借口逼迫日本归还了辽东半岛。俄国此后又通过与清国的密约，取得了南满铁路的所有权，占据旅顺港，并对日提出共管朝鲜。至此，俄罗斯帝国犹如一只巨大的章鱼，盘旋在整个东北亚的上空，已经覆盖了整个中国东北，并正将触角伸向朝鲜。&lt;/p&gt;
+
+&lt;p&gt;战争已经迫在眉睫。伊藤博文临危做出了访俄的决定。在圣彼得堡，他与沙俄的主和派大臣一道做了最大的努力。然而，主和派已经失信于沙皇。伊藤博文访俄失败。&lt;/p&gt;
+
+&lt;p&gt;此后两国又进行了多回合谈判，尽管尼古拉二世在最后关头也没想过真正与日本在远东开战，并且已经下诏对日全面妥协，但是主战的远东总督拖延命令，使国家滑入了战争。&lt;/p&gt;
+
+&lt;p&gt;1904 年 2 月 8日，联合舰队偷袭沙俄驻旅顺的旅顺舰队，次日俄国对日宣战。虽然陆上战场胶着，但是在海上，俄国的太平洋舰队和波罗的海舰队相继覆灭，而日本海军仅受到了非常有限的损失。俄国在内忧外患之下，无心再战，与日本媾和。&lt;/p&gt;
+
+&lt;h4&gt;尾声&lt;/h4&gt;
+
+&lt;p&gt;昭和 5 年，奄奄一息的秋山好古躺在医院中。此时一生的功绩早已成了过眼烟云。他们这一代明治人竭尽自己超乎寻常的聪明才智为日本带来了文明与开化，发展出了和列强相当的经济和军事，成为了大英帝国近十年来的第一个正式盟友，并在战争中击败了俄国。虽然后世的日本人将他们的遗产挥霍殆尽，但是秋山好古是幸运的，他避开了黑暗与动荡的昭和时代，在梦中满洲的铁马冰河之上，饱享荣光的去世了。&lt;/p&gt;
+
+&lt;h3&gt;简评&lt;/h3&gt;
+
+&lt;p&gt;这部电视剧改编自司马辽太郎的同名长篇历史小说，制作豪华：渡边谦旁白，久石让配乐，莎拉·布莱曼演唱主题曲。「坂上之云」意思是「顺着斜坡上升的云」，意指明治时代的日本奋发图强，不断学习并追赶西方列强，国力蒸蒸日上。整部作品充满着昂扬的精神，处处都能使人感受到那个时代日本社会的朝气蓬勃与积极进取。上至天皇，下至平民，为了国家的发展，都节衣缩食，卧薪尝胆。该剧通过三位典型人物，向我们展示了明治时代日本昂扬向上的民族气质。&lt;/p&gt;
+
+&lt;p&gt;这样的风格与以春上春树和渡边纯一等为代表的日本当代小说家的风格截然不同。平成时代的日本已经度过了自己的黄金岁月，社会和经济都相对停滞，一亿中产的国民基本衣食无忧，有着过去日本人想都不敢想的各种权利，同时也仿佛丧失了目标。阴郁、平庸、死水一般压抑的社会是在阅读日本当代小说时能常常感受到的。主人公身上也往往透着一股无力感，对工作和生活充满着失望，转而专注于细小的事物和各种情爱。另外，日本的小说非常少（或者说不善于）去描绘宏大的社会动态，作家往往侧重于描写人物的内心感受和身边琐事。当然，这也是这类小说所特有的魅力。但是，司马辽太郎的这部作品却像法国与俄国的鸿篇巨著一样，全方位的给读者展示出了一个社会的景象。电视剧保留了这个不可多得的优点，让观众仿佛是在从空中鸟瞰明治时代的日本社会。&lt;/p&gt;
+
+&lt;p&gt;中国人观看这部影片一定会有特殊的感触，一是因为近代关乎中日两国命运的甲午、日俄战争都是在中国的领土上进行的，我们对这段历史不可谓不熟悉，同时，以日本的视角来进行的叙事又能带给人许多新的认识和新的观点。&lt;/p&gt;
+
+&lt;p&gt;这部作品其实也一直受到美化战争的诟病。有评论认为这又是将日本描绘成一个受害者形象的作品，处处向观众倾诉日本的亡国危机、被迫参战等等。但是我认为既然影片主要讲述的是明治时代，我们就需要回到那个时代去理解当时的人，而不能以现在去揣度历史，更需要暂时抛弃我们东亚民族对于昭和时代的记忆。让我们置身于 19 世纪后半叶的日本：列强林立、亚洲大陆朝不保夕、黑船来航、不平等条约……跟中国一样，这就是当时日本所面对的形势。跟中国不同的是，日本当时的经济基础和综合国力与列强的差距更大。这也就不难解释首相和天皇在处理战争时的谨小慎微。日俄开战前夕，大臣放弃和谈的建议每次都被天皇驳回。战争不可避免之时，伊藤博文也已经做好了日本被俄国攻陷后向美国求援的准备。这些都是当时的日本人最真切的感受。&lt;/p&gt;
+
+&lt;p&gt;司马辽太郎始终认为明治时代是无比美好的，而后日本之所以走上歧途，都是源于昭和之恶，如片尾中村草田男的俳句「降る雪や明治は遠くなりにけり（雪落而明治渐远）」。明治时代的日本人立志要将日本变成一个文明开化的国家，但是后来却结出了军国主义的恶果，这其中的原因，从这部剧中也可以窥见。&lt;/p&gt;
+
+&lt;p&gt;日本能从一个贫穷落后的农业国在短短几十年时间里转变为世界性强国，与那个时代国民的牺牲精神是分不开的。正如剧中所说，明治时代虽然国力攀升、经济发展，但是民权却很弱小，人民的生活水平并没有大的改善，产业工人的薪水也很微薄，政府甚至组织妇女集体去南洋卖身以赚取外汇，国权与民权严重失衡。然而每每出现战争危机之时，国民却仍然踊跃捐献。可以说，明治时代的高速发展是靠国民的巨大牺牲来实现的。国民为什么会愿意如此付出呢？战争胜利、国际地位提升，并没有给普通人民带来什么实际的好处。反而，为了更多更大的战争，为了战胜更多的国家，税赋还会加重。除了对天皇的忠心，对国家、民族淳朴的自豪感之外，似乎并没有别的什么解释了。&lt;/p&gt;
+
+&lt;p&gt;所以，在看到依靠重税买来的军舰出航时，普通的民众也会如此兴奋，在甲午战争的捷报传来时，街头巷尾也会充满喜悦的气氛，在日英同盟缔结时，民众表现得欣喜若狂，在日俄战争胜利，但是俄国拒绝割地赔款的情况下，人民又如此愤怒，以至于发生了&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%97%A5%E6%AF%94%E8%B0%B7%E7%B8%B1%E7%81%AB%E4%BA%8B%E4%BB%B6&quot;&gt;日比谷纵火事件&lt;/a&gt;，全国各地反对合约并要求继续开战。日俄战争让日本耗尽全力，债务缠身，男子的服役年龄已经达到了 37 岁，但是国民仍然没有觉得「够了吧，可以到此为止了」。&lt;/p&gt;
+
+&lt;p&gt;日本帝国的覆灭，始于明治。历史并不是受害者的历史，而是全部人民的历史。普通人民当然不是军国主义分子，但也不是「热爱和平的日本人民」。就是这样一种集体的无意识，推动着日本走向深渊。人民既是受害者，也是加害者。&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;剧情梗概&lt;/h3&gt;
+</description>
+        
+        <pubDate>Wed, 06 Apr 2016 13:47:20 -0700</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/ban-shang-yun/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/ban-shang-yun/</guid>
+        
+        
+        <category>lifestyle</category>
+        
       </item>
-      {% endunless %}
-    {% endfor %}
+      
+    
+      
+      <item>
+        <title>要写易删除，而不是易扩展的代码</title>
+        <description>&lt;h3&gt;译者序&lt;/h3&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+本文托管在 GitHub 上: &lt;a href=&quot;https://github.com/freedombird9/code-easy-to-delete&quot;&gt;https://github.com/freedombird9/code-easy-to-delete&lt;/a&gt;，欢迎 Star 或纠错。
+&lt;hr&gt;
+&lt;/div&gt;
+
+&lt;p&gt;好的文章总是见解独到，功底深厚而逻辑清晰。这是一篇关于如何设计、架构代码的文章。文章的观点新颖而有力。作者的观点是，我们所做的一切 —— 重构、模块化、分层，等等，都是为了让我们的代码易于被删改，都是为了让遗留代码不成为我们的负担，而不是为了代码复用。&lt;/p&gt;
+
+&lt;p&gt;作者认为，经过七个不同的开发阶段，最终便可以提炼出这样的代码。每个阶段都有详细的介绍和例子。&lt;/p&gt;
+
+&lt;p&gt;初读文章，可能会有抽象、晦涩之感。但多读几遍之后，其主旨就会变的清晰。&lt;/p&gt;
+
+&lt;p&gt;一个晚上的彻夜不眠，有了这篇中文翻译，与大家分享，希望对读者有所助益。&lt;/p&gt;
+
+&lt;p&gt;本文托管在 GitHub 上，水平有限，还望大家多多指点。&lt;/p&gt;
+
+&lt;h4&gt;感谢&lt;/h4&gt;
+
+&lt;p&gt;谢谢&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;秋兄&lt;/a&gt;将这篇文章分享给我。&lt;/p&gt;
+
+&lt;p&gt;原题目：&lt;a href=&quot;http://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to&quot;&gt;Write code that is easy to delete, not easy to extend&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;中文翻译&lt;/h3&gt;
+
+&lt;p&gt;编程是一件很糟糕的事 —— &lt;em&gt;在荒废了自己的一生之后所学到的东西&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4&gt;要写容易删除，而不容易扩展的代码。&lt;/h4&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;没有一行代码产生于理性、有很强的可维护性，且不会被偶然地删除掉&lt;/em&gt; Jean-Paul Sartre&#39;s Programming in ANSI C.
+&lt;hr&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;p&gt;每写一行代码，都会有一个代价：维护。为了不在代码上花费太多，我们有了可复用的软件。但是代码复用有一个问题：当你以后想要修改的时候它就会成为一个障碍。&lt;/p&gt;
+
+&lt;p&gt;一个 API 的用户越多，为了引入修改而需要重写的代码就越多。相似的，你依赖第三方 API 越多，当其有任何改变时你的麻烦就越多。管理代码之间的兼容性，或者模块之间的依赖关系在大型系统中是一个很重要的问题。而且随着项目越来越久，这个问题就会变得越复杂。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;今天我的观点是，如果我们要去计算一个程序有多少行代码，我们不应该将其看成是「产生了多少行」，而应该看成「耗费了多少行。」&lt;/em&gt; EWD 1036
+&lt;hr&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;p&gt;如果我们将「有多少行代码」看成是「耗费了多少行代码」的话，那么当我们删除这些代码的时候，我们就降低了维护成本。我们应该努力开发可丢弃的（disposable）软件，而不是可复用的软件。&lt;/p&gt;
+
+&lt;p&gt;我不需要告诉你删除代码比写代码更有趣吧。&lt;/p&gt;
+
+&lt;p&gt;为了写易于删除的代码：重复你自己以避免产生模块依赖性，但是不要重复管理这些代码。同时将你的代码分层：在易于实现但不易于使用的模块的基础上构建易于使用的 API。拆分你的代码：将很难于实现且很可能会改变的模块互相隔离，并同时和其他的模块隔离。不要将每一个选项都写死，容许在运行时做改变。不要试图同时去做上述所有的事情，或许你在一开始就不要写这么多代码。&lt;/p&gt;
+
+&lt;h4&gt;阶段0：不写代码&lt;/h4&gt;
+
+&lt;p&gt;代码有多少行本身并不能告诉我们什么，但是代码行数的数量级可以：50，500，5000，10000，25000等等。一个一百万行的庞然大物显然会比一个一万行的程序更折磨人。替代它也会显著花费更多的时间、金钱和努力。&lt;/p&gt;
+
+&lt;p&gt;虽然代码越多，摒弃起来就越困难，但是少写一行代码本身并不能省掉任何事情。&lt;/p&gt;
+
+&lt;p&gt;即使如此，最容易删除的代码是你一开始就避免写出来的代码。&lt;/p&gt;
+
+&lt;h4&gt;阶段1：复制粘贴代码&lt;/h4&gt;
+
+&lt;p&gt;写可复用的代码是一件在事后有了代码库中的使用示例后更容易做的事情，而不是在事前就能预料好的。往好的看，仅仅是利用文件系统你或许就已经在复用很多代码了，所以何必这么担心呢？一点点冗余是健康的。&lt;/p&gt;
+
+&lt;p&gt;复制粘贴代码若干次，而不是仅仅为了给这个用法取一个名字就去写一个库函数，是完全没有问题的。一旦把一个东西变成共享的 API，改变起来就会更困难。&lt;/p&gt;
+
+&lt;p&gt;调用你的函数的那段代码会依赖于其实现背后有意或无意的行为。使用你的函数的程序员不会根据你的文档去调用，而会根据他们观察到的函数行为去调用。&lt;/p&gt;
+
+&lt;p&gt;删除函数内的代码比删除一个函数更简单。&lt;/p&gt;
+
+&lt;h4&gt;阶段2：不要复制粘贴代码&lt;/h4&gt;
+
+&lt;p&gt;当你已经复制粘贴足够多次数时，或许就是该提炼出一个函数的时候了。这是「把我从标准库中拯救出来」的东西：「打开一个配置文件并返回一个哈希表」，「删除这个文件夹」。这些例子包括了无状态函数，或者有一些全局信息，如环境变量的函数。这些是最终会出现在一个叫做 &amp;quot;util&amp;quot; 文件中的东西。&lt;/p&gt;
+
+&lt;p&gt;旁白：建一个 &lt;code&gt;util&lt;/code&gt; 文件夹，把不同的功用放在不同的文件里。单个 &lt;code&gt;util&lt;/code&gt; 文件总是会不断变大直到大得来无法拆分。使用单个 &lt;code&gt;util&lt;/code&gt; 文件是不简洁的做法。&lt;/p&gt;
+
+&lt;p&gt;对于应用或者项目而言通用性越强的代码，就越容易复用，被改变或者删除的可能性就越低。它们包括日志记录，第三方 API，文件柄（handle）或者进程相关的库。其他你不会删除掉的代码有列表、哈希表，以及其他集合。这不是因为它们的接口通常都很简单，而是因为它们的作用域不会随着时间的增长而变大。&lt;/p&gt;
+
+&lt;p&gt;我们要努力将代码中难以删除的部分与易于删除的部分分隔得尽可能开，而不是使所有代码都变得易于删除。&lt;/p&gt;
+
+&lt;h4&gt;阶段3：写更多的模版&lt;/h4&gt;
+
+&lt;p&gt;虽然我们通过库来避免复制粘贴，但是我们常常会需要复制粘贴来使用这些库，最后导致写了更多的代码。不过我们给这些代码另外一个名字：模版（boilerplate）。模版和复制粘贴在很大程度上很像，除了每次使用模版的时候都会在不同的地方做一些改变，而不是一次次重复完全一样的东西。&lt;/p&gt;
+
+&lt;p&gt;就像复制粘贴一样，我们会重复部分代码以避免引入依赖性，以获得灵活度，代价则是冗余。&lt;/p&gt;
+
+&lt;p&gt;需要模版的库通常用于网络协议、程序传输格式（wire formats）、解析套件之类，混杂了业务逻辑（程序应该做的）和协议（程序能做的）的同时还需要具有灵活性的场景。这种代码是很难被删除的：与其他的电脑通信或者处理不同的文件通常是一种必需，而我们永远不想让业务逻辑充斥其中。&lt;/p&gt;
+
+&lt;p&gt;写模版不是在练习代码复用：我们尽可能将变化频繁的部分和相对更稳定的部分分隔开。应最小化库的依赖性或责任，即使我们必须通过模版来使用它们。&lt;/p&gt;
+
+&lt;p&gt;你会写更多的代码，但是这些多出来的代码都是在易于删除的部分。&lt;/p&gt;
+
+&lt;h4&gt;阶段4：不要写模版&lt;/h4&gt;
+
+&lt;p&gt;当库需要迎合所有要求的时候，模版的作用最为明显。但是有时候重复的东西太多了。是时候将一个弹性很大的库用一个考虑到了策略、流程和状态的库打包起来了。开发易用的 API 就是将模版转换成一个库。&lt;/p&gt;
+
+&lt;p&gt;这比你想象中的要普遍：最为流行和倍受喜爱的 Python http 客户端模块 &lt;code&gt;requests&lt;/code&gt; 就是一个很成功的例子，它将一个使用起来更为繁琐的库 &lt;code&gt;urllib3&lt;/code&gt; 打包，为用户提供了一套更加简单的接口。当使用 http 的时候， &lt;code&gt;requests&lt;/code&gt; 照顾到普遍的工作流，而对用户隐藏了许多实际的细节。相比而言， &lt;code&gt;urllib3&lt;/code&gt; 处理流水线和连接管理，不对用户隐藏任何细节。&lt;/p&gt;
+
+&lt;p&gt;当把一个库包进另一个库的时候，与其说是为了隐藏细节，倒不如说是为了将不同的关切分开： &lt;code&gt;requests&lt;/code&gt; 是关于http的冒险，&lt;code&gt;urllib3&lt;/code&gt; 则是给你工具让你自己选择你自己的冒险。&lt;/p&gt;
+
+&lt;p&gt;我并不是主张让你去建一个 &lt;code&gt;/protocol/&lt;/code&gt; 和 &lt;code&gt;/policy/&lt;/code&gt; 文件夹，但是你确实应该尝试使 &lt;code&gt;util&lt;/code&gt; 不受业务逻辑的干扰，并且在易于实现的库的基础上开发易于使用的库。你并不需要将一个库全部写完之后再在上面写另一个库。&lt;/p&gt;
+
+&lt;p&gt;将一个第三方库打包起来通常也是很好的实践，即使它们不是协议类的库。你可以写一个适合你的代码的库，而不是在整个项目中都锁定一个选择。开发一个好用的 API 和开发一个具有扩展性的 API 通常是互相冲突的。&lt;/p&gt;
+
+&lt;p&gt;像这样将不同的关切分开，能让我们在使一些用户很高兴的同时不会让其他用户想做的事情变得不可能。当你从一开始就有一个好的 API 的时候，分层是最简单的。但是在一个写得不好的 API 上开发出一个好的 API 则会很困难。好的 API 在设计之时就会站在使用者的位置上考虑问题，而分层则是我们意识到我们不能同时让所有人都高兴。&lt;/p&gt;
+
+&lt;p&gt;分层更多的是为了使那些很难删除的代码易于使用（在不让业务逻辑污染它们的情况下），而不仅仅是关于写以后可以删除的代码。&lt;/p&gt;
+
+&lt;h4&gt;阶段5：写一大段代码&lt;/h4&gt;
+
+&lt;p&gt;你已经复制粘贴了，你已经重构了，你已经分层了，你已经构建了，但是代码在最后还是需要做一些事情的。有时候最好的做法是放弃，然后写一大段垃圾代码将剩余部分弄在一起。&lt;/p&gt;
+
+&lt;p&gt;业务逻辑是那种有着无尽的边界情况和快速而肮脏的 hack 的代码。这是没问题的，我对此并不反对。其他的风格，如「游戏代码」，或者「创始人代码」，也是同一个东西：采用捷径来节省大量的时间。&lt;/p&gt;
+
+&lt;p&gt;原因？有时候删掉一个大的错误比删掉18个小的交错在一起的错误更为容易。大量的编程都是探索性的，犯几次错误然后去迭代比想着一开始就做对更快速。&lt;/p&gt;
+
+&lt;p&gt;这个对于更有趣味或者更有创造性的尝试来说更为正确。如果你正在写你的第一个游戏：不要写成一个游戏引擎。类似的，不要在写好一个应用之前就去写一个框架。第一次的时候尽管大胆的去写一堆乱七八糟的代码。你是不会知道怎样拆分成模块的，除非你是先知。&lt;/p&gt;
+
+&lt;p&gt;单一库有类似的取舍：你事先不会知道怎样拆分你的代码，而一个大的错误显然比20个紧密关联的错误更容易处理。&lt;/p&gt;
+
+&lt;p&gt;当你知道哪些代码将会被舍弃、删除，或者替换的时候，你就可以采用更多的捷径。特别是当你要写一个一次性的客户端网站，或关于一个活动的网页的时候。或者任何一个有模版、要删除复本、要填补框架所留下的缺口的地方。&lt;/p&gt;
+
+&lt;p&gt;我不是说你应该重复同一件事情十次来纠正错误。引用 Perlis 的话：「所有东西都应该从上到下建立，除了第一次的时候。」你应该在每一次尝试时都去犯新的错误，接纳新的风险，然后通过迭代慢慢的来完善。&lt;/p&gt;
+
+&lt;p&gt;成为一个专业的软件开发者的过程就是不断积累后悔和错误清单的过程。你从成功身上学不到任何东西。并不是你能知道好的代码是什么样的，而是你对坏的代码记忆犹新。&lt;/p&gt;
+
+&lt;p&gt;项目不管怎样最终都会失败或者成为遗留代码。失败比成功更频繁。写十个大的泥球，看它们能将你带向哪比尝试去给一个粪球抛光更快速。&lt;/p&gt;
+
+&lt;p&gt;一次性删掉所有的代码比一段一段的去删更容易。&lt;/p&gt;
+
+&lt;h4&gt;阶段6：把你的代码拆分成小块&lt;/h4&gt;
+
+&lt;p&gt;大段的代码是最容易写的，但同时维护起来也最为昂贵。一个看起来很简单的修改就会以特定的方式影响代码库的几乎每个部分。本来作为一个整体删除起来很简单的东西，现在变得不可能去一段一段地删除了。&lt;/p&gt;
+
+&lt;p&gt;就像我们根据相互独立的任务来将我们的代码分层一样，从特定平台的代码到特定领域的代码，我们同样需要找到一种方法来梳理出顶层逻辑。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;从一系列很困难的或者很容易变的设计决定开始。然后去设计一个个模块，让每一个模块都能隐藏一个设计上的决定，使其对其他决定不可见。&lt;/em&gt; D. Parnas
+&lt;hr&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们根据代码之间没有共享的部分来拆分代码，而不是将其拆分成有共同功能的模块。我们把写起来、维护起来，或者删除起来最让人沮丧的部分互相隔离开。&lt;/p&gt;
+
+&lt;p&gt;我们构建模块不是为了复用，而是为了易于修改。&lt;/p&gt;
+
+&lt;p&gt;不幸的是，有些问题相比其他的问题而言分割起来更加困难和复杂。虽然单一责任原则说「每一个模块都应该只去解决一个难题」，但更重要的是「每一个难题都只应该由一个模块去解决」。&lt;/p&gt;
+
+&lt;p&gt;当一个模块做两件事情的时候，通常都是因为改变一部分需要另外一部分的改变。一个写得很糟糕但是有着简单接口的组件，通常比需要互相协调的两个组件更容易使用。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;我如今再也不会尝试用「松耦合」这种速记一样的描述来定义那种应该被认可与接受的材料了，或许我永远不可能以清晰易懂的方式来定义它。但是当我看到它的时候我能够认出来，而当前的代码不属于那种。&lt;/em&gt; SCOTUS Justice Stewart
+&lt;hr&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;你如果可以在一个系统中删除某一模块而不用因此去重写其他模块的话，这个系统就通常被称为是松耦合的。但是解释松耦合是什么样的比在一开始就建立一个这样的系统要容易多了。&lt;/p&gt;
+
+&lt;p&gt;甚至于写死一个变量 &lt;em&gt;一次&lt;/em&gt;，或者使用命令行标记一个变量都可以叫松耦合。松耦合能让你在改变想法的同时不需要改写太多的代码。&lt;/p&gt;
+
+&lt;p&gt;比如，微软 Windows 的内部 API 和外部 API 就是因为这个目的而存在的。外部 API 与桌面程序的生命周期捆绑在一起，内部 API 则和内核捆绑在一起。隐藏这些 API 在给了微软灵活性的同时又不会挂掉过多的软件。&lt;/p&gt;
+
+&lt;p&gt;HTTP 中也有松耦合的例子：在你的 HTTP 服务器前设置一个缓存。将图片移到 CDN 上，仅改变一下到它们的链接。这两者都不会挂掉你的浏览器。&lt;/p&gt;
+
+&lt;p&gt;HTTP 的错误码是另外一个关于松耦合的例子：服务器之间常见的问题都有自己独特的错误码。当你收到400的时候，再尝试一次还是会得到同样的结果。如果是500则可能会变。结果是，HTTP客户端可以替代程序员处理许多的错误。&lt;/p&gt;
+
+&lt;p&gt;当把一个软件分解成更小的部分时，必须要考虑到如何去处理错误。这件事说比做容易。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;我勉强决定去使用LATEX。在有错误存在的情况下去实现可靠的分布式系统。&lt;/em&gt; Armstrong, 2003
+&lt;hr&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Erlang/OTP 在处理错误方面有独到之处：监督树（supervision trees）。大致来说，每一个 Erlang 进程都由一个监督进程发起并监视。当一个进程遇到了问题的时候，它就会退出。当进程退出的时候，其监督进程会将其重启。&lt;/p&gt;
+
+&lt;p&gt;（这些监督进程由一个引导进程（bootstrap process）发起，当监督进程遇到错误的时候，引导进程会将其重启）&lt;/p&gt;
+
+&lt;p&gt;其思想是，快速的失败然后重启比去处理错误要快。像这样的错误处理看起来跟直觉相反 —— 当错误发生的时候通过放弃处理来获得可靠性。但是重启是解决暂时性错误的灵丹妙药。&lt;/p&gt;
+
+&lt;p&gt;错误处理和恢复最好是在代码的外层进行。这被称为端对端（end-to-end）原则。端对端原则说在一个连接的远端处理错误比在中间处理要更容易。即使在中间层进行处理，最终顶层的检查也无法被省去。如果不管怎样都需要在顶层来处理错误，那么为什么还要在里层去处理它们呢？&lt;/p&gt;
+
+&lt;p&gt;错误处理是一个系统可以紧密结合在一起的方式之一。除此之外还有许多其他紧耦合（tight coupling）的例子，但是要找一个糟糕的设计出来有一点不公平。除了 IMAP。&lt;/p&gt;
+
+&lt;p&gt;IMAP 中的每一个操作都像雪花一样，都有自己独特的选择和处理。错误处理相当痛苦：错误可能因为其他操作产生的结果而半路杀出。&lt;/p&gt;
+
+&lt;p&gt;IMAP 使用独特的令牌，而不是 UUID，来识别每一条信息。这些令牌也可能因为一个操作而中途被改变。许多操作都不是原子操作。找到一种可靠的方式将一封email从一个文件夹移动到另一个文件夹花费了25年时间。它还采用了一种特别的 UTF-7 编码，和一种独特的 base64 编码。&lt;/p&gt;
+
+&lt;p&gt;以上这些都不是我编的。&lt;/p&gt;
+
+&lt;p&gt;相比而言，文件系统和数据库是远程储存中好得多的例子。在文件系统中，操作的种类是固定的，但是却有很多可操作的对象。&lt;/p&gt;
+
+&lt;p&gt;虽然 SQL 像是一个比文件系统要广得多的接口，它仍然遵循相同的模式。若干对 set 的操作，许许多多对行的操作。虽然不能总是用一个数据库去替换出另一个数据库，但是找到可以和 SQL 一起使用的东西比找到任何一种自制的查询语言都更容易。&lt;/p&gt;
+
+&lt;p&gt;其他松耦合的例子有具备中间件、过滤器（filter）和管道（pipeline）的系统。例如，Twitter Finagle 的服务都是使用共同的 API，这使得泛型的超时处理、重试机制，和身份验证都能被毫不费力的加进客户端和服务器端的代码中。&lt;/p&gt;
+
+&lt;p&gt;（我很确定如果我不在这提UNIX管道的话，肯定会有人向我抱怨）&lt;/p&gt;
+
+&lt;p&gt;首先我们将我们的代码分层，但现在其中的一些层要共享一个接口：一系列有着不同实现的相同行为和操作。好的松耦合通常就意味着一致的接口。&lt;/p&gt;
+
+&lt;p&gt;一个健康的代码库不一定要完美的呈现出模块化。模块化的部分使写代码变得很有趣，就像乐高玩具的趣味来自于它所有的零件都可以被拼在一起一样。一个健康的代码库会有一些赘言和冗余，但它们使得可移植的组件间的距离恰到好处，因此你不会把自己套在里面。&lt;/p&gt;
+
+&lt;p&gt;松耦合的代码不一定就是易于删除的代码，但是它们替代和修改起来都会容易得多。&lt;/p&gt;
+
+&lt;h4&gt;阶段7：持续的写代码&lt;/h4&gt;
+
+&lt;p&gt;如果在写新代码的时候不需要去考虑旧有的代码，那么测试新的想法就要容易很多。并不是说一定要写小的模块，避免庞大的程序，而是说你的系统在你正常开发的同时还需要能够支持一两个试验。&lt;/p&gt;
+
+&lt;p&gt;功能发布控制（feature flag）是能让你在以后改变主意的一种方法。虽然 feature flag 被视作一种测试不同功能的方法，但同时它能让你在不重新部署的情况下就应用修改。&lt;/p&gt;
+
+&lt;p&gt;Google Chrome 是一个很好的例子，能说明其带来的好处。他们发现维持固定发布周期最困难的就是要合并一个长期存在的功能分支的时候。&lt;/p&gt;
+
+&lt;p&gt;能够在不需要重新编译的情况下激活和关闭新的代码，大的修改就可以在不影响现存代码的情况下被分解为更小的合并。如果新功能在代码库中更早出现的话，当一个长期的功能开发影响到其他部分的时候就会表现得更加明显。&lt;/p&gt;
+
+&lt;p&gt;Feature flag 并不是命令行开关，它是一种分离功能发布与合并分支，分离功能发布与代码部署的方式。当软件更新需要花费数小时、数天、甚至数周的时候，能够在运行中改变功能就变得越来越重要了。随便问一个运维人员，你就会知道任何一个可能在半夜把你叫起来的系统都值得在运行时去控制。&lt;/p&gt;
+
+&lt;p&gt;你更多的是要有一个反馈回路，而不是不停的迭代。模块更多的是用来隔离不同组件以应对改变的，而不仅是用来做代码复用的。处理代码的更改不仅仅是开发新的功能，同时也是抛弃掉旧的功能。写具有扩展性的代码是寄希望于三个月后你能把所有事情都做对。写可以被删除的代码则是基于相反的假设。&lt;/p&gt;
+
+&lt;p&gt;我在上文中谈到的策略 —— 分层、隔离、共同的接口、构造 —— 并不是有关写出优秀的软件的，而是关于怎样开发一个可以随着时间而改变的软件。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+
+&lt;div class=&#39;quote&#39;&gt;
+&lt;hr&gt;
+&lt;em&gt;因此，管理上的问题不是要不要建一个试验性的系统然后把它抛弃掉。你会这么做的。［……］所以做好抛弃它的打算吧；无论如何你都会的。&lt;/em&gt; Fred Brooks
+&lt;hr&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;你不必要将它全部抛弃，但是你需要删除某些部分。好的代码并不是要第一次就做对一件事。好的代码是那些不会造成障碍的遗留代码（legacy code）。&lt;/p&gt;
+
+&lt;p&gt;好的代码总是易于删除的代码。&lt;/p&gt;
+
+&lt;h4&gt;修改与纠错&lt;/h4&gt;
+
+&lt;p&gt;感谢 &lt;a href=&quot;http://rednaxelafx.iteye.com/blog/profile&quot;&gt;RednaxelaFX&lt;/a&gt; 同学指出了我对 wire format 的翻译问题。其更恰当的翻译应该是「程序传输格式」，我已经做出了修改。这个术语具体的含义可见&lt;a href=&quot;http://rednaxelafx.iteye.com/blog/382429&quot;&gt;「以Python为例讨论高级编程语言程序的wire format与校验」&lt;/a&gt;。&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;译者序&lt;/h3&gt;
+</description>
+        
+        <pubDate>Mon, 15 Feb 2016 08:49:40 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>怎样阅读源代码</title>
+        <description>&lt;p&gt;原题目：&lt;a href=&quot;https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md&quot;&gt;How To Read Source Code&lt;/a&gt;，原作者：Aria Stewart&lt;/p&gt;
+
+&lt;p&gt;中文翻译：&lt;/p&gt;
+
+&lt;p&gt;这篇文章基于我在 Oneshot Nodeconf Christchurch 的一个演讲。&lt;/p&gt;
+
+&lt;p&gt;我本来没有想要写这篇文章。程序员不读源代码听起来似乎是很荒谬的。然后我真遇到了一群不读源代码的程序员。接着我又跟更多的人进行了交谈，发现他们除了读代码示例或测试脚本之外什么也不看。最重要的是，我遇到过很多新手程序员，对他们来说，找到从哪个地方开始阅读是非常困难的。&lt;/p&gt;
+
+&lt;h4&gt;当我们说读源代码的时候，我们要表达什么意思？&lt;/h4&gt;
+
+&lt;p&gt;我们是为了什么去读源代码？为了理解它。为了找 bug，为了知道这些代码和系统中的其他软件是怎样交互的。我们还会为了回顾、品评而去读。为了找出其中的接口信息，为了理解和找到不同模块之间的界线，为了学习，我们都会去读源代码。&lt;/p&gt;
+
+&lt;h4&gt;读代码不是一个线性过程&lt;/h4&gt;
+
+&lt;p&gt;读代码的过程不是线性的。人们往往认为读源代码就像读一本书一样：先搞定简介或者 README，然后从第一章开始一章一章的读，直到结束。其实并不是这样的。我们甚至都不能确定一个程序有没有结束，很多程序是不会终止的。我们应该在章节、模块之间跳转，反复阅读。我们也可以选择通读单个模块，但是这样我们就无法理解这个模块所引用的其他模块的代码。我们也可以根据程序的执行顺序去阅读，但是我们最后并不会清楚程序会向哪里执行。&lt;/p&gt;
+
+&lt;h4&gt;读的顺序&lt;/h4&gt;
+
+&lt;p&gt;要从一个库的入口开始读吗？对于 Node 库来说，即从 &lt;code&gt;index.js&lt;/code&gt; 或者主脚本开始？&lt;/p&gt;
+
+&lt;p&gt;在浏览器中的情况呢？即使是找到程序入口，弄清楚载入了哪些文件，是怎样载入的都是一个很关键的事情。去研究文件之间是怎样关联起来的是一个很好的着手点。&lt;/p&gt;
+
+&lt;p&gt;除此之外，还可以从最大的一个源文件开始读。或者尝试在 debugger 中设置一个「浅」断点，通过函数调用去追溯源代码。亦或在某些复杂晦涩的地方设置一个深断点，然后去读函数调用栈里面的每一个函数。&lt;/p&gt;
+
+&lt;h4&gt;代码的分类&lt;/h4&gt;
+
+&lt;p&gt;我通常习惯于以语言去区分源代码，如 Javascript, C++, ES6, Befunge, Forth 或者 LISP。熟悉的语言读起来相对更容易，对于不太熟悉的语言，我们往往就不会去看了。&lt;/p&gt;
+
+&lt;p&gt;这里还有另外一种看待源代码的方法，就是基于每一的模块的功能去分类：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;连接类代码（Glue）&lt;/li&gt;
+&lt;li&gt;接口定义类代码&lt;/li&gt;
+&lt;li&gt;实现类&lt;/li&gt;
+&lt;li&gt;算法类&lt;/li&gt;
+&lt;li&gt;配置类&lt;/li&gt;
+&lt;li&gt;任务类&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;关于算法类的代码已经有很多研究了，因为学术界就是干这个的。算法就是用数学模型去处理一件事情的方法。其他种类的代码就要模糊很多了，但是我认为它们更加有趣。它们才是绝大多数人在编程的时候写的代码。&lt;/p&gt;
+
+&lt;p&gt;当然，很多时候一个模块可以同时做以上的很多事情。而读代码首先要做的事情之一恰恰就是弄清楚每一个部分是在做什么。&lt;/p&gt;
+
+&lt;h4&gt;什么是连接类代码&lt;/h4&gt;
+
+&lt;p&gt;并不是所有的接口都能很好的工作在一起。连接类代码是将各模块连在一起的管道。中间件、Promise 和绑定回调函数的代码、将参数导入 object 中或者解析 object 的代码，这些都属于连接类代码。&lt;/p&gt;
+
+&lt;h4&gt;怎样阅读连接类代码&lt;/h4&gt;
+
+&lt;p&gt;关键要弄清楚两个接口是怎样以不同方式构建起来的，以及它们共通的地方。&lt;/p&gt;
+
+&lt;p&gt;下面的例子来自于 Ben Drucker 的 &lt;code&gt;stream-to-promise&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;internals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;writable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;finish&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;可以看到，上面两个接口分别是 Node 的 stream 和 Promise 接口。&lt;/p&gt;
+
+&lt;p&gt;它们的共同点在于两者完成的时候都会执行一个操作，在 Node 中通过事件（event）来实现，而在 Promise 中通过调用 resolve 函数实现。&lt;/p&gt;
+
+&lt;p&gt;可以看到，Promise 只能执行一次，但是 stream 可以发出同样的事件很多次。&lt;/p&gt;
+
+&lt;p&gt;更多连接类代码的例子：
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;record&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isNaN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;validateEmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;在读连接类代码的时候，还可以思考的是报错情况下的处理。&lt;/p&gt;
+
+&lt;p&gt;一段程序会抛出错误吗？能删除坏值吗？或者可以将其强制转换成可以接受的值？对于它们执行的环境来说，这些是正确的选择吗？类型转换是否是有损的？这些问题都是很值得思考的。&lt;/p&gt;
+
+&lt;h4&gt;什么是接口定义类代码&lt;/h4&gt;
+
+&lt;p&gt;可能你写过一些只在一两个地方用得到的模块，它们基本是在内部使用的，你不希望有人费很大劲去读这些模块。&lt;/p&gt;
+
+&lt;p&gt;而接口定义类代码却恰恰和上述情况相反。它们是模块之间泾渭分明的边界线。&lt;/p&gt;
+
+&lt;p&gt;下面的例子来自于 Node 的 &lt;code&gt;events.js&lt;/code&gt;：
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;usingDomains&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setMaxListeners&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setMaxListeners&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;removeListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;removeAllListeners&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;removeAllListeners&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listeners&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listeners&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;EventEmitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listenerCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emitter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;上面的代码在定义 &lt;code&gt;EventEmitter&lt;/code&gt; 的接口。&lt;/p&gt;
+
+&lt;p&gt;关于这类代码可以思考的问题包括：它们是否完全？能提供哪些保证？内部的细节信息会暴露给用户吗？&lt;/p&gt;
+
+&lt;p&gt;在一个有严格接口定义的架构中，上面就是这类代码应该出现的地方。&lt;/p&gt;
+
+&lt;p&gt;就像连接类代码一样，我们可以思考它是怎样处理错误和报错的。处理方法前后一致吗？能区分出因为内部不一致而出现的错误和因为用户使用不当而出现的错误吗？&lt;/p&gt;
+
+&lt;h4&gt;实现类代码&lt;/h4&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;startRouting&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;location&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;initialURL&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Allow the Location class to cancel the router setup while it refreshes&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// the page&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cancelRouterSetup&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_setupRouter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;view:default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_MetamorphView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;view:toplevel&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;EmberView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onUpdateURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;undefined&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;initialURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;initialTransition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;handleURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initialURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initialTransition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;上面的示例取自 &lt;code&gt;Ember.Router&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;这里往往是需要在「为什么」上作更多说明的地方。&lt;/p&gt;
+
+&lt;p&gt;读这类代码的时候应着重思考它是怎样跟更大的整体相融合的。&lt;/p&gt;
+
+&lt;p&gt;从公共接口中传入的值是怎样的？哪些需要验证 (validation)？包含我们认为该有的值吗？会影响到其他哪些部分？当需要改写以加入新功能的时候会有哪些潜在危险？可能会导致程序崩溃的地方有哪些？有测试代码来对其进行测试吗？变量的生命周期是什么？&lt;/p&gt;
+
+&lt;h4&gt;算法&lt;/h4&gt;
+
+&lt;p&gt;算法类代码是实现类代码的一种，通常是封装起来不对外暴露的。它可以说是程序的血肉。也是一款软件的业务逻辑和主进程所在。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Grammar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Processing The Grammar&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Here we begin defining a grammar given the raw rules, terminal&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// symbols, and symbolic references to rules&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The input is a list of rules.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The input grammar is amended with a final rule, the &amp;#39;accept&amp;#39; rule,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// which if it spans the parse chart, means the entire grammar was&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// accepted. This is needed in the case of a nulling start symbol.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;_accept&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]));&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acceptRule&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;上面的代码出自一个叫做 &lt;code&gt;lotsawa&lt;/code&gt; 的解析引擎。&lt;/p&gt;
+
+&lt;p&gt;人们常说好的注释应该告诉读者为什么这件事情要这样来做，而不是一段代码在做什么。算法类代码通常需要更多的解释，因为如果是一个很简单的算法的话，那通常它就已经被吸纳进标准库中了。&lt;/p&gt;
+
+&lt;p&gt;下面这段代码是计算机系学生喜欢的（或者有糟糕记忆的）：&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Build a list of all the symbols used in the grammar so they can be numbered instead of referred to&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// by name, and therefore their presence can be represented by a single bit in a set.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;censusSymbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symNo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!~&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;symNo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symNo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+      &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sym&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;symbols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;censusSymbols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;读起来像是数学论文，对吗？&lt;/p&gt;
+
+&lt;p&gt;在读算法类代码的时候需要关注的事情之一就是其运用的数据结构。上面的程序建了一个符号列表，并确保其中没有重复元素。&lt;/p&gt;
+
+&lt;p&gt;读的时候同时也要注意有关程序时间复杂度的线索。上面的代码中，有两个循环。用大 O 来记的话，时间复杂度就是 O(n * m)。但已经有人注意到，循环之中还有 &lt;code&gt;indexOf&lt;/code&gt; 的调用。这在 Javascript 中也是循环操作。因此这又在时间复杂度上加了一个因子。还好这段代码并不是该算法的主要部分。&lt;/p&gt;
+
+&lt;h4&gt;配置&lt;/h4&gt;
+
+&lt;p&gt;源代码和配置文件之间的界线非常的窄。对配置文件来说，表达力强、可读性强和直接之间永远是冲突的。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;production&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;staging&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;emails&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;test&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;emails&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;上面是一个用 Javascript 进行配置的例子。&lt;/p&gt;
+
+&lt;p&gt;在这里可能会遇到的问题是不同选项的组合爆炸性增长。应该配置多少个环境？在每一个环境实例中又配置哪些东西？我们很容易就会过度配置，去考虑所有的情况，但是 bug 可能只出现于其中一种情况中。时刻注意配置文件给我们多少自由度是非常有用的。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;express&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;env&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// NOTE: `env` is managed by the framework. This value will be overwritten.&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;x-powered-by&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;views&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;path:./views&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;mountpath&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+&lt;span class=&quot;s2&quot;&gt;&amp;quot;middleware&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;compress&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;priority&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;module&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;compression&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;favicon&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;priority&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;module&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;serve-favicon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&amp;quot;arguments&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;resolve:kraken-js/public/favicon.ico&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;上面是一小段 &lt;code&gt;kraken&lt;/code&gt; 的配置文件。&lt;/p&gt;
+
+&lt;p&gt;Kraken 采取了「低功耗 (low power) 语言」的路，其配置文件采用 JSON。更多一点「配置」，而相对少一点「源代码」。其目的之一就是让可选择项的数目可控。很多工具都采用简单的 key-value 对或者 ini 类的文件来做配置是有道理的，即使这样会使配置文件的表达力受限。&lt;/p&gt;
+
+&lt;p&gt;配置类的代码有如下一些值得思考的有趣而独特的限制：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;生命周期&lt;/li&gt;
+&lt;li&gt;机器可写性&lt;/li&gt;
+&lt;li&gt;对一段代码负有责任的人会多很多&lt;/li&gt;
+&lt;li&gt;怎样适用在一些奇怪的地方，比如环境变量&lt;/li&gt;
+&lt;li&gt;往往有涉及安全的敏感信息&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;任务类&lt;/h4&gt;
+
+&lt;p&gt;对 50 张信用卡计费，用编译器和其他构建工具开发一个复杂的软件，发出 100 封电子邮件。这些事情有什么共同点？&lt;/p&gt;
+
+&lt;p&gt;事务性。通常一个系统的某一部分只需严格执行一次，而遇到错误的话则完全不执行。编译器遗留下的错误构建文件是 bug 的一大来源。对客户重复收费是很糟糕的。因为重试而向用户邮箱滥发邮件也很可怕。&lt;/p&gt;
+
+&lt;p&gt;重启性。能根据系统状态，在之前退出的地方继续运行。&lt;/p&gt;
+
+&lt;p&gt;序列性。对于不是严格线性的程序，通常都有一个方向明晰的执行流程。循环是其中一大块。&lt;/p&gt;
+
+&lt;h4&gt;阅读杂乱代码&lt;/h4&gt;
+
+&lt;p&gt;一般人会怎样入手下面的一段代码：
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;      &lt;span class=&quot;nx&quot;&gt;DuplexCombination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;end&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;readable&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;drain&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;finish&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Duplex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;对，这就是反向缩进，要怪就怪 Issac 吧。&lt;/p&gt;
+
+&lt;h4&gt;美化一下！&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;standard -F dc.js&lt;/code&gt;
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;DuplexCombination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;end&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;readable&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;drain&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;finish&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;writer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Duplex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prototype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ev&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;读代码的时候使用工具是很好的。&lt;/p&gt;
+
+&lt;p&gt;又比如下面这段代码：&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;===&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;function&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;underscore&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;jquery&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;exports&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)})}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;undefined&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;underscore&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Zepto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ender&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}})(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbo&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;1.1.2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;noConflict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emulateHTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emulateJSO&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;on&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;his&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{});&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;once&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;off&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)});&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_callback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;off&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;functio&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;off&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;thi&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fo&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_ca&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;llback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}}}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;delete&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}}&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;retur&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;trigger&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_events&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_event&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stopListening&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_listeningTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;===&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;objec&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;uglifyjs -b &amp;lt; backbone-min.js&lt;/code&gt;
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;function&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;amd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;underscore&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;jquery&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;exports&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;undefined&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;underscore&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Zepto&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Backbone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;splice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;VERSION&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.1.2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;noConflict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;h4&gt;人的部分&lt;/h4&gt;
+
+&lt;p&gt;猜测代码作者的意图有很多的方法。&lt;/p&gt;
+
+&lt;h4&gt;找 guards 和 coercions&lt;/h4&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;number&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TypeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;arg must be a number&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;看上去函数的定义域是数值型。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;强制转换为数值类型。和前面的一样，只是不再抛出错误。可能会有 &lt;code&gt;NaN&lt;/code&gt; 出现。&lt;/p&gt;
+
+&lt;h4&gt;找默认值&lt;/h4&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;默认为空。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;如果没有相关参数传进来的话，则默认为 true。&lt;/p&gt;
+
+&lt;h4&gt;找层（layers）&lt;/h4&gt;
+
+&lt;p&gt;Express 中的 &lt;code&gt;req&lt;/code&gt; 和 &lt;code&gt;res&lt;/code&gt; 是跟 web 相连的。它们会作用到哪一层呢？能够找到接口的边界吗？&lt;/p&gt;
+
+&lt;h4&gt;找轨迹（tracing）&lt;/h4&gt;
+
+&lt;p&gt;有检查点吗？有 debug 日志吗？它们是一个完整的功能，还是之前的 bug 残留下来的呢？&lt;/p&gt;
+
+&lt;h4&gt;找自反性（reflexivity）&lt;/h4&gt;
+
+&lt;p&gt;识别符是动态生成的吗？有 &lt;code&gt;eval&lt;/code&gt;、元编程和新函数定义吗？&lt;code&gt;func.toString()&lt;/code&gt; 是一个很好的切入点。&lt;/p&gt;
+
+&lt;h4&gt;找生命周期&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;被谁初始化的&lt;/li&gt;
+&lt;li&gt;什么时候会改变&lt;/li&gt;
+&lt;li&gt;被谁改变&lt;/li&gt;
+&lt;li&gt;上述信息会在其他地方出现吗&lt;/li&gt;
+&lt;li&gt;会出现不一致性吗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;某个时间，某个人输入了一个值。在另外的某个地方，某个时候这个值会对其他人产生影响，他们是谁？是什么或者谁来决定的？这个值会改变吗？由谁来改变？&lt;/p&gt;
+
+&lt;h4&gt;找隐藏状态机（hidden state machines）&lt;/h4&gt;
+
+&lt;p&gt;有时候布尔变量会被当作解构了的状态机使用。&lt;/p&gt;
+
+&lt;p&gt;例如，变量 &lt;code&gt;isReadied&lt;/code&gt; 和 &lt;code&gt;isFinished&lt;/code&gt; 可能隐含如下状态：
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isReadied&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isFinished&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;或：
+&lt;code&gt;START -&amp;gt; READY -&amp;gt; FINISHED&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;isReadied&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isFinished&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;state&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;----------|------------|------------&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;START&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;invalid&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;READY&lt;/span&gt;
+&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FINISHED&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h4&gt;找构造（composition）和继承&lt;/h4&gt;
+
+&lt;p&gt;这段代码有我认识的部分吗？它们有名字吗？&lt;/p&gt;
+
+&lt;h4&gt;找相同的操作&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;map&lt;/code&gt;, &lt;code&gt;reduce&lt;/code&gt;, &lt;code&gt;cross-join&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;是时候开始读源代码了，Enjoy！&lt;/p&gt;
+
+&lt;p&gt;Github:
+&lt;p&gt; &lt;a href=&quot;https://github.com/freedombird9/how-to-read-source-code&quot;&gt;https://github.com/freedombird9/how-to-read-source-code&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;原题目：&lt;a href=&quot;https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md&quot;&gt;How To Read Source Code&lt;/a&gt;，原作者：Aria Stewart&lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 25 Jan 2016 08:00:40 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/how-to-read-source-code/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/how-to-read-source-code/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>A Simple Launch-and-Go-Away Multiprocessing Architecture</title>
+        <description>&lt;p&gt;In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even &lt;em&gt;forever&lt;/em&gt;. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&amp;#39;t want to run them in your main process, you want to isolate them as much as you can.&lt;/p&gt;
+
+&lt;p&gt;Here I&amp;#39;m only addressing this kind of situation: you launch the task, set a timeout for it, and you are good to go. You don&amp;#39;t care if it will succeed or not and you don&amp;#39;t retry it on failure. It should be killed automatically if it runs out of time (Why? Because otherwise it will become a zombie and stick there forever and never release any resource).&lt;/p&gt;
+
+&lt;p&gt;This design is very useful in situations where you don&amp;#39;t care about occasional data loss.&lt;/p&gt;
+
+&lt;h3&gt;Thread or Process?&lt;/h3&gt;
+
+&lt;p&gt;I would use multiprocessing. Not only because a thread can neither be killed, nor can it terminate itself in Python, but also because of the extra overhead on multicore systems, which is very common nowadays, introduced by the infamous GIL.&lt;/p&gt;
+
+&lt;p&gt;Regarding the GIL issue, here is a perfect insight: &lt;a href=&quot;http://www.dabeaz.com/python/GIL.pdf&quot;&gt;Inside the Python GIL&lt;/a&gt;. It illustrates the gigantic overheads using threads. Here is the picture that visualizes this problem very well.
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-simple-multiprocessing/gil_battle.png&quot; alt=&quot;GIL Battle&quot;/&gt;
+    &lt;figcaption&gt;GIL Battle&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Put it simply, on a multicore system, a thread will be scheduled to run immediately (on another core) once the OS is signaled that a previously running thread has released its GIL. But when it can start to run, the GIL is already gone. It&amp;#39;s because with multiple cores, threads in ready state get scheduled to run on different cores at the same time so they compete for the GIL.&lt;/p&gt;
+
+&lt;p&gt;In the above figure, Thread 2 on CPU 2 gets signaled every time Thread 1 releases GIL, but it cannot start to run before Thread 1 acquires the GIL again due to the signal passing and scheduling overheads.&lt;/p&gt;
+
+&lt;p&gt;Be very careful with Python multithreading, especially in multicore systems.&lt;/p&gt;
+
+&lt;h3&gt;Architecture&lt;/h3&gt;
+
+&lt;p&gt;Remember we just want to launch a separate process to run, we don&amp;#39;t want our main process to wait for it to finish or to continuously monitor its state. Once the process is forked, our main program shouldn&amp;#39;t care about it anymore otherwise it will be slowed down.&lt;/p&gt;
+
+&lt;p&gt;How to achieve this? It turns out we can just wrap the worker process in another process which should be responsible for the worker&amp;#39;s lifecycle. We call it the manager process here. The design looks like this:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Read from the queue&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;       process the work here&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;sd&quot;&gt;&amp;#39;&amp;#39;&amp;#39;lifecycle manager of the worker process&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TIMEOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_alive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;worker process timed out, killing ...&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;worker_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;terminate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;manager_p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;manager_p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;task_queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The main program can focus on fetching data from database and dispatch it to workers. We can do all the ugly and dangerous stuff in the worker processes without worrying the main process getting contaminated. The lifecycle manager takes care of all the cleaning-ups.&lt;/p&gt;
+
+&lt;h3&gt;An optional third-party module&lt;/h3&gt;
+
+&lt;p&gt;There&amp;#39;s a neat Python module called &lt;a href=&quot;https://github.com/noxdafox/pebble&quot;&gt;Pebble&lt;/a&gt; that can do the same thing for you. The design is similar, it also uses a lifecycle manager to manage the actual worker process. The difference is that the manager is implemented as a daemon thread instead of a process.&lt;/p&gt;
+</description>
+        
+          <description>&lt;p&gt;In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even &lt;em&gt;forever&lt;/em&gt;. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&amp;#39;t want to run them in your main process, you want to isolate them as much as you can.&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 22 Jan 2016 03:03:44 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/blog/simple-multiprocessing/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/simple-multiprocessing/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Command Line YAML Parer &amp; Auto-exporter</title>
+        <description>&lt;p&gt;Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&amp;#39;s config file. I&amp;#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.&lt;/p&gt;
+
+&lt;p&gt;A typical YAML config file for App engine is like the following:
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;project-id&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;runtime&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;python27&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;api_version&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# other config settings&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;env_variables&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;base.settings&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GAE_SQL_HOST&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;/cloudsql/:dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GAE_SQL_DBNAME&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;LOCAL_SQL_HOST&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;host_ip_address&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;LOCAL_SQL_DBNAME&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;dbname&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;TEMPLATE_DEBUG&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;off&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;GCM_PUSH_API_KEY&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;key&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;App engine will use the variables under &lt;code&gt;env_variables&lt;/code&gt; as its environment variables. We need to parse this file and export them locally one by one.&lt;/p&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;Get the source code &lt;a href=&quot;https://github.com/freedombird9/work-happy-anywhere&quot;&gt;here&lt;/a&gt; first. To use it, you need to have bash 4 and Python YAML module.&lt;/p&gt;
+
+&lt;h4&gt;Install bash 4 on OS X&lt;/h4&gt;
+
+&lt;p&gt;You can see your bash version by running &lt;code&gt;bash --version&lt;/code&gt;. If it&amp;#39;s not version 4, you need to install one.
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Homebrew installs the new bash under /usr/local/bin/bash&lt;/span&gt;
+brew update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; brew install bash
+sudo bash -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;echo /usr/local/bin/bash &amp;gt;&amp;gt; /etc/shells&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Change to the new shell&lt;/span&gt;
+chsh -s /usr/local/bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Now close your current terminal and start a new one. Run &lt;code&gt;bash --version&lt;/code&gt;, you should see version 4.X.X&lt;/p&gt;
+
+&lt;p&gt;Install PyYAML:&lt;/p&gt;
+
+&lt;p&gt;The shell script relies on a python program to parse the yaml file. You need this module to run the python parser (&lt;code&gt;read_yaml.py&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install pyyaml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Then you&amp;#39;re ready to go. Remember to execute it with &lt;code&gt;. set_envs.sh /path/to/yamlfile&lt;/code&gt; or &lt;code&gt;source set_envs.sh /path/to/yamlfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you run it directly, the environment variables won&amp;#39;t be exported to your current working shell, rather, they&amp;#39;ll be exported to a sub-shell and be gone.&lt;/p&gt;
+
+&lt;h3&gt;How?&lt;/h3&gt;
+
+&lt;p&gt;Fairly simple. Consume the Python-parsed YAML in the bash, store the key-value pairs in an associative array. Iterate through it and export. Note that associative arrays are only available in bash 4, and that&amp;#39;s why we need to upgrade our bash.&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;declare&lt;/span&gt; -A &lt;span class=&quot;nv&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;IFS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -r -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; key &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;IFS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; -r -d &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    items&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt; &amp;lt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;python &lt;span class=&quot;nv&quot;&gt;$my_dir&lt;/span&gt;/read_yaml.py &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; i in &lt;span class=&quot;s2&quot;&gt;&amp;quot;${!items[@]}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$i: ${items[$i]}&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+</description>
+        
+          <description>&lt;p&gt;Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&amp;#39;s config file. I&amp;#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 21 Jan 2016 09:34:44 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/blog/yaml-parser/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/yaml-parser/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>微信联系人检测工具开发手记</title>
+        <description>&lt;h3&gt;开发记录&lt;/h3&gt;
+
+&lt;p&gt;一大早来到公司廖大师就把我拉到他的电脑前，给我看了一个 Git 上的开源项目：&lt;a href=&quot;https://github.com/0x5e/wechat-deleted-friends&quot;&gt;wechat-deleted-friends&lt;/a&gt;。是用 Python 写的，调用了微信网页版的接口。真的是天才，一个非常棒的想法。短短一天，在 Github 上就已经接近两千个星了。&lt;/p&gt;
+
+&lt;p&gt;廖大师已经开始在他的 Mac 上着手写 Chrome 插件版，旁边还放了一台 PC，正紧锣密鼓的在装 VS，一脸坏笑。我之前虽然没有接触过 C#，但是知道跟 Java 很像，上手不会太慢。并且这么好的项目，当然要拿来试一试。&lt;/p&gt;
+
+&lt;p&gt;开始看源代码。非常简单清晰，几个微信网页接口的调用而已。快速上手 C#，拿过廖大师的 PC，几个晚上之后搞出了原型，并且在原版的基础上，还增加了检测拉黑的功能（接口信息从廖大师处获取）。&lt;/p&gt;
+
+&lt;p&gt;然后就是测试了。我们自己的微信号的接口由于调用太频繁已经被封，不过没有关系，淘宝上几毛钱一个的微信号让我们的开发得以持续。最后终于做出了产品。&lt;/p&gt;
+
+&lt;h3&gt;原理&lt;/h3&gt;
+
+&lt;p&gt;原理非常简单，源代码大概也就五六百行。主要就是调用网页版的建群、加人，和删除这几个 API。把你删除或者屏蔽掉的好友仍然会在联系人列表中，但是无法将他们加入到群聊中来。发送加群请求之后，服务器会返回一个状态参数，0 代表成功，4 代表被邀请的人已经将发送请求者删除，3 则是屏蔽。&lt;/p&gt;
+
+&lt;h3&gt;挑战&lt;/h3&gt;
+
+&lt;p&gt;测试到后期的时候，微信对网页版接口的调用频率限制已经明显加强了，通常一遍联系人列表都跑不完就会被封。后面我们即使将接口调用的时间间隔设置到了一分钟，但是仍然没有用。廖大师用了一个本地缓存，来记忆每次被封的时候所查询到的位置，这样下次解封之后再查询时，就不用从头再来。但是如果调用太频繁，一个号通常一整天都没办法再使用网页版接口了，这个办法并不能解决根本问题。开发做到这里已经面临了瓶颈。&lt;/p&gt;
+
+&lt;h3&gt;可能的解决办法&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用其它接口。我们通过测试发现，只有网页版接口会被封，PC、MAC 和手机端的客户端都没有限制。在 PC 端尝试抓包，分析微信的通信协议。大部分请求走 TCP 8080 端口。具体协议细节非常复杂，应该有微信自己定义的协议，wireshark 不能正确解析。这条路难度很大，太 hack 了，如果破解的话微信也就不再安全了&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反编译 WindowsPhone 版微信，分析出 API。如果是 C# 的话，反编译是很有可能的，这样就能获取其移动端的接口信息了。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;做一个安卓机器人。思路来源于安卓上的微信自动抢红包软件。模拟人工的操作，去建群和加人。逻辑应该会比较复杂，但时间足够的话是可行的。缺点是只能用于安卓。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以上即是我们能想到的避开网页接口的办法，欢迎大家一起探讨，集思广路。最后，Windows 版本下载地址：&lt;/p&gt;
+
+&lt;p&gt;https://github.com/freedombird9/wechat-deletion-check/releases&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;开发记录&lt;/h3&gt;
+</description>
+        
+        <pubDate>Wed, 13 Jan 2016 12:05:45 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/wechathelper/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/wechathelper/</guid>
+        
+        
+        <category>lifestyle</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>摩托车无离合换挡</title>
+        <description>&lt;h3&gt;快排(Quick shifter)&lt;/h3&gt;
+
+&lt;p&gt;我刚开始也并不知道摩托车其实可以不用离合器就实现换档。直到某一天在浏览摩托配件的时候看到了快排（quick shifter）这个东西。这个配件的功能就是可以让你不用捏离合，直接进行换档。&lt;/p&gt;
+
+&lt;p&gt;在 Google上 搜索 quick shifter，就可以看到非常多的品牌和其工作原理的介绍。其应用的原理并不复杂。简单来说，就是摩托车变速箱的构造使得车手只要在引擎的牵引力减小的那一瞬间，去升档，就可以在不使用离合器的情况下直接将档位进上去。快排就是利用了这个特点，在换档踏板上安装一个压力感应器，当车手执行换档动作时，感应器感受到压力，传递一个信号给 ECU (Engine Control Unit)，ECU 将引擎的点火停止极小的时间段，或者短暂的切断其供油。这样引擎的牵引力就减弱了，车手便可以顺利进档。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-motor-qs/quick_shifter_on_bike.jpg&quot; alt=&quot;Quick shifter&quot;/&gt;
+    &lt;figcaption&gt;装在摩托上的快排&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到，上图就是一个安装在换档踏板（图片底部）上的 quick shifter，体积并不大，在美国的价格大约两、三百刀。&lt;/p&gt;
+
+&lt;p&gt;相比于传统的换档方式，使用快排换档所需的时间极短，动力损失也几乎可以忽略不计，而且不会产生由于离合和油门配合不好所导致的抖动，整个过程非常平顺。因为没有离合器的分离与结合，也避免了传统换档方式对离合器片造成的磨损。&lt;/p&gt;
+
+&lt;p&gt;快排往往是职业车手为了节省那么几十、几百毫秒的换档时间才会用到的配件。对于一般的使用来说，是完全没有必要的。我基本没有见到过有非职业车手专门去给自己的摩托装 quick shifter 的。因为即使没有它，我们也可以通过练习来实现无离合换档，而 quick shifter 所提供的毫秒级的换档时间缩减在比赛之外很难有用武之地。下面就跟大家分享一下不使用 quick shifter 实现无离合换档的操作方法。&lt;/p&gt;
+
+&lt;h3&gt;如何不依赖快排&lt;/h3&gt;
+
+&lt;p&gt;我们已经知道了不用离合器换档的原理，即在进档的同时减小引擎的牵引力输出，也就是收油。那么通过练习，我们完全可以不用 quick shifter，自己来实现这个操作。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;预备动作：左脚放到换档板下方，做好升档的准备。&lt;/li&gt;
+&lt;li&gt;左脚向上轻踢换档踏板，同时右手迅速回油门。&lt;/li&gt;
+&lt;li&gt;档位卡入之后立刻加油，使摩托保持正常行驶。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;上面的第二步需要反复练习，才能熟练掌握。如果实在很难掌握到时机，可以先用左脚给换档板一个向上的压力，然后再收油，这样当引擎输出减弱时，档位在压力的作用下就会自动卡入。逐渐熟练之后，往往就可以做到回油和升档的同步。&lt;/p&gt;
+
+&lt;p&gt;还有一个关键点是油门回多少的问题。这个跟车子和档位都相关，需要自己不断去试，去感觉。但是一般来说回油幅度不会很大，且以我自己的经验，档位越高，回的幅度就越小，且越容易操作。就我的 CBR 来说，需要回油的幅度是很小的，往往只需要往收油的方向快速的抖动一下油门就足够了。如果回油太多，动力损失过大，等换档结束再加油的时候很容易造成车子的抖动。&lt;/p&gt;
+
+&lt;p&gt;最后，一档升二档的时候可能不那么好掌握。一是因为一、二档之间有一个空档，速度慢的时候是很容易挂入空档的。二是因为在一档的时候，一般转速会很大，需要收油较多，换档之后车子很容易抖动。&lt;/p&gt;
+
+&lt;h3&gt;总结&lt;/h3&gt;
+
+&lt;p&gt;上述不使用离合直接换档的方法大家都应该尽可能掌握，因为摩托车除了进1档起步之外，在其它档位是完全没有必要使用离合器的。我在不少论坛上都请教过一些老手，结论是只要操作正确，这种换档方式完全不会对车子造成任何损坏。相反，它还能减少离合器片的磨损。现在有些厂商已经开始提供原厂 quick shifter 选配了，比如宝马 S1000RR。&lt;/p&gt;
+
+&lt;p&gt;大家可能已经注意到，上文只提到了升档，那么减档呢？减档的操作跟升档正好相反，在换档的瞬间需要稍微加油。但是只有配备了 slippery clutch 的摩托车才能实现无离合减档，平时使用最多的还是升档。&lt;/p&gt;
+
+&lt;p&gt;其实不光是摩托，手动档的汽车也可以这样操作，只是因为汽车并不是序列变速器，操作难度会大很多，时机也不好掌握，需要对一部车非常熟悉才可能做到。&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;快排(Quick shifter)&lt;/h3&gt;
+
+&lt;p&gt;我刚开始也并不知道摩托车其实可以不用离合器就实现换档。直到某一天在浏览摩托配件的时候看到了快排（quick shifter）这个东西。这个配件的功能就是可以让你不用捏离合，直接进行换档。&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 10 Jan 2016 14:47:55 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/motor-qs/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/motor-qs/</guid>
+        
+        
+        <category>lifestyle</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>加州摩托车驾照取得流程及驾校课程总结</title>
+        <description>&lt;h3&gt;来加州骑摩托吧！&lt;/h3&gt;
+
+&lt;p&gt;加利福利亚，一个从来都不缺少灿烂阳光和美丽海岸的 golden land。一个终年都风和日丽，冬暖夏凉的地方。上帝不来自加州，也一定住在加州。这片土地是摩托和敞篷的天堂。&lt;/p&gt;
+
+&lt;p&gt;即使在其他地方处于酷暑或严冬之时，加州人也依然可以骑着摩托在宽阔的街道上兜风。除了宜人的气候，「摩托天堂」的名号还有赖于这里特别适合摩托车的道路状况、交规、治安、停车设施以及司机们良好的素质。道路宽阔、路况优质、治安良好（大部分地区）。除了三藩市建在山上，有很多上下坡之外，其他地方也都是一马平川，操作起来毫不费劲。不仅好骑，还很好停，很多停车场都有专门的摩托车停车位，在街边停车的话也可以将车子横过来用后轮垂直抵着路堐停放。考虑到南北加繁忙的交通，可以很方便的停车是一个巨大的优势。&lt;/p&gt;
+
+&lt;p&gt;在加州住过的人，一定目睹过摩托车从车流的间隙里穿过。我刚开始看到时，也觉得不可思议。但是后来知道，加州的法规并不禁止摩托和其他车辆共享一条车道，这可能是立法的一个漏洞吧。在很多时候，这确实是非常危险的。但是以我的切身感受，在上下班高峰期，某些路段车流往往都会很长，而且行进缓慢，甚至停止。在这种时候，如果安全距离足够，是完全可以低速在车道之间穿行的。加州交通安全局和 CHP (California Highway Patrol) 推荐穿行时将速度保持在 30 mph 以下，且和旁边车辆的速度差不要超过 10 mph。在有摩托穿行的时候，这边的司机也往往会主动向两边移动，以让给摩托车足够的空间。&lt;/p&gt;
+
+&lt;div&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-motor-intro/lane-sharing.png&quot; alt=&quot;摩托在穿行&quot;/&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我个人更倾向于让驾驶者自己来判断是否可以安全穿行，而不是一刀切的去禁止。选择摩托通勤，本来就是很低碳环保（粗略估算可以达到 80 多的 MPG）且基本不增加交通拥堵的一种方式，所以这边的司机也都很配合，很礼让。我还记得我刚开始上路的时候，有一次起步错挂在了二档但并没有发觉（摩托不显示档位），连续熄火了两三次才尝试成功（二档强起……），中间这段时间我后面的一辆大皮卡既没有冲我按喇叭，也没有从旁边绕过，而是一直在那等着，让我非常感动。&lt;/p&gt;
+
+&lt;p&gt;这样一个利人利己，和谐融洽的环境是很可贵的。摩托车相比于汽车只占用了很少的道路资源和环境资源，汽车司机因此也尽量给摩托的通行创造好的条件。在加州骑摩托真是一件愉快的事情！&lt;/p&gt;
+
+&lt;h3&gt;如何取得驾照？&lt;/h3&gt;
+
+&lt;p&gt;考摩托驾照（主要为 M1）和考汽车驾照一样，需要先进行笔试，考察应试者对交通规则、紧急情况的应对以及摩托车操作方面的熟悉程度。这里需要注意的是，如果考试时距离你取得汽车驾照的时间超过了一年，那么笔试会有两套题，第一套是汽车驾照笔试题（抽选其中的 30% 考察），第二套才是摩托车专门的笔试题。至于路考，则并不是必须的。只要参加这边政府认证的摩托车安全课程(参见：&lt;a href=&quot;http://cmsp.msi5.com/&quot;&gt;CMSP: California Motorcyclist Safety Program&lt;/a&gt;)，并且顺利通过评测拿到证书，就可以免去路考。我强烈推荐大家去参加这类课程，而不要直接去 DMV 路考，主要有下面几个原因。&lt;/p&gt;
+
+&lt;p&gt;首先，骑摩托是一件比开车更危险、对操作技巧和安全知识要求更高的事情，去接受一套正规的训练是很有必要的，因为有一些感觉上是对的东西往往并不安全。比如，在过弯时刹车，听上去很正确，但其实摩托在过弯时至少要保持匀速，最好是加速，边转向边刹车是不安全的操作。其次，DMV 的摩托路考很不好通过，对各种细节的考察相当繁琐，相比之下，去上课然后通过课程的评测要简单得多。最后的评测内容全部都是课程里反复训练过的科目，并不是很难。最后，CMSP 的认证可以在很多卖摩托车装备的店获得新手打折，比如 &lt;a href=&quot;http://www.cyclegear.com/&quot;&gt;Cycle Gear&lt;/a&gt;。在买保险的时候价格往往也会更低。&lt;/p&gt;
+
+&lt;h3&gt;课程信息介绍&lt;/h3&gt;
+
+&lt;p&gt;在这里向大家推荐一家公司，叫 &lt;a href=&quot;http://2wheelsafety.com/&quot;&gt;2 Wheel Safety Training&lt;/a&gt;。我就是在那学的。整个课程只要 258 刀，有从周四晚上开始，周五半天、周六全天的，也有从周五晚上开始，周六半天、周日全天的时段。总之，一共就一天半的场地训练加一个晚上（3 小时左右）的理论学习。他们可以提供摩托和头盔，自己需要准备皮手套以及能包住脚踝的鞋。当然你也可以戴自己的头盔或者骑自己的摩托去！提供这种认证课程的公司有很多，大家只要在 Google 上搜一下就能找到，可以选择一个离得近的参加。&lt;/p&gt;
+
+&lt;h3&gt;场地训练&lt;/h3&gt;
+
+&lt;p&gt;练习的场地是一个很大的停车场，停车场被分成了很多块，以供几个班同时训练。每一个教练会带大概 10 个学生，每个人都会有自己的摩托。驾校提供的摩托一般是比较老旧的，排量也很小。最常见的是一款雅马哈的 Cruiser，外观和大小都很像 2012 年的 V-STAR 250，但是年份应该早很多。美国这边摩托的控制装置的布局和操作基本都是一样的。只是老一点的车型会多一个 choke，专门用于热车，新的车子一般就没有了。然后向下踩左边的踏板是减档，脚背向上勾是加档。各个档位的顺序是：1 N 2 3 4 5 6。其中空档（N）处于半档位置，位于 1 档和 2 档之间，从 1 档换到空挡只需轻轻的向上勾。美国所有的重机，除了宝马和哈雷有些车型特殊之外，都是这样的布局。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-motor-intro/training_motor.png&quot; alt=&quot;雅马哈V-STAR250&quot;/&gt;
+    &lt;figcaption&gt;雅马哈V-STAR 250&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h4&gt;科目&lt;/h4&gt;
+
+&lt;p&gt;训练都是一个项目一个项目进行的。刚开始也会只让挂着一档，双脚都不离地，通过控制离合来前进。但是我觉得整个课程的节奏还是比较快的，毕竟只有一天半的时间。但是你只要会骑自行车，并且开过手动挡的汽车，应该是能轻松搞定的。在这里就不一一介绍每个训练项目了，下面我会总结出我认为比较重要的技巧或者是跟安全息息相关的知识。&lt;/p&gt;
+
+&lt;h5&gt;转弯&lt;/h5&gt;
+
+&lt;p&gt;摩托的转弯原理和汽车是不一样的。快速并且安全的过弯主要需要掌握三个方面的技巧。一是车身倾斜角度的控制，二是速度和牵引力的控制，最后是视线的位置。&lt;/p&gt;
+
+&lt;p&gt;首先谈一下第一点。在转弯训练当中，教练会提到一个词，叫做 counter-steering，直译成中文就是反打方向。即在左转的时候向右转龙头，反之亦然。这句话咋听起来有点诡异，很不好理解。其实这里面的原理就是基于摩托转弯时需要向转弯方向倾斜，counter-steering 能够帮助摩托车倾斜。以我自己的经验，我觉得 counter-steering 更确切的说法应该是：向转向一侧的把手施力。也就是说，在左转时，用左手将摩托车往左下方压，在右转时用右手向右下方压。这样就可以使摩托更好的倾斜。至于为什么会叫 counter-steering，我想是因为向左压把手的时候龙头会右转，右压的时候会微微左转，刚好和转弯的方向相反吧。用英语解释更佳简明：When making a left turn, push to the left. When making a right turn, push to the right.&lt;/p&gt;
+
+&lt;p&gt;然后是速度和油门的控制。当摩托在转弯过程中是不应该刹车的，相反，正确的做法应该是加大油门。因为在过弯时车身是倾斜的，摩托的总牵引力被分成了向前前进的动力和转向的向心力，这个时候如果刹车，就会使得这两个力都减弱，可能会造成翻车。加大油门可以提供更充足的向心力，降低转弯的难度。我们应该在入弯前刹车，降低速度，过弯途中再加大油门，然后出弯。&lt;/p&gt;
+
+&lt;p&gt;如果在过弯的时候有紧急情况需要刹车的话，应该先将倾斜的摩托调正，停止转弯，然后再直线刹车。总之，边转弯边刹车是禁忌，这两者一定不能同时进行。这里还有一个小技巧，就是用双腿紧紧夹住油箱可以帮助保持平衡，减小晃动。&lt;/p&gt;
+
+&lt;p&gt;最后非常重要的一点是一定要抬头看远处将要行经的道路。左转时需要转头向左，右转则向右，把整个弯道的情况都收入眼中。这个听起来好像没有什么特别的，但是初学者往往都只会直视前方的道路，这样能够看到的路是非常有限的。直到被教练纠正了很多次之后才会养成正确的习惯。我记得我当时上课的时候被纠正次数最多的就是这点。这里的道理和开车是一样的，当开车通过一个比较长的弯道（左转居多）或者是需要掉头的时候，如果不向左转头有意识的去扫弯道，而是仅仅直视前方的话，车子很容易走偏，转弯不是过大就是过小。在一些比较急的弯或 U turn 的时候，甚至需要把头转到使眼睛能够从左边前车窗看出去的位置，才能很好的掌控车子的行驶路径。
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-motor-intro/motor_turn.jpg&quot; alt=&quot;转弯时的视线方向&quot;/&gt;
+    &lt;figcaption&gt;转弯时视线的正确方向&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;大家可以随便在网上搜一些摩托车比赛的图片或视频，看一看专业车手在转弯时视线的方向。&lt;/p&gt;
+
+&lt;h5&gt;刹车&lt;/h5&gt;
+
+&lt;p&gt;摩托车的前刹提供大约 70% 的制动力，后刹提供剩下的 30%，所以主要的制动力都来自前刹。美国这边教的是在任何需要刹车的时候，都要前后刹一起使用。其他的方面则和开汽车是一样的，比如刹车时要看后视镜，确保和后面的车保持足够的距离。如果后面的车跟得太近，可以通过快速的点刹车，来闪刹车灯，提醒对方。&lt;/p&gt;
+
+&lt;h5&gt;避开障碍物&lt;/h5&gt;
+
+&lt;p&gt;在遇到前方有障碍物时，如果有其他路径的话，最好的办法就是快速的转弯去避开障碍。这里有一个英语词叫 swerve，就是突然改变方向的意思。训练课程有专门有一项就是练习 swerving。教练会在路上放若干小路障，我们需要绕开路障，从它们之间穿过去。Swerving 的要点就是用双手将摩托向左或向右推，同时稍微移动身体向反方向做一个平衡，摩托就会倾斜转向了。&lt;/p&gt;
+
+&lt;p&gt;这里也涉及到了眼睛往哪看的问题。与常识相反，如果我们想要避开障碍物，则一定不能用眼睛去盯着障碍物看，否则后果就是撞上去。新手为了避障，往往会很着急一直看着障碍物，这个习惯一定要改过来。我们只需要确定一次障碍物的大体位置就行了，眼睛始终都应该看将要行经的道路（和转弯一样）。这里有一个非常有用的经验，就是眼睛盯住哪里看，就会撞上哪里，我亲测有效，对开车也同样适用。&lt;/p&gt;
+
+&lt;p&gt;基础的部分就先说到这里吧。文章如有纰漏之处，还请大家帮忙斧正。&lt;/p&gt;
+
+&lt;p&gt;下一篇我准备分享一下我对无离合换挡（clutchless-shift）的认识。刚接触到这个概念的时候，我也是在 Quora, reddit 乃至 Yahoo Answers 上面各种请教。歪果仁们都非常热心的帮助我，很耐心的给我解释。我经过反复练习，最终熟练掌握。记得第一次不用离合就进入档位的那一刹那，就犹如发现了新大陆一样！&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;来加州骑摩托吧！&lt;/h3&gt;
+
+&lt;p&gt;加利福利亚，一个从来都不缺少灿烂阳光和美丽海岸的 golden land。一个终年都风和日丽，冬暖夏凉的地方。上帝不来自加州，也一定住在加州。这片土地是摩托和敞篷的天堂。&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 02 Jan 2016 11:31:20 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/motor-intro/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/motor-intro/</guid>
+        
+        
+        <category>lifestyle</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>IFTTT：沟通应用的桥梁</title>
+        <description>&lt;h3&gt;序言&lt;/h3&gt;
+
+&lt;p&gt;在 2015 年的尾牙，琳琅满目的社交平台已经成为了我们生活中不可或缺的一部分。可以说，我们的生活状态有相当一部分都是通过各种互联网平台表现与传播的。它们同时也反映了我的自我认知和外在形象。盛世之下，各种相关应用已是呈井喷之态。&lt;/p&gt;
+
+&lt;p&gt;其中，有偏向于搭建公共、开放平台的 Twitter 和微博，有基于熟人小圈子互动的微信和 Snapchat，也有介于两者之间的 Instagram 和 Facebook。其中 Facebook 又更偏重于朋友间的常规联络和分享，以及适量的在公共主页和热点事件上的互动。相比之下，Instagram 则是一个全面封闭的侧重于营销和做个人品牌推广（branding）的平台（特别是对于摄影师，设计师，模特等而言）。在这些巨人之下，还有着千千万万的「小」公司占据着各种细分市场，比如陌陌，抱抱，17……&lt;/p&gt;
+
+&lt;p&gt;如此之多的应用共同编织出了我们丰富的线上、线下生活，服务了我们的方方面面。那么，有没有什么办法能够将它们连接起来，让我们的生活更智能呢？&lt;/p&gt;
+
+&lt;h3&gt;IFTTT是什么？&lt;/h3&gt;
+
+&lt;p&gt;今天的主角终于出场了。IFTTT，一家总部位于旧金山的新创公司，致力于让人们发挥创造力，去控制自己喜欢的产品和应用。让我们想象一下，假如我们在更新微博状态的时候，想同时将这条状态分享到 Facebook 上（自动翻墙了？），假如我们想在朋友生日的时候自动通过 Facebook 或者微博进行问候，假如我们想让我们的 Facebook 和 Twitter 里面的个人信息保持同步，等等。我们应该怎么做呢？ IFTTT 为我们提供了一个完全自动化的解决方案。其实，IFTTT 的名字来源于其功能：&lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt;。对于之前的情景，我们发现全部都可以套进这句话当中：if 有新的微博状态发布，then 将其分享到 Facebook。if 年／月／日，then 发送 Facebook 或微博消息。if Facebook 用户信息变动，then 在 Twitter 账户中进行相同的设置。只要我们想要连接的应用在 IFTTT 的平台上推出了自己的服务，那么我们就可以根据它们提供的服务种类，向搭乐高积木一样构建出既有创意，又方便实用的功能。&lt;/p&gt;
+
+&lt;h3&gt;生态系统及功能详述&lt;/h3&gt;
+
+&lt;p&gt;从成立到现在短短几年，IFTTT 平台上已经有了上百个频道。在其术语当中，频道（Channel）即对应一个应用，或是说产品。比如微博是一个频道，Facebook 是另外一个频道。
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ifttt-intro/channels.png&quot; alt=&quot;IFTTT上的应用&quot;/&gt;
+    &lt;figcaption&gt;IFTTT上的应用&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;国外大多数比较流行的应用都已经在上面有了自己的频道，并且支持相当多的功能。但不得不说，国内的公司在其平台上的存在感还很低，目前我只看到了微博，并且仅提供简单的功能接口，比如监测到新发微博，发送微博等。&lt;/p&gt;
+
+&lt;p&gt;我们已经说到，IFTTT 这个平台，由上百个频道组成。而根据其对平台功能的抽象（&lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt; 模型），一个频道又由 &lt;strong&gt;Triggers&lt;/strong&gt; 和 &lt;strong&gt;Actions&lt;/strong&gt; 组成。其中，Trigger 是一个频道可以为其他频道提供的信息。
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ifttt-dev/triggers.png&quot; alt=&quot;Facebook Triggers&quot;/&gt;
+    &lt;figcaption&gt;Facebook Triggers&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;上图是 Facebook 可以提供的部分 Trigger，即是 &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;if this, then that&lt;/strong&gt; 这个模型中的 &lt;strong&gt;this&lt;/strong&gt; 部分。&lt;/p&gt;
+
+&lt;p&gt;Action 则是一个频道接到其控制频道（提供 Trigger）的信息之后，可以采取的操作。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ifttt-dev/actions.png&quot; alt=&quot;Twitter Actions&quot;/&gt;
+    &lt;figcaption&gt;Twitter Actions&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;p&gt;上图是 Twitter 支持的部分 Action。所以，当我们把这两个频道连接在一起的时候，我们先在 Facebook 上选择一个 Trigger，比如 &amp;quot;New status message by you&amp;quot;，然后再在 Twitter 上选择一个 Action，比如 &amp;quot;Post a tweet&amp;quot;。这样，每当我们在 Facebook 上更新一条状体，这条状态就会自动被发布到我们的 Twitter 上面。最终组装完成的模型就是 &amp;quot;if New status message by you, then Post a tweet&amp;quot;。简单易用。&lt;/p&gt;
+
+&lt;p&gt;需要说明的是，一个频道可以既有 Trigger，又有 Action。在上面的例子中，我们完全可以将 Twitter 和 Facebook 调换位置，让我们在 Twitter 上的行为去驱动 Facebook。提供什么样的 Trigger 和 Action 给用户，取决于频道的开发团队。&lt;/p&gt;
+
+&lt;h3&gt;更多的创意&lt;/h3&gt;
+
+&lt;p&gt;虽然我在序言和后面的说明中都是以社交类 App 作为例子，但是 IFTTT 并不局限于此。任何一个产品都可以在其平台中搭建自己的频道，包括智能硬件（须有服务器端）。在 IFTTT 里，两个应用组成的连接，被称为一个 Recipe。在它们的网站中，已经有了成千上万的 Recipe。这其中大部分都来自用户。当用户自己搭建了一个 Recipe 之后，如果他觉得很酷，就可以将其发布出去，供他人使用。这种基于 UG(User-generated Content) 的方式，对于保持平台的活力也非常有帮助。下面简单给大家截取一些 Recipe。&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ifttt-intro/recipes1.png&quot; alt=&quot;Smart Home Recipes&quot;/&gt;
+    &lt;figcaption&gt;智能家居的Recipes&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-ifttt-intro/recipes2.png&quot; alt=&quot;Android Recipes&quot;/&gt;
+    &lt;figcaption&gt;安卓手机的Recipes&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;工作原理&lt;/h3&gt;
+
+&lt;p&gt;在这样一个架构当中，IFTTT 充当着一个中间人的角色。当一个频道上线之后，IFTTT 的服务器会每隔 15 分钟去访问一个 Trigger 的节点，如果得到新数据，则自动向这个 Trigger 所连接的 Action 节点发送一条指令，以驱动一个操作。当然实际情况要稍微复杂一点，比如用户可以向 Trigger 提供输入、另一类只有 Action 的 Recipe（称为 &amp;quot;Do Recipe&amp;quot;）和更加实时的解决方案等等。具体的原理和开发指南可以参见我的另一篇文章：&lt;a href=&quot;/blog/ifttt-development/&quot;&gt;Channel Development on IFTTT&lt;/a&gt;。在了解了上述原理之后，想必大家已经发现，只要 IFTTT 不被墙，那么我们还可以将它作为桥梁去控制墙外的应用。赶快&lt;a href=&quot;https://ifttt.com/recipes&quot;&gt;体验&lt;/a&gt;一下吧。&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt;序言&lt;/h3&gt;
+
+&lt;p&gt;在 2015 年的尾牙，琳琅满目的社交平台已经成为了我们生活中不可或缺的一部分。可以说，我们的生活状态有相当一部分都是通过各种互联网平台表现与传播的。它们同时也反映了我的自我认知和外在形象。盛世之下，各种相关应用已是呈井喷之态。&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 31 Dec 2015 13:31:20 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Channel Development on IFTTT</title>
+        <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
+
+&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
+  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
+  How would you do it automatically? Here is when IFTTT comes in. It is short for
+  &quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&quot;.
+  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
+  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;
+
+
+&lt;h4&gt; Channels, Triggers and Actions &lt;/h4&gt;
+&lt;p&gt; Channels are Twitter, Facebook, email, Google Drive etc. Triggers are what can be used to prompt an action,
+  such as &quot;New status message&quot;, &quot;New photo post&quot;, and &quot;You are tagged in a photo&quot; from Facebook. Action is the
+  work that IFTTT undertakes as a result of a Trigger. Examples are &quot;Send me an email&quot; from the email channel,
+  &quot;Create a status message&quot; from Facebook, and even &quot;Update device wallpaper&quot; from the Android device channel. &lt;/p&gt;
+
+&lt;p&gt; Now, to get our first job done, we only need &quot;if &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message&lt;/strong&gt;,
+  then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;Post a tweet&lt;/strong&gt;.&quot; The former is a &lt;strong&gt;Trigger&lt;/strong&gt; provided by
+  Facebook, while the latter is an &lt;strong&gt;Action&lt;/strong&gt; from Twitter. We only need to connect to these two
+  channels with &lt;em&gt;OAuth&lt;/em&gt; and select the appropriate Trigger and Action from them respectively. &lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/img/post-ifttt-dev/triggers.png&quot; alt=&quot;Facebook Triggers&quot;/&gt;
+      &lt;figcaption&gt;Figure 1. Facebook Triggers&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;/assets/img/post-ifttt-dev/actions.png&quot; alt=&quot;Twitter Actions&quot;/&gt;
+      &lt;figcaption&gt;Figure 2. Twitter Actions&lt;/figcaption&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3&gt; How does it work under the hood? &lt;/h3&gt;
+
+&lt;p&gt;Finally, we get to our topic: Development on IFTTT. The way it works is mainly the concern of
+channel developers. Their documentation is pretty good, but there are still confusions and undocumented stuff.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;#39;ve been developing a channel on it for months, and had a lot of email exchanges with their support team regarding
+my own confusions and undocumented mechanisms, I think I can help others get a better understanding of how it works.&lt;/p&gt;
+
+&lt;p&gt;As we already know, Triggers and Actions are the fundamental building blocks of IFTTT.
+We will see how they work in a short while.&lt;/p&gt;
+
+&lt;h4&gt; How Trigger works &lt;/h4&gt;
+
+&lt;p&gt;So how does IFTTT know that there is a change in your Trigger and that change should fire an Action?
+It polls the server of the channel which provided the Trigger every 15 minutes. As a channel developer, we should
+return an array of items. Each item should have an unique ID and a timestamp. The IDs are used to prevent Actions from
+firing more than once on the same item. So IFTTT keeps a record of all the items it gets, and triggers the Action once there
+is a new item (identified by the ID field) coming in.&lt;/p&gt;
+
+&lt;p&gt;The items should also contain any data that might be used by the Action. In our Facebook -&amp;gt; Twitter example above, the
+Facebook &lt;strong&gt;New status message&lt;/strong&gt; Trigger should provide at least the content of the message as a string in addition to
+timestamp and ID. The content of the message is called the &lt;strong&gt;Ingredient&lt;/strong&gt; which can be used by the Action. In this case,
+the Twitter Action &lt;strong&gt;Post a tweet&lt;/strong&gt; can use that Ingredient to tweet. A typical data stream you should return looks like
+below:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;It&amp;#39;s so great to be home again!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, brooklyn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-12-09T09:23:00-07:00&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;14b9-1fd2-acaa-5df5&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383597267&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;School is ending, I&amp;#39;m heading back home soon!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, nyc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-11-29T03:23:00-07:00&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ffb27-a63e-18e0-18ad&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383596355&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;IFTTT has a great test framework that every channel needs to pass before it can be published. One requirements of the
+test is that at least 3 items should be returned each poll unless limited by IFTTT itself through a request parameter.
+It seems weird at first. You may wonder what if a user hasn&amp;#39;t updated his/her Facebook for a long time? What should
+we return if we are working for Facebook when IFTTT polls our server? We can return nothing, i.e, an empty list with
+&amp;#39;data&amp;#39; as its key. It certainly won&amp;#39;t fire any Action, but it&amp;#39;s not recommended. We cannot pass the test if we just
+return empty data. The recommended way is to return the user&amp;#39;s old posts. How many? More than 2
+and less than 50, according to the documentation. This policy, according to IFTTT, is to make sure our API behaves
+like a timeline of events, not a state engine. Since IFTTT only polls our API every 15 minutes, we need to make sure
+that they don&amp;#39;t miss anything by returning a list of events.&lt;/p&gt;
+
+&lt;h4&gt; Trigger Fields&lt;/h4&gt;
+
+&lt;p&gt;There is another term called &lt;strong&gt;Trigger Fields&lt;/strong&gt;. It is the user inputs when he/she creates a Trigger. For example,
+there&amp;#39;s a Facebook Trigger called &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message by you with hashtag&lt;/strong&gt;.
+The user needs to specify the name of the hashtag. Only when there is the specified hashtag in the user&amp;#39;s status,
+will the Trigger fire. When IFTTT polls our API, the Trigger Fields will be passed to us in the POST body, and
+we should use it in our server logic to decide what to return.&lt;/p&gt;
+
+&lt;p&gt;Trigger Fields can be either static or dynamic. Static ones don&amp;#39;t need IFTTT to query our server. In the above example,
+the user can just type in a hashtag value himself. For drop down menu, we can provide a list of options in advance
+stored in our IFTTT development console. Dynamic ones, on the other hand, require IFTTT to poll our server to get
+the values for the user to choose. There is also a protocol specifies how IFTTT polls our server and
+how we should respond in their documentation.&lt;/p&gt;
+
+&lt;h4&gt;The Real-time API&lt;/h4&gt;
+
+&lt;p&gt;When we think about how it works, intuitively we think of posting data to IFTTT&amp;#39;s endpoints when a Trigger should fire,
+rather than waiting for them to poll our API. Here is when the real-time API comes in. It provides faster response to
+user events.&lt;/p&gt;
+
+&lt;p&gt;At the time I wrote this post, the real-time API is still very simple and primitive. We only need to return
+a list of user IDs whose Triggers have changed.&lt;/p&gt;
+
+&lt;p&gt;The user ID comes from the user information endpoint that we provide to IFTTT.
+IFTTT polls this endpoint after it acquires the access token through the &lt;em&gt;OAuth2.0&lt;/em&gt; process to make sure that
+the user&amp;#39;s access token is valid. We retrieve the corresponding user with the passed-in access token and return a
+user ID and username.&lt;/p&gt;
+
+&lt;p&gt;For the real-time API, we just return the same user ID that we return in the user information endpoint. The response
+should look like:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;23489759&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;77956024&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Once IFTTT gets our post, it will poll our Trigger API immediately. At the time of writing, we cannot specify
+which Trigger to poll. IFTTT will just poll all the Triggers the user has. So the current real-time API behaves more
+like a button that we click to force IFTTT to do a Trigger check. It is still our normal Trigger API that does the
+actual work. Notice that if IFTTT detects that we are using the real-time API, it will still poll our API regularly
+but at a longer period of time.&lt;/p&gt;
+
+&lt;h4&gt; How Action works&lt;/h4&gt;
+
+&lt;p&gt;Now it should be much easier for us to understand Actions. For each new trigger item, IFTTT will push data to our Action
+endpoint with ifttt_source, user and actionFields. We can retrieve the data passed in by Trigger in actionFields. A
+sample post looks like:&lt;/p&gt;
+
+&lt;div class=&#39;md-10-suffix-1&#39;&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;actionFields&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;New Banksy photo!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Check out a new Bansky photo: http://example.com/images/125&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;ifttt_source&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://ifttt.com/myrecipes/personal/2&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;timezone&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pacific Time (US &amp;amp; Canada)&amp;quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Note that there are also static fields and dynamic options for Actions. For example, if we have an Action
+&amp;#39;&lt;strong&gt;Post to channel&lt;/strong&gt;&amp;#39; from &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, the Slack needs to provide us with the channels we currently have in our
+chat room.&lt;/p&gt;
+
+&lt;h3&gt; Summary &lt;/h3&gt;
+
+&lt;p&gt;Now the way IFTTT works should be pretty simple: It polls our API regularly, if there is new item returned,
+it fires an Action. Detailed information can be found in their &lt;a href=&quot;https://developers.ifttt.com/docs/api_reference&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+</description>
+        
+          <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
+
+&lt;p&gt;&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
+  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
+  How would you do it automatically? Here is when IFTTT comes in. It is short for
+  &amp;quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&amp;quot;.
+  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
+  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 25 Dec 2015 08:31:20 -0800</pubDate>
+        <link>http://blog.yongfengzhang.com/blog/ifttt-development/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/ifttt-development/</guid>
+        
+        
+        <category>technology</category>
+        
+      </item>
+      
+    
   </channel>
 </rss>
