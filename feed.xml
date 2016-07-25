@@ -5,9 +5,112 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Apr 2016 23:53:09 -0700</pubDate>
-    <lastBuildDate>Wed, 06 Apr 2016 23:53:09 -0700</lastBuildDate>
+    <pubDate>Mon, 25 Jul 2016 00:09:41 -0700</pubDate>
+    <lastBuildDate>Mon, 25 Jul 2016 00:09:41 -0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      
+      <item>
+        <title>斯巴鲁 WRX (翼豹) 提车体验</title>
+        <description>&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-wrx/front.jpg&quot; alt=&quot;front&quot;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;车型及选配&lt;/h3&gt;
+
+&lt;p&gt;斯巴鲁 WRX 有基本版和 STI 可供选择，我买的是基本版。这辆 2016 年款的 WRX 配备 4 缸水平对置涡轮增压发动机，排量 2.0 升，马力 268 匹。变速器为 6 速手动，除此之外，我选配了 STI 的短挡变速器 (Short-throw shifter)。&lt;/p&gt;
+
+&lt;h3&gt;驾乘体验&lt;/h3&gt;
+
+&lt;p&gt;WRX 可以说是很不好开。如果之前没有驾驶过类似的性能型车的话，要平顺的上路并不是一件简单的事情。我虽然之前也曾长期开手动挡的车，但是直到现在也不能保证百分之百平顺的驾驶这部 WRX。操作上的难度主要有以下几点：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;2 挡时候离合器的咬合过程非常的短，油门配合不好或者离合松的稍微快了一点的话，车身就会有明显的抖动。除此之外，换 2 挡的时候挡位经常不能平顺的滑入，常常会感到一个明显的阻力并伴随着碰撞声。这个现象在冷车以及高转速换挡的时候似乎更加明显。不过好像很多短挡都有这种问题，习惯了也就没什么了。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;车只要在行驶，即使速度已经很慢了，也很难挂进 1 挡。因此在通过 stop sign 或者需要减速的地方时只能等车子几乎停稳之后再换 1 挡。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在高转速（4 转千以上）换挡的时候，即使已经踩下离合，引擎的转速不但不会下降，反而会有一个小的跳升，然后再缓慢往下掉。也有其他车主反应不管是在什么转速区间换挡，都会出现这个问题。 这虽然算不上是什么缺陷，也不会影响操作，但确实是一件很违背驾驶习惯的事情。网上的资料表明，这似乎是车厂对 ECU 的有意设置，被称为『rev hang』，是为了满足排放标准而设定的，因为它能让燃油更充分的燃烧。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;离合比一般的车更深，座位要调的比较靠前才行。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;涡轮迟滞，这个不用多说，几乎所有的小排量涡轮增压发动机都会有明显的迟滞。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;总而言之，跟一般的车比起来，WRX 这种很偏赛车调教的车型确实更加难以上手，再加上短挡手动挡的原因，这部车并不容易驾驭。方向盘也很重。乘坐的体验当然也不会很好。首先是车厢隔音不是非常的好，在高速行使的时候会比较吵。其次就是悬挂非常非常的硬，行程很短，在过一些路况不好的道路或者减速带的时候会很颠簸。&lt;/p&gt;
+
+&lt;p&gt;但以上所说与其说是缺陷，倒不如说是取舍，或者 trade off。是易上手和操控性之间的取舍，也是舒适性和运动性之间的取舍。显而易见，WRX 选择了更多的去满足激烈驾驶的需求和运动性能：短挡能提升换挡速度，代价是换挡的平滑性（至少对于 STI 的短挡是这样的）；更短的离合器摩擦区使车子提速更快，代价是很难做到挡位之间平顺的过度；很硬的悬挂使车的过弯性能非常的好，对路况的反馈也非常清晰，代价则是乘坐的舒适性；水平对置汽缸的发动机能有效降低车身重心，高速稳定性和过弯稳定性都比一般的车更好，代价则是更高的造价（结构更复杂）和更多的损耗（机油循环不均）。关于最后一点，WRX 做出的牺牲可以说是很大的，为了降低发动机重心，不惜提升制造成本，以及承受发动机寿命下降的代价。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-wrx/rear.jpg&quot; alt=&quot;rear&quot;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;亮点&lt;/h3&gt;
+
+&lt;p&gt;我对于这部车最为满意的地方主要有三点。&lt;/p&gt;
+
+&lt;p&gt;首先当然是加速性能，5 秒的 0-60 迈（百公里）加速是很爽的。激烈驾驶的话，在 60 迈之前可以感受到非常澎湃的动力，也就是所谓的推背感。60 迈之后加速能力就慢慢下降了。毕竟不是大排量，对于这个价位的车来说已经很难得了。这样的性能区间对于在城市或者湾区这种『城乡结合部』里开车来说是很适合的，可以非常灵活的操作而不用担心动力跟不上的问题。&lt;/p&gt;
+
+&lt;p&gt;其次就是过弯非常稳。这当然是得益于好的悬挂和四驱系统。在很多时候即使不过多的减速，也会很稳定，能感觉到底盘和车身仍然是一个整体，而不像悬挂较软的车或者高大的越野车那样甩到月球去（求不喷）。&lt;/p&gt;
+
+&lt;p&gt;最后一点是关于日常用车的方便性。现在的 WRX 虽然仍是把性能放在第一位，但是考虑到易用性，还是做了一些妥协的，比如说倒车影像和专门为手动挡配备的坡道辅助系统。这里我想重点说一下这套非常好用的坡道辅助系统。对于刚接触手动挡或者之前一直没有开过太多坡路的人（比如本人）来说，在初次面对诸如三番市里那种动辄 30 度的大坡时，心里肯定是会有一点恐惧的。起步的时候没有拿捏到位的话，轻则溜车，重则熄火，最严重的是溜车之后撞到后面的车。有了坡道辅助之后，就轻松多了，再不用去反复练习如何用手刹起步。原理是这样的，当车子停在坡道上，并且离合踩下，挡位处于 1 挡或者倒挡位置时，系统被激活，此时右脚离开刹车之后，车子仍然会自动帮你 hold 住刹车大概 2 秒左右的时间。这时你就可以从容的去踩油门、抬离合了，当有足够的动力时刹车会自然松开。&lt;/p&gt;
+
+&lt;p&gt;这个功能我在三番实测有效，第一次开就很顺利，非常容易使用，到现在也没有出现过任何溜车或者熄火的情况。不过需要注意的是，因为其原理仍然是踩住刹车，所以在坡道上起步的时候还是需要预先把转速踩得更高。空车时差不多要 2000 转以上，如果是满载则是接近 3000 转会比较保险，否则起步动力不足容易溜车或者熄火，当然这是针对比较陡的坡而言的。&lt;/p&gt;
+
+&lt;p&gt;目前发现的唯一问题是偶尔的『不当』触发。即当车停在仅仅有一点坡度的『平地』上时，即使汽车凭借自身的摩擦力已经完全不会向后滑，但是系统仍可能启动。不过这也没有什么大问题，就是起步的时候阻力更大，会更容易熄火而已。&lt;/p&gt;
+
+&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-wrx/inside.JPG&quot; alt=&quot;front&quot;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;车型及选配推荐&lt;/h3&gt;
+
+&lt;p&gt;下面根据我自己了解到的情况和用车需求推荐一些我认为最佳的配置。&lt;/p&gt;
+
+&lt;p&gt;首先，如果你不是 hard core 的赛车爱好者，我其实并不推荐买 STI。对于普通的玩车、改装，甚至『初步』去开一下赛道而言，WRX 是足够的。STI 不仅贵了 1 万刀，而且目前实测的其低速区间下的加速性能甚至比 WRX 更弱，这一方面是因为 STI 使用的是一款比较老的 2.5L 发动机，效率没有 WRX 的新型 2.0L 发动机高。另一方面则是 STI 更重。还有一点是关于日常使用的方便性。从 2015 年开始，STI 的油箱容积不知道什么原因被减掉了 1 加仑，这样再算上它出奇高的油耗（MPG 17/23），满油也仅能行使 300 迈左右，而 WRX 则能开到 400 多迈。需要频繁的加油并不有趣。&lt;/p&gt;
+
+&lt;p&gt;其次，如果可以的话，我推荐尽量选择手动挡。好了，下面又到了争议很大并且完全不可能说清楚的手动挡 vs. 自动挡环节了。不过好在对于这款车而言，手动挡好很多这一点是基本没有异议的。&lt;/p&gt;
+
+&lt;p&gt;先稍微谈一谈总体上我对自动挡和手动挡的看法吧，这样我更推荐手动版 WRX 的原因也就会自然浮现出来。&lt;/p&gt;
+
+&lt;p&gt;传统的自动挡（AT）传动效率很低，油耗大，而且还更贵更复杂。这是因为 AT 是靠液压（液力变矩器）来驱动车子前进的，变速器和发动机之间并不是直接的机械硬连接。而是像用一个风扇（发动机）对着另一个风扇（变速器）吹风来带动它转动，只不过汽车中使用的媒介不是风而是变速器油。这样对于效率的损耗是非常大的。而且换挡的速度也很慢。对于传统的 AT 而言，手动挡在性能和效率上有绝对的优势，追求性能的赛车和各种小钢炮没有采用 AT 的。&lt;/p&gt;
+
+&lt;p&gt;然后开始逐渐出现其他的技术，比如 CVT（无级变速）。其原理是发动机端的主动轮和变速器端的从动轮的半径可以连续改变，两者通过皮带或链条连接，因此能够连续变矩，没有挡位的存在（只有模拟出来的挡位）。好处是运行效率更高，动力输出连续不间断，行驶起来会非常平稳。这种技术用于日常代步的小马力车是非常合适的，事实上也有越来越多的平价小排量轿车开始采用 CVT。但是因为其皮带（或链条）的强度不够，容易损坏，往往不能用在大马力或有较大载荷的车上。对于性能车而言，CVT 可能是比 AT 更坏的选项。因为它会严重限制车的改装潜力，加大马力之后变速器很可能会打滑，激烈驾驶也会对传动皮带造成很大的压力。其只能连续变矩的特点也使得『换挡』的速度不会很快。&lt;/p&gt;
+
+&lt;p&gt;真正从性能上超越了手动挡的是最后要说到的双离合。介于篇幅有限，我就不在这里介绍了，感兴趣的朋友可以自行去查看相关信息。总之，在各种双离合技术（大众的 DSG，宝马的 M-DCT，保时捷的 PDK 等等）成熟之后，从职业赛车，到生活中大多数的超跑、小跑、钢炮以及各种性能车都纷纷改旗易帜，越来越多的采用了换挡速度极快的双离合变速器。就今天而言，即使是在手动挡大本营的欧洲，高端跑车（保时捷、宝马 M 等）的双离合版产量都远远高过手动版的产量，在个别市场甚至完全不提供手动版，很多时候手动挡选项仅仅是为了满足一小撮『情怀』车主。&lt;/p&gt;
+
+&lt;p&gt;这中间其实还出现过一种半自动变速器，其中序列式半自动变速器的原理类似于摩托车的 quick shifter，我在之前在介绍摩托车无离合换挡的文章中详细说明过。不过在双离合技术成熟之后，这种变速器已经被淘汰。&lt;/p&gt;
+
+&lt;p&gt;可惜的是，斯巴鲁全系车的自动挡都只有 CVT 可选。这对于 WRX 或者 BRZ 以外的车型来说是非常不错的配备，但是我相信愿意购买有这么多『毛病』的 WRX 的朋友都是喜欢性能和操控的，这样的话手动挡确实是最佳的选择。OK，说了这么多，直接一点就是：不要买自动挡。&lt;/p&gt;
+
+&lt;p&gt;以上两个选项是比较重大的，至于其他的，我还推荐选装一个 STI 的短挡（对于手动挡而言），这样换挡确实更快。剩下的选配，如大尺寸轮圈，就全看自己的喜好和预算了，个人认为无关痛痒。&lt;/p&gt;
+
+&lt;p&gt;这篇文章就先写到这里，如在以后的驾驶中有了新的发现和认识，我会及时更新，与大家分享。&lt;/p&gt;
+
+&lt;p&gt;本人水平有限，行文仓促，考据不细，纰漏之处，还请各位『老司机』指教。&lt;/p&gt;
+</description>
+        
+          <description>&lt;div class=&quot;md-10-suffix-1&quot;&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/post-wrx/front.jpg&quot; alt=&quot;front&quot;/&gt;
+    &lt;figcaption&gt;&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+</description>
+        
+        <pubDate>Sun, 24 Jul 2016 16:28:20 -0700</pubDate>
+        <link>http://blog.yongfengzhang.com/cn/blog/wrx/</link>
+        <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/wrx/</guid>
+        
+        
+        <category>lifestyle</category>
+        
+      </item>
+      
     
       
       <item>
@@ -1431,213 +1534,6 @@ chsh -s /usr/local/bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         <pubDate>Thu, 31 Dec 2015 13:31:20 -0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/ifttt-intro/</guid>
-        
-        
-        <category>technology</category>
-        
-      </item>
-      
-    
-      
-      <item>
-        <title>Channel Development on IFTTT</title>
-        <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
-
-&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
-  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
-  How would you do it automatically? Here is when IFTTT comes in. It is short for
-  &quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&quot;.
-  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
-  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;
-
-
-&lt;h4&gt; Channels, Triggers and Actions &lt;/h4&gt;
-&lt;p&gt; Channels are Twitter, Facebook, email, Google Drive etc. Triggers are what can be used to prompt an action,
-  such as &quot;New status message&quot;, &quot;New photo post&quot;, and &quot;You are tagged in a photo&quot; from Facebook. Action is the
-  work that IFTTT undertakes as a result of a Trigger. Examples are &quot;Send me an email&quot; from the email channel,
-  &quot;Create a status message&quot; from Facebook, and even &quot;Update device wallpaper&quot; from the Android device channel. &lt;/p&gt;
-
-&lt;p&gt; Now, to get our first job done, we only need &quot;if &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message&lt;/strong&gt;,
-  then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;Post a tweet&lt;/strong&gt;.&quot; The former is a &lt;strong&gt;Trigger&lt;/strong&gt; provided by
-  Facebook, while the latter is an &lt;strong&gt;Action&lt;/strong&gt; from Twitter. We only need to connect to these two
-  channels with &lt;em&gt;OAuth&lt;/em&gt; and select the appropriate Trigger and Action from them respectively. &lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
-    &lt;figure&gt;
-      &lt;img src=&quot;/assets/img/post-ifttt-dev/triggers.png&quot; alt=&quot;Facebook Triggers&quot;/&gt;
-      &lt;figcaption&gt;Figure 1. Facebook Triggers&lt;/figcaption&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#39;md-10-suffix-1&#39;&gt;
-    &lt;figure&gt;
-      &lt;img src=&quot;/assets/img/post-ifttt-dev/actions.png&quot; alt=&quot;Twitter Actions&quot;/&gt;
-      &lt;figcaption&gt;Figure 2. Twitter Actions&lt;/figcaption&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;&lt;/p&gt;
-
-&lt;h3&gt; How does it work under the hood? &lt;/h3&gt;
-
-&lt;p&gt;Finally, we get to our topic: Development on IFTTT. The way it works is mainly the concern of
-channel developers. Their documentation is pretty good, but there are still confusions and undocumented stuff.&lt;/p&gt;
-
-&lt;p&gt;Since I&amp;#39;ve been developing a channel on it for months, and had a lot of email exchanges with their support team regarding
-my own confusions and undocumented mechanisms, I think I can help others get a better understanding of how it works.&lt;/p&gt;
-
-&lt;p&gt;As we already know, Triggers and Actions are the fundamental building blocks of IFTTT.
-We will see how they work in a short while.&lt;/p&gt;
-
-&lt;h4&gt; How Trigger works &lt;/h4&gt;
-
-&lt;p&gt;So how does IFTTT know that there is a change in your Trigger and that change should fire an Action?
-It polls the server of the channel which provided the Trigger every 15 minutes. As a channel developer, we should
-return an array of items. Each item should have an unique ID and a timestamp. The IDs are used to prevent Actions from
-firing more than once on the same item. So IFTTT keeps a record of all the items it gets, and triggers the Action once there
-is a new item (identified by the ID field) coming in.&lt;/p&gt;
-
-&lt;p&gt;The items should also contain any data that might be used by the Action. In our Facebook -&amp;gt; Twitter example above, the
-Facebook &lt;strong&gt;New status message&lt;/strong&gt; Trigger should provide at least the content of the message as a string in addition to
-timestamp and ID. The content of the message is called the &lt;strong&gt;Ingredient&lt;/strong&gt; which can be used by the Action. In this case,
-the Twitter Action &lt;strong&gt;Post a tweet&lt;/strong&gt; can use that Ingredient to tweet. A typical data stream you should return looks like
-below:&lt;/p&gt;
-
-&lt;div class=&#39;md-10-suffix-1&#39;&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;It&amp;#39;s so great to be home again!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, brooklyn&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-12-09T09:23:00-07:00&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;14b9-1fd2-acaa-5df5&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383597267&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;School is ending, I&amp;#39;m heading back home soon!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;banksy, nyc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;posted_at&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2013-11-29T03:23:00-07:00&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;s2&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;ffb27-a63e-18e0-18ad&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1383596355&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;IFTTT has a great test framework that every channel needs to pass before it can be published. One requirements of the
-test is that at least 3 items should be returned each poll unless limited by IFTTT itself through a request parameter.
-It seems weird at first. You may wonder what if a user hasn&amp;#39;t updated his/her Facebook for a long time? What should
-we return if we are working for Facebook when IFTTT polls our server? We can return nothing, i.e, an empty list with
-&amp;#39;data&amp;#39; as its key. It certainly won&amp;#39;t fire any Action, but it&amp;#39;s not recommended. We cannot pass the test if we just
-return empty data. The recommended way is to return the user&amp;#39;s old posts. How many? More than 2
-and less than 50, according to the documentation. This policy, according to IFTTT, is to make sure our API behaves
-like a timeline of events, not a state engine. Since IFTTT only polls our API every 15 minutes, we need to make sure
-that they don&amp;#39;t miss anything by returning a list of events.&lt;/p&gt;
-
-&lt;h4&gt; Trigger Fields&lt;/h4&gt;
-
-&lt;p&gt;There is another term called &lt;strong&gt;Trigger Fields&lt;/strong&gt;. It is the user inputs when he/she creates a Trigger. For example,
-there&amp;#39;s a Facebook Trigger called &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;New status message by you with hashtag&lt;/strong&gt;.
-The user needs to specify the name of the hashtag. Only when there is the specified hashtag in the user&amp;#39;s status,
-will the Trigger fire. When IFTTT polls our API, the Trigger Fields will be passed to us in the POST body, and
-we should use it in our server logic to decide what to return.&lt;/p&gt;
-
-&lt;p&gt;Trigger Fields can be either static or dynamic. Static ones don&amp;#39;t need IFTTT to query our server. In the above example,
-the user can just type in a hashtag value himself. For drop down menu, we can provide a list of options in advance
-stored in our IFTTT development console. Dynamic ones, on the other hand, require IFTTT to poll our server to get
-the values for the user to choose. There is also a protocol specifies how IFTTT polls our server and
-how we should respond in their documentation.&lt;/p&gt;
-
-&lt;h4&gt;The Real-time API&lt;/h4&gt;
-
-&lt;p&gt;When we think about how it works, intuitively we think of posting data to IFTTT&amp;#39;s endpoints when a Trigger should fire,
-rather than waiting for them to poll our API. Here is when the real-time API comes in. It provides faster response to
-user events.&lt;/p&gt;
-
-&lt;p&gt;At the time I wrote this post, the real-time API is still very simple and primitive. We only need to return
-a list of user IDs whose Triggers have changed.&lt;/p&gt;
-
-&lt;p&gt;The user ID comes from the user information endpoint that we provide to IFTTT.
-IFTTT polls this endpoint after it acquires the access token through the &lt;em&gt;OAuth2.0&lt;/em&gt; process to make sure that
-the user&amp;#39;s access token is valid. We retrieve the corresponding user with the passed-in access token and return a
-user ID and username.&lt;/p&gt;
-
-&lt;p&gt;For the real-time API, we just return the same user ID that we return in the user information endpoint. The response
-should look like:&lt;/p&gt;
-
-&lt;div class=&#39;md-10-suffix-1&#39;&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;23489759&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;quot;user_id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;77956024&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;Once IFTTT gets our post, it will poll our Trigger API immediately. At the time of writing, we cannot specify
-which Trigger to poll. IFTTT will just poll all the Triggers the user has. So the current real-time API behaves more
-like a button that we click to force IFTTT to do a Trigger check. It is still our normal Trigger API that does the
-actual work. Notice that if IFTTT detects that we are using the real-time API, it will still poll our API regularly
-but at a longer period of time.&lt;/p&gt;
-
-&lt;h4&gt; How Action works&lt;/h4&gt;
-
-&lt;p&gt;Now it should be much easier for us to understand Actions. For each new trigger item, IFTTT will push data to our Action
-endpoint with ifttt_source, user and actionFields. We can retrieve the data passed in by Trigger in actionFields. A
-sample post looks like:&lt;/p&gt;
-
-&lt;div class=&#39;md-10-suffix-1&#39;&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;quot;actionFields&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;New Banksy photo!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;body&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Check out a new Bansky photo: http://example.com/images/125&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;quot;ifttt_source&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://ifttt.com/myrecipes/personal/2&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;timezone&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Pacific Time (US &amp;amp; Canada)&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;Note that there are also static fields and dynamic options for Actions. For example, if we have an Action
-&amp;#39;&lt;strong&gt;Post to channel&lt;/strong&gt;&amp;#39; from &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, the Slack needs to provide us with the channels we currently have in our
-chat room.&lt;/p&gt;
-
-&lt;h3&gt; Summary &lt;/h3&gt;
-
-&lt;p&gt;Now the way IFTTT works should be pretty simple: It polls our API regularly, if there is new item returned,
-it fires an Action. Detailed information can be found in their &lt;a href=&quot;https://developers.ifttt.com/docs/api_reference&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
-</description>
-        
-          <description>&lt;h3&gt; What is IFTTT? &lt;/h3&gt;
-
-&lt;p&gt;&lt;p&gt; Suppose every time you update your status on Facebook, you also want to post exactly the same content to your Twitter
-  account. And every time you upload a photo to Instagram, you want it to be saved to your Dropbox as well.
-  How would you do it automatically? Here is when IFTTT comes in. It is short for
-  &amp;quot;if&lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt;, then &lt;strong style=&quot;color:#3BB9FF;&quot;&gt;that&lt;/strong&gt;&amp;quot;.
-  Fairly intuitive. You can put whatever you want in &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; this&lt;/strong&gt; and
-  &lt;strong style=&quot;color:#3BB9FF;&quot;&gt; that&lt;/strong&gt;.&lt;p&gt;&lt;/p&gt;
-</description>
-        
-        <pubDate>Fri, 25 Dec 2015 08:31:20 -0800</pubDate>
-        <link>http://blog.yongfengzhang.com/blog/ifttt-development/</link>
-        <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/ifttt-development/</guid>
         
         
         <category>technology</category>
