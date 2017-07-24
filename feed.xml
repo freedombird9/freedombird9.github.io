@@ -5,8 +5,8 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jul 2017 21:47:37 -0700</pubDate>
-    <lastBuildDate>Sun, 23 Jul 2017 21:47:37 -0700</lastBuildDate>
+    <pubDate>Mon, 24 Jul 2017 00:07:48 -0700</pubDate>
+    <lastBuildDate>Mon, 24 Jul 2017 00:07:48 -0700</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       
@@ -14,7 +14,7 @@
         <title>Go Debugging and Analyzing Tools</title>
         <description>&lt;p&gt;The Go language has evolved fairly quickly in recent years, making it quite an attractive choice for many start-ups as well as big companies.  Many companies are re-writing the performance-demanding architecture and business modules in Go. It is also a wonderful alternative if you want to lower your cost, with its very limited memory footprint and efficient multi-threading model, compared to, say, Java.  A recent project done in my team, as an example, can replace 8 - 10 heavily provisioned Java batch servers with just one server that runs a Go app. The app only needs 2 cores and a minimum of 500 MB memory. &lt;/p&gt;
 
-&lt;p&gt;With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&amp;#39;s JMX or C&amp;#39;s &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt;.  The language&amp;#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race conditions even in Go&amp;#39;s
+&lt;p&gt;With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&amp;#39;s JMX or C&amp;#39;s &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt;.  The language&amp;#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race condition even in Go&amp;#39;s
 standard library.&lt;/p&gt;
 
 &lt;p&gt;Here I&amp;#39;d like to share 3 very handy Go debugging and analyzing tools.&lt;/p&gt;
@@ -138,7 +138,7 @@ passing rules (which will only surface at runtime), unreachable code and failtur
 
 &lt;h2&gt;Delve&lt;/h2&gt;
 
-&lt;p&gt;Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the runtime userspace scheduler and &amp;quot;defer&amp;quot; syntax) makes traditional debuggers unfeasible.  Before &lt;a href=&quot;https://github.com/derekparker/delve&quot;&gt;Delve&lt;/a&gt;, Go programers can only borrow tools like &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt; from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is &lt;a href=&quot;https://github.com/mailgun/godebug&quot;&gt;godebug&lt;/a&gt;, which inserts breakpoints and displays the program&amp;#39;s current state in a very talented way.  There is a detailed explaination on how they achieved this on the project&amp;#39;s Github page.  But basically, in order to use it,
+&lt;p&gt;Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the userspace scheduler and &amp;quot;defer&amp;quot; syntax) make traditional debuggers unfeasible.  Before &lt;a href=&quot;https://github.com/derekparker/delve&quot;&gt;Delve&lt;/a&gt;, Go programers can only borrow tools like &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt; from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is &lt;a href=&quot;https://github.com/mailgun/godebug&quot;&gt;godebug&lt;/a&gt;, which inserts breakpoints and displays the program&amp;#39;s current state in a very talented way.  There is a detailed explaination on how the tool achieved this on the project&amp;#39;s Github page.  But basically, in order to use it,
 you need to change your source code to &amp;quot;guide&amp;quot; the tool, which is very bothering and not cool at all.  Its features are very limited as well.&lt;/p&gt;
 
 &lt;p&gt;At last we have Delve.  It works by parsing the various information out of a Go binary, cooperating with the OS (like the use of &lt;a href=&quot;https://en.wikipedia.org/wiki/Ptrace&quot;&gt;ptrace&lt;/a&gt;) and CPU to manipulate the program as it runs.  If you&amp;#39;re familiar with C, you can just regard it as Go&amp;#39;s gdb.&lt;/p&gt;
@@ -178,7 +178,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
 
 &lt;p&gt;The first thing is not to enable flag &lt;code&gt;-N -l&lt;/code&gt; for any production build.  It disables compiler optimization which will cause performance issues.&lt;/p&gt;
 
-&lt;p&gt;Another caveat is that although Delve is extremly powerful, just don&amp;#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&amp;#39;s just when you&amp;#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of gorouintes in real world.  And the weird bugs are usually related to high concurrency. &lt;/p&gt;
+&lt;p&gt;Another caveat is that although Delve is extremly powerful, don&amp;#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&amp;#39;s just when you&amp;#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of goroutines in real world.  And the weird bugs are usually related to high concurrency. &lt;/p&gt;
 
 &lt;p&gt;Recently we found a bug in one of our core libraries.  None of the tools worked because of its high concurrency nature.  How did we find it then? By reading the code with critical eyes.&lt;/p&gt;
 </description>
