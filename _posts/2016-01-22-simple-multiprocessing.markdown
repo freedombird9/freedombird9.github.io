@@ -65,7 +65,7 @@ if __name__ == '__main__':
 {% endhighlight %}
 </div>
 
-The main program can focus on fetching data from database and dispatch it to workers. We can do all the ugly and dangerous stuff in the worker processes without worrying the main process getting contaminated. The lifecycle manager takes care of all the cleaning-ups.
+The main program can focus on fetching data from database and dispatch it to workers. We can do all the ugly and dangerous stuff in the worker processes without worrying the main process getting contaminated. The lifecycle manager takes care of all the clean-ups.
 
 ### An optional third-party module
 There's a neat Python module called [Pebble] that can do the same thing for you. The design is similar, it also uses a lifecycle manager to manage the actual worker process. The difference is that the manager is implemented as a daemon thread instead of a process.

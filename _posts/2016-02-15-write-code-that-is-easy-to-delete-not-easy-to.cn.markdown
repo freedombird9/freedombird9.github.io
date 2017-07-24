@@ -33,7 +33,7 @@ categories: technology
 
 编程是一件很糟糕的事 —— *在荒废了自己的一生之后所学到的东西*
 
-#### 要写容易删除，而不容易扩展的代码。
+#### 要写容易删除，而不是容易扩展的代码。
 <p>
 </p>
 <div class='quote'>
@@ -259,7 +259,7 @@ Feature flag 并不是命令行开关，它是一种分离功能发布与合并�
 
 #### 修改与纠错
 
-感谢 [RednaxelaFX] 同学指出了我对 wire format 的翻译问题。其更恰当的翻译应该是「程序传输格式」，我已经做出了修改。这个术语具体的含义可见[「以Python为例讨论高级编程语言程序的wire format与校验」]。
+感谢 [RednaxelaFX] 同学指出了我对 wire format 的翻译问题。其更恰当的翻译应该是「程序传输格式」，我已经做出了修改。这个术语具体的含义可见[「以 Python 为例讨论高级编程语言程序的 wire format 与校验」]。
 
 [Write code that is easy to delete, not easy to extend]: http://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to
 [秋兄]: https://github.com/liaohuqiu

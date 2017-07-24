@@ -1,0 +1,185 @@
+---
+layout: post
+title:  "Go Debugging and Analyzing Tools"
+description: Tools for debugging Go binary and analyzing Go source code.
+date:   2017-07-23 19:00:00
+categories: technology
+---
+The Go language has evolved fairly quickly in recent years, making it quite an attractive choice for many start-ups as well as big companies.  Many companies are re-writing the performance-demanding architecture and business modules in Go. It is also a wonderful alternative if you want to lower your cost, with its very limited memory footprint and efficient multi-threading model, compared to, say, Java.  A recent project done in my team, as an example, can replace 8 - 10 heavily provisioned Java batch servers with just one server that runs a Go app. The app only needs 2 cores and a minimum of 500 MB memory. 
+
+With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java's JMX or C's [gdb].  The language's ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race conditions even in Go's
+standard library.
+
+Here I'd like to share 3 very handy Go debugging and analyzing tools.
+
+1. [Go Race Detector]
+2. [Command vet]
+3. [Delve]
+
+The first 2 are used for code analysis, and the 3rd one is a debugging tool very much like [gdb].  I use the first 2 tools before almost every code check-in.  And I will feed the executable into Delve if I see some weird behavior that might be related to bad logic.  Let's take a look at them one by one.
+
+## Go Race Detector 
+
+The race detector is part of the Go tool chain and as its name indicates, used for locating "racy" codes in your program.  The general introduction is in the official Go blog and here I will only focus on using it and code examples.
+
+### How to use
+
+The race detector works at runtime.  You need the compile flag "-race" to enable it since the Go compiler needs insert its own code into your source code.  You can simply do:
+
+
+{% highlight bash %}
+
+go install -race path/to/your/package
+
+{% endhighlight %}
+
+Then the compiled binary will have the code necessary to detect race conditions.
+
+The next step is to actually run the executable with **real-world data**.  It's very important to simulate the real work load because it can only locate the "racy" code if race conditions are actually triggered by the code.  I would use the data that can touch as many branches in your code as possible.  Running a load test would be a great choice.
+
+As the program is running, it will print warning messages to stderr in real-time whenever it detects a data race.  The warning log has the code location and race type.  An example from the documentation:
+
+{% highlight bash %}
+==================
+WARNING: DATA RACE
+Read by goroutine 5:
+  main.func·001()
+       race.go:14 +0x169
+
+Previous write by goroutine 1:
+  main.main()
+	race.go:15 +0x174
+
+Goroutine 5 (running) created at:
+  time.goFunc()
+	  src/pkg/time/sleep.go:122 +0x56
+  timerproc()
+	  src/pkg/runtime/ztime_linux_amd64.c:181 +0x189
+==================
+{% endhighlight %}
+
+The above log indicates there's a read-write race.  If it detects a write-write race, then it will print something like "Write by goroutine blabla, Previous write blabla"
+
+### A failure case
+
+As I used it, I found out that it cannot detect every piece of "racy" code, especially the ones that seem to be well protected.  Let's look at an example.
+
+Suppose we're using the [expvar] package to expose some internal stats to an http port.  The other threads can modify those stats at the same time.
+
+{% highlight go %}
+
+package mypackage
+
+var statsLock sync.Mutex
+
+type stats struct {
+	State *someAppState
+}
+
+type someAppState struct {
+	// some fields
+}
+
+var myStats *someAppState = &someAppState{}
+
+// A function that may change myStats, protected by a global lock
+func changeStats() {
+	statsLock.Lock()
+	myStats.someField = someValue
+	statsLock.Unlock()
+}
+
+// A function that reads myStats
+func getStats() {
+	statsLock.Lock()
+	defer statsLock.Unlock()
+
+	return &{
+		State:          myStats,
+		SomeOtherField: "fdafa",
+	}
+}
+
+func init() {
+	expvar.Publish("appStats", expvar.Func(getStats))
+}
+
+{% endhighlight %}
+
+The race detector failed to find the race condition in the above code.  There is an obvious race there because I'm returning a pointer in `getStats()` function.  Although the write is protected and the read in `getStats()` is protected as well, at the time of dereferencing the pointer, the object may not be protected.
+
+The reason why it didn't detect the race is unknown to me.  Probably because expvar's use of reflection (to dereference) masked the issue.
+
+### Caveats
+
+Do not enable "-race" compile flag in production, it will cause huge performance issues and sometimes can make your program 10 - 20 times slower.
+
+
+## Command vet
+
+[Command vet] is a tool used to run against your Go source code.  You don't need to compile your code.  It uses heuristics on source files to find errors not caught by compilers.
+
+An essential difference between errors detected by vet and erros thrown by compiler is that compile errors are truly errors that will fail the build, but complains from vet may be a developer's *intention* or mistakes that won't fail the build.  For example, copying a lock is a trigger for vet.  It might be a programer's intention to do so, although not very possible, not recommended and very hacky in almost every case.  
+
+Mistakes that won't fail the build are much more often, such as violations of the cgo pointer
+passing rules (which will only surface at runtime), unreachable code and failture to call the cancelation function from the context (its consequences can only happen at runtime as well) etc.  A complete list of situations that will cause vet to complain can be found in the official [Command vet] documentation.
+
+Before every code check-in, you can just run `go vet` against any package, file or directory and then look at the report.  It will help to improve your code quality a lot.
+
+## Delve
+
+Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the runtime userspace scheduler and "defer" syntax) had been making traditional debuggers unfeasible.  Before [Delve], Go programers can only borrow tools like [gdb] from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is [godebug], which inserts breakpoints and display the program's current state in a very talented way.  There is a detailed explaination on how they achieved this on the project's Github page.  But basically, in order to use it,
+you need to change your source code to "guide" the tool, which is very bothering and not cool at all.  Its features are very limited as well.
+
+At last we have Delve.  It works by parsing the various information out of a Go binary, cooperating with the OS (like the use of [ptrace]) and CPU to manipulate the program as it runs.  If you're familiar with C, you can just regard it as Go's gdb.
+
+### How to use
+
+The documentation has very detailed guides.  Here I'm only going to introduce the using of it in [Docker], since you should really use Docker and debug your app in a production-like environment, right?
+
+1. Build with the debug flag turned on (`-N -l`).  This is to prevent any compiler optimizations that may confuse the debugger
+
+{% highlight bash %}
+
+go install/build -gcflags "-N -l" path/to/your/package
+
+{% endhighlight %}
+
+2. Give container the ptrace privilege so that Delve can take control of your program.  You probably also want to overwrite the image's entrypoint to a shell so that you can easily get into it and launch your app with Delve.
+
+{% highlight bash %}
+
+docker run --privileged [your image] /bin/sh
+
+{% endhighlight %}
+
+3. Launch Delve and debug your program in the container
+
+{% highlight bash %}
+
+go get github.com/derekparker/delve/cmd/dlv
+
+dlv exec ./your_executable -- [command line parameters] 
+
+{% endhighlight %}
+
+
+4. After step 3, Delve has attached a process to your program and taken control of it.  Now you can set the breakpoints and run your program.
+
+### Caveats
+
+The first thing is not to enable flag `-N -l` for any production build.  It disables compiler optimization which will cause performance issues.
+
+Another caveat is that although Delve is extremly powerful, just don't rely on it for issues that might be related to multi-threading, like race conditions.  There is nothing wrong with the tool itself, it's just when you're debugging a program, you just cannot simulate the high concurrency and very fast switches of gorouintes in real world.  And the weird bugs are usually related to high concurrency. 
+
+Recently we found a bug in one of our core libraries.  None of the tools worked because of its high concurrency nature.  How did we find it then? By reading the code with critical eyes.
+
+
+[Go Race Detector]: https://blog.golang.org/race-detector 
+[Command vet]: https://golang.org/cmd/vet/ 
+[Delve]: https://github.com/derekparker/delve
+[gdb]: https://www.gnu.org/software/gdb/
+[expvar]: https://golang.org/pkg/expvar/
+[godebug]: https://github.com/mailgun/godebug
+[ptrace]: https://en.wikipedia.org/wiki/Ptrace
+[Docker]: https://www.docker.com/
