@@ -97,7 +97,7 @@ ga('send', 'pageview');
 
   <p>The Go language has evolved fairly quickly in recent years, making it quite an attractive choice for many start-ups as well as big companies.  Many companies are re-writing the performance-demanding architecture and business modules in Go. It is also a wonderful alternative if you want to lower your cost, with its very limited memory footprint and efficient multi-threading model, compared to, say, Java.  A recent project done in my team, as an example, can replace 8 - 10 heavily provisioned Java batch servers with just one server that runs a Go app. The app only needs 2 cores and a minimum of 500 MB memory. </p>
 
-<p>With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&#39;s JMX or C&#39;s <a href="https://www.gnu.org/software/gdb/">gdb</a>.  The language&#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race condition even in Go&#39;s
+<p>With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&#39;s JMX or C&#39;s <a href="https://www.gnu.org/software/gdb/">gdb</a>.  The language&#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race conditions even in Go&#39;s
 standard library.</p>
 
 <p>Here I&#39;d like to share 3 very handy Go debugging and analyzing tools.</p>
@@ -221,7 +221,7 @@ passing rules (which will only surface at runtime), unreachable code and failtur
 
 <h2>Delve</h2>
 
-<p>Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the userspace scheduler and &quot;defer&quot; syntax) make traditional debuggers unfeasible.  Before <a href="https://github.com/derekparker/delve">Delve</a>, Go programers can only borrow tools like <a href="https://www.gnu.org/software/gdb/">gdb</a> from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is <a href="https://github.com/mailgun/godebug">godebug</a>, which inserts breakpoints and displays the program&#39;s current state in a very talented way.  There is a detailed explaination on how the tool achieved this on the project&#39;s Github page.  But basically, in order to use it,
+<p>Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the runtime userspace scheduler and &quot;defer&quot; syntax) makes traditional debuggers unfeasible.  Before <a href="https://github.com/derekparker/delve">Delve</a>, Go programers can only borrow tools like <a href="https://www.gnu.org/software/gdb/">gdb</a> from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is <a href="https://github.com/mailgun/godebug">godebug</a>, which inserts breakpoints and displays the program&#39;s current state in a very talented way.  There is a detailed explaination on how they achieved this on the project&#39;s Github page.  But basically, in order to use it,
 you need to change your source code to &quot;guide&quot; the tool, which is very bothering and not cool at all.  Its features are very limited as well.</p>
 
 <p>At last we have Delve.  It works by parsing the various information out of a Go binary, cooperating with the OS (like the use of <a href="https://en.wikipedia.org/wiki/Ptrace">ptrace</a>) and CPU to manipulate the program as it runs.  If you&#39;re familiar with C, you can just regard it as Go&#39;s gdb.</p>
@@ -261,7 +261,7 @@ you need to change your source code to &quot;guide&quot; the tool, which is very
 
 <p>The first thing is not to enable flag <code>-N -l</code> for any production build.  It disables compiler optimization which will cause performance issues.</p>
 
-<p>Another caveat is that although Delve is extremly powerful, don&#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&#39;s just when you&#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of goroutines in real world.  And the weird bugs are usually related to high concurrency. </p>
+<p>Another caveat is that although Delve is extremly powerful, just don&#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&#39;s just when you&#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of gorouintes in real world.  And the weird bugs are usually related to high concurrency. </p>
 
 <p>Recently we found a bug in one of our core libraries.  None of the tools worked because of its high concurrency nature.  How did we find it then? By reading the code with critical eyes.</p>
 
@@ -301,7 +301,7 @@ var disqus_shortname = 'yongfeng'; // required: replace example with your forum 
 
    <div class="footer">
    <div class="container">
-      <p class="copy">&copy; 2017 <a href="http://brianmaierjr.com">Yongfeng Zhang</a></p>
+      <p class="copy">&copy; 2018 <a href="http://brianmaierjr.com">Yongfeng Zhang</a></p>
 
       <div class="footer-links">
          <ul class="noList">

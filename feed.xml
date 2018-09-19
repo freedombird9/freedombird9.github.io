@@ -5,16 +5,16 @@
     <description>Yongfeng Zhang&#39;s blog full-stack software engineer</description>
     <link>http://blog.yongfengzhang.com/</link>
     <atom:link href="http://blog.yongfengzhang.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 24 Jul 2017 00:07:48 -0700</pubDate>
-    <lastBuildDate>Mon, 24 Jul 2017 00:07:48 -0700</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Wed, 19 Sep 2018 17:53:54 +0800</pubDate>
+    <lastBuildDate>Wed, 19 Sep 2018 17:53:54 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.0</generator>
     
       
       <item>
         <title>Go Debugging and Analyzing Tools</title>
         <description>&lt;p&gt;The Go language has evolved fairly quickly in recent years, making it quite an attractive choice for many start-ups as well as big companies.  Many companies are re-writing the performance-demanding architecture and business modules in Go. It is also a wonderful alternative if you want to lower your cost, with its very limited memory footprint and efficient multi-threading model, compared to, say, Java.  A recent project done in my team, as an example, can replace 8 - 10 heavily provisioned Java batch servers with just one server that runs a Go app. The app only needs 2 cores and a minimum of 500 MB memory. &lt;/p&gt;
 
-&lt;p&gt;With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&amp;#39;s JMX or C&amp;#39;s &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt;.  The language&amp;#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race condition even in Go&amp;#39;s
+&lt;p&gt;With all the powerful features, Go programs, however, can be difficult to write and to debug.  It lacks some of the handy tools like Java&amp;#39;s JMX or C&amp;#39;s &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt;.  The language&amp;#39;s ability to achieve extremly high concurrency (a Go app can easily scale up to hundreds or thousands of threads/goroutines) makes it even harder to debug multi-thread related issues, such as data race. Data race is almost impossible to avoid as the code grows bigger, there was race conditions even in Go&amp;#39;s
 standard library.&lt;/p&gt;
 
 &lt;p&gt;Here I&amp;#39;d like to share 3 very handy Go debugging and analyzing tools.&lt;/p&gt;
@@ -138,7 +138,7 @@ passing rules (which will only surface at runtime), unreachable code and failtur
 
 &lt;h2&gt;Delve&lt;/h2&gt;
 
-&lt;p&gt;Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the userspace scheduler and &amp;quot;defer&amp;quot; syntax) make traditional debuggers unfeasible.  Before &lt;a href=&quot;https://github.com/derekparker/delve&quot;&gt;Delve&lt;/a&gt;, Go programers can only borrow tools like &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt; from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is &lt;a href=&quot;https://github.com/mailgun/godebug&quot;&gt;godebug&lt;/a&gt;, which inserts breakpoints and displays the program&amp;#39;s current state in a very talented way.  There is a detailed explaination on how the tool achieved this on the project&amp;#39;s Github page.  But basically, in order to use it,
+&lt;p&gt;Go had been struggling for a long time to have its own debugger with quality.  Some of its unique characteristics (like the runtime userspace scheduler and &amp;quot;defer&amp;quot; syntax) makes traditional debuggers unfeasible.  Before &lt;a href=&quot;https://github.com/derekparker/delve&quot;&gt;Delve&lt;/a&gt;, Go programers can only borrow tools like &lt;a href=&quot;https://www.gnu.org/software/gdb/&quot;&gt;gdb&lt;/a&gt; from the C family.  But gdb is not designed for Go and it has many problems running Go code (for e.g, it crashes very easily).  Later there is &lt;a href=&quot;https://github.com/mailgun/godebug&quot;&gt;godebug&lt;/a&gt;, which inserts breakpoints and displays the program&amp;#39;s current state in a very talented way.  There is a detailed explaination on how they achieved this on the project&amp;#39;s Github page.  But basically, in order to use it,
 you need to change your source code to &amp;quot;guide&amp;quot; the tool, which is very bothering and not cool at all.  Its features are very limited as well.&lt;/p&gt;
 
 &lt;p&gt;At last we have Delve.  It works by parsing the various information out of a Go binary, cooperating with the OS (like the use of &lt;a href=&quot;https://en.wikipedia.org/wiki/Ptrace&quot;&gt;ptrace&lt;/a&gt;) and CPU to manipulate the program as it runs.  If you&amp;#39;re familiar with C, you can just regard it as Go&amp;#39;s gdb.&lt;/p&gt;
@@ -178,7 +178,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
 
 &lt;p&gt;The first thing is not to enable flag &lt;code&gt;-N -l&lt;/code&gt; for any production build.  It disables compiler optimization which will cause performance issues.&lt;/p&gt;
 
-&lt;p&gt;Another caveat is that although Delve is extremly powerful, don&amp;#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&amp;#39;s just when you&amp;#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of goroutines in real world.  And the weird bugs are usually related to high concurrency. &lt;/p&gt;
+&lt;p&gt;Another caveat is that although Delve is extremly powerful, just don&amp;#39;t rely on it for multi-threading related issues, like race conditions.  There is nothing wrong with the tool itself, it&amp;#39;s just when you&amp;#39;re debugging a program, you just cannot simulate the high concurrency and very fast switches of gorouintes in real world.  And the weird bugs are usually related to high concurrency. &lt;/p&gt;
 
 &lt;p&gt;Recently we found a bug in one of our core libraries.  None of the tools worked because of its high concurrency nature.  How did we find it then? By reading the code with critical eyes.&lt;/p&gt;
 </description>
@@ -186,7 +186,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;p&gt;The Go language has evolved fairly quickly in recent years, making it quite an attractive choice for many start-ups as well as big companies.  Many companies are re-writing the performance-demanding architecture and business modules in Go. It is also a wonderful alternative if you want to lower your cost, with its very limited memory footprint and efficient multi-threading model, compared to, say, Java.  A recent project done in my team, as an example, can replace 8 - 10 heavily provisioned Java batch servers with just one server that runs a Go app. The app only needs 2 cores and a minimum of 500 MB memory. &lt;/p&gt;
 </description>
         
-        <pubDate>Sun, 23 Jul 2017 14:47:00 -0700</pubDate>
+        <pubDate>Mon, 24 Jul 2017 05:47:00 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/blog/go-tools/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/go-tools/</guid>
         
@@ -453,7 +453,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
 &lt;/div&gt;
 </description>
         
-        <pubDate>Thu, 26 Jan 2017 15:15:00 -0800</pubDate>
+        <pubDate>Fri, 27 Jan 2017 07:15:00 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/carol/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/carol/</guid>
         
@@ -531,7 +531,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;h3&gt;遭遇杰特&lt;/h3&gt;
 </description>
         
-        <pubDate>Fri, 30 Sep 2016 00:27:20 -0700</pubDate>
+        <pubDate>Fri, 30 Sep 2016 00:27:20 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/me-and-black-bro/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/me-and-black-bro/</guid>
         
@@ -679,7 +679,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
 &lt;/div&gt;
 </description>
         
-        <pubDate>Sun, 24 Jul 2016 16:28:20 -0700</pubDate>
+        <pubDate>Mon, 25 Jul 2016 07:28:20 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/wrx/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/wrx/</guid>
         
@@ -830,7 +830,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;h3&gt;剧情梗概&lt;/h3&gt;
 </description>
         
-        <pubDate>Wed, 06 Apr 2016 13:47:20 -0700</pubDate>
+        <pubDate>Thu, 07 Apr 2016 04:47:20 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/ban-shang-yun/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/ban-shang-yun/</guid>
         
@@ -1113,7 +1113,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;h3&gt;译者序&lt;/h3&gt;
 </description>
         
-        <pubDate>Mon, 15 Feb 2016 08:49:40 -0800</pubDate>
+        <pubDate>Tue, 16 Feb 2016 00:49:40 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/write-code-that-is-easy-to-delete-not-easy-to/</guid>
         
@@ -1638,7 +1638,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;p&gt;原题目：&lt;a href=&quot;https://github.com/aredridel/how-to-read-code/blob/master/how-to-read-code.md&quot;&gt;How To Read Source Code&lt;/a&gt;，原作者：Aria Stewart&lt;/p&gt;
 </description>
         
-        <pubDate>Mon, 25 Jan 2016 08:00:40 -0800</pubDate>
+        <pubDate>Tue, 26 Jan 2016 00:00:40 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/how-to-read-source-code/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/how-to-read-source-code/</guid>
         
@@ -1722,7 +1722,7 @@ you need to change your source code to &amp;quot;guide&amp;quot; the tool, which
           <description>&lt;p&gt;In many situations we may want to launch a background task to do something that is uncontrollable, dangerous and may block the main program for a long time or even &lt;em&gt;forever&lt;/em&gt;. For example, a FTP uploading or downloading, or a complicated computation that relies on modules of different qualities. For those operations, you don&amp;#39;t want to run them in your main process, you want to isolate them as much as you can.&lt;/p&gt;
 </description>
         
-        <pubDate>Fri, 22 Jan 2016 03:03:44 -0800</pubDate>
+        <pubDate>Fri, 22 Jan 2016 19:03:44 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/blog/simple-multiprocessing/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/simple-multiprocessing/</guid>
         
@@ -1815,7 +1815,7 @@ chsh -s /usr/local/bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
           <description>&lt;p&gt;Very often I need to run an app locally to debug. How to quickly read the environment variables in the production server and export them locally? We can just parse the server&amp;#39;s config file. I&amp;#39;ll use GAE (Google App Engine) as an example here. Its config file is in YAML format, which is a very common human-readable data serialization language used in many places. So the tool introduced here is applicable in many situations.&lt;/p&gt;
 </description>
         
-        <pubDate>Thu, 21 Jan 2016 09:34:44 -0800</pubDate>
+        <pubDate>Fri, 22 Jan 2016 01:34:44 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/blog/yaml-parser/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/blog/yaml-parser/</guid>
         
@@ -1862,7 +1862,7 @@ chsh -s /usr/local/bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
           <description>&lt;h3&gt;开发记录&lt;/h3&gt;
 </description>
         
-        <pubDate>Wed, 13 Jan 2016 12:05:45 -0800</pubDate>
+        <pubDate>Thu, 14 Jan 2016 04:05:45 +0800</pubDate>
         <link>http://blog.yongfengzhang.com/cn/blog/wechathelper/</link>
         <guid isPermaLink="true">http://blog.yongfengzhang.com/cn/blog/wechathelper/</guid>
         
